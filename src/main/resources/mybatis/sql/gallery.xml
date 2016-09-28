@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gallery">
+
+	<select id="countImageList" parameterType="string" resultType="int">
+	</select>
+
+	<insert id="insertImage" parameterType="GalleryVO">
+	INSERT INTO PHOTO
+  			(IMAGE_ID, IMAGE_NAME, IMAGE_REGDATE, IMAGE_RES1, IMAGE_RES2, IMAGE_TN_URL, IMAGE_URL)
+  		VALUES
+  			(#{imageId}, #{imageName}, #{imageRegDate}, #{imageRes1}, #{imageRes2}, #{imageTnURL}, #{imageURL})
+	</insert>
+
+	<select id="selectImageList" parameterType="GalleryVO" resultType="GalleryVO">
+	</select>
+
+	<update id="updateImage" parameterType="GalleryVO">
+	</update>
+
+</mapper>
