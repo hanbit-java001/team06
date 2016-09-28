@@ -10,7 +10,7 @@
 	INSERT INTO PHOTO
   			(IMAGE_ID, IMAGE_NAME, IMAGE_REGDATE, IMAGE_RES1, IMAGE_RES2, IMAGE_TN_URL, IMAGE_URL)
   		VALUES
-  			(#{imageId}, #{imageName}, #{imageRegDate}, #{imageRes1}, #{imageRes2}, #{imageTnURL}, #{imageURL})
+  			(SEQ_PHOTO.NEXTVAL, #{imageName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'), #{imageRes1}, #{imageRes2}, #{imageTnURL}, #{imageURL})
 	</insert>
 
 	<select id="selectImageList" parameterType="GalleryVO" resultType="GalleryVO">
