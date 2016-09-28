@@ -1,5 +1,8 @@
 package com.hanbit.team06.core.dao;
 
+import java.util.ArrayList;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -11,12 +14,12 @@ public class GalleryDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public String selectPassword(int memberId) {
+	public ArrayList<GalleryVO> selectImageList(GalleryVO sqlparams) {
 
 		return null;
 	}
 
-	public int updateMember(GalleryVO imageList) {
+	public int addImage(GalleryVO image) {
 
 		return 0;
 	}

@@ -7,4 +7,8 @@
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
 
+	<typeAliases>
+ 		<typeAlias type="com.hanbit.team06.core.vo.GalleryVO" alias="GalleryVO" />
+ 		<typeAlias type="com.hanbit.team06.core.vo.MemberVO" alias="MemberVO" />
+ 	</typeAliases>
 </configuration>
