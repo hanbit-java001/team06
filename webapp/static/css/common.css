@@ -39,38 +39,6 @@
 	padding: 58px 10px 10px 10px;
 }
 
-#btnGroupAddSchedule {
-	display: none;
-}
-
-#divAddSchedule {
-	display: none;
-	position: relative;
-}
-
-#divDetailSchedule {
-	display: none;
-	position: relative;
-}
-
-#divAddSchedule .form-control[readonly] {
-	background-color: white;
-}
-
-.hanbit-schedule-detail {
-	width: 100%;
-}
-
-.hanbit-schedule-detail .column-title {
-	width: 20%;
-	min-width: 80px;
-	max-width: 150px;
-}
-
-.hanbit-schedule-detail .column-value {
-	width: 80%;
-}
-
 .bottom-buttons {
 	text-align: center;
 }
@@ -79,17 +47,15 @@
 	font-size: 36px;
 }
 
-.fc-list-item-title {
+.hidden-view {
+	display: none;
 	position: relative;
 }
 
-.fc-list-item-title .delete-schedule {
-	position: absolute;
-	top: 50%;
-	right: 5px;
-	transform: translateY(-50%);
+#btnGroupSub {
+	display: none;
 }
 
-.fc-event, .fc-list-item-title {
-	cursor: pointer;
+.input-required {
+	color: #f00;
 }
