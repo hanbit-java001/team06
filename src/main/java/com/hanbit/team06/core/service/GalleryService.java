@@ -12,11 +12,17 @@ import com.hanbit.team06.core.vo.GalleryVO;
 public class GalleryService {
 
 	 	@Autowired
-	 	private GalleryDAO memberDAO;
+	 	private GalleryDAO galleryDAO;
 
-	 	public GalleryVO addImage(GalleryVO imageList) {
+	 	public String addImage(GalleryVO photo) {
+	 		int countPhoto = galleryDAO.countImage(photo.getImageId());
 
-	 		return imageList;
+			int imageId = galleryDAO.selectNextPhotoId();
+			photo.setImageId(photoId);
+
+			galleryDAO.insertMember(photo);
+
+			return photo.getName();
 	 	}
 
 	 	public ArrayList<GalleryVO> listImages(GalleryVO imageList) {
