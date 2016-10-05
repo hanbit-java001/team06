@@ -1,22 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="gallery">
 
-	<select id="countImageList" parameterType="string" resultType="int">
-	</select>
-
-	<insert id="insertImage" parameterType="GalleryVO">
-	INSERT INTO PHOTO
-  			(IMAGE_ID, IMAGE_NAME, IMAGE_REGDATE, IMAGE_RES1, IMAGE_RES2, IMAGE_TN_URL, IMAGE_URL)
-  		VALUES
-  			(SEQ_PHOTO.NEXTVAL, #{imageName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'), #{imageRes1}, #{imageRes2}, #{imageTnURL}, #{imageURL})
+	<insert id="insertPhoto" parameterType="GalleryVO">
+		INSERT INTO PHOTO
+			(photo_id, photo_name, photo_date, photo_res1, photo_res2,
+			 photo_path, member_id )
+		VALUES
+			(#{photoId}, #{photoName}, #{photoDate}, #{photoRes1}, #{photoRes2},
+			#{photoPath}, #{memberId} )
 	</insert>
 
-	<select id="selectImageList" parameterType="GalleryVO" resultType="GalleryVO">
+	<insert id="insertPhoto2db" parameterType="GalleryVO">
+	INSERT INTO PHOTO
+			(photo_id, photo_name, photo_date, photo_res1, photo_res2,
+			 photo_path, member_id )
+  		VALUES
+			(SEQ_PHOTO.NEXTVAL, #{photoName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'),
+			#{photoRes1}, #{photoRes2}, #{photoPath}, #{memberId} )
+	</insert>
+
+	<update id="updatePhoto" parameterType="GalleryVO">
+		UPDATE PHOTO
+		   SET	photo_name = #{photoName},
+				photo_date = #{photoDate},
+				photo_res1 = #{photoRes1},
+				photo_res2 = #{photoRes2},
+				photo_path = #{photoPath}
+   		WHERE PhotoId = #{photoId}
+	</update>
+
+	<select id="selectPhoto" parameterType="map" resultType="GalleryVO">
+		SELECT photo_id AS PhotoId,
+			   photo_name AS PhotoName,
+			   photo_date AS UploadDate,
+			   photo_res1 AS Resolution1,
+			   photo_res2 AS Resolution2,
+			   photo_path AS PhotoPath,
+			   member_id  AS MemberID
+		  FROM PHOTO
+		  WHERE PhotoId = #{photoId}
 	</select>
 
-	<update id="updateImage" parameterType="GalleryVO">
-	</update>
+	<select id="countPhoto" parameterType="string" resultType="int">
+		SELECT COUNT(photo_id)
+		  FROM PHOTO
+	</select>
+
+	<select id="selectPhotoId" parameterType="string" resultType="int">
+		SELECT photo_id
+		  FROM PHOTO
+		 WHERE photo_name = #{photoName}
+	</select>
+
+	<select id="selectNextPhotoId" resultType="int">
+		SELECT SEQ_PHOTO.NEXTVAL
+		  FROM DUAL
+	</select>
+
+	<select id="countPhotoList" parameterType="string" resultType="int">
+	</select>
+
+	<select id="selectPhotoList" parameterType="GalleryVO" resultType="GalleryVO">
+	</select>
 
 </mapper>
