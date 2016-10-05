@@ -10,5 +10,6 @@
 	<typeAliases>
  		<typeAlias type="com.hanbit.team06.core.vo.GalleryVO" alias="GalleryVO" />
  		<typeAlias type="com.hanbit.team06.core.vo.MemberVO" alias="MemberVO" />
+ 		<typeAlias type="com.hanbit.team06.core.vo.FileVO" alias="FileVO" />
  	</typeAliases>
 </configuration>

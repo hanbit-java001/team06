@@ -1,54 +1,55 @@
 package com.hanbit.team06.core.vo;
 
 public class GalleryVO {
-	private int imageId;
-	private String imageName;
-	private String imageRegDate;
-	private int imageRes1;
-	private int imageRes2;
-	private String imageTnURL;
-	private String imageURL;
+	private int photoId;
+	private String photoName;
+	private String photoDate;
+	private int photoRes1;
+	private int photoRes2;
+	private String photoPath;
+	private String memberId;
 
-	public int getImageId() {
-		return imageId;
+	public int getPhotoId() {
+		return photoId;
 	}
-	public void setImageId(int imageId) {
-		this.imageId = imageId;
+	public void setPhotoId(int photoId) {
+		this.photoId = photoId;
 	}
-	public String getImageName() {
-		return imageName;
+	public String getPhotoName() {
+		return photoName;
 	}
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
+	public void setPhotoName(String photoName) {
+		this.photoName = photoName;
 	}
-	public String getImageRegDate() {
-		return imageRegDate;
+	public String getPhotoDate() {
+		return photoDate;
 	}
-	public void setImageRegDate(String imageRegDate) {
-		this.imageRegDate = imageRegDate;
+	public void setPhotoDate(String photoDate) {
+		this.photoDate = photoDate;
 	}
-	public int getImageRes1() {
-		return imageRes1;
+	public int getPhotoRes1() {
+		return photoRes1;
 	}
-	public void setImageRes1(int imageRes1) {
-		this.imageRes1 = imageRes1;
+	public void setPhotoRes1(int photoRes1) {
+		this.photoRes1 = photoRes1;
 	}
-	public int getImageRes2() {
-		return imageRes2;
+	public int getPhotoRes2() {
+		return photoRes2;
 	}
-	public void setImageRes2(int imageRes2) {
-		this.imageRes2 = imageRes2;
+	public void setPhotoRes2(int photoRes2) {
+		this.photoRes2 = photoRes2;
 	}
-	public String getImageTnURL() {
-		return imageTnURL;
+	public String getPhotoPath() {
+		return photoPath;
 	}
-	public void setImageTnURL(String imageTnURL) {
-		this.imageTnURL = imageTnURL;
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
 	}
-	public String getImageURL() {
-		return imageURL;
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
+
 }

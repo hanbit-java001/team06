@@ -4,7 +4,7 @@
 
 <mapper namespace="gallery">
 
-	<insert id="insertPhoto" parameterType="GalleryVO">
+	<insert id="insertPhoto_2" parameterType="GalleryVO">
 		INSERT INTO PHOTO
 			(photo_id, photo_name, photo_date, photo_res1, photo_res2,
 			 photo_path, member_id )
@@ -13,7 +13,7 @@
 			#{photoPath}, #{memberId} )
 	</insert>
 
-	<insert id="insertPhoto2db" parameterType="GalleryVO">
+	<insert id="insertPhoto" parameterType="GalleryVO">
 	INSERT INTO PHOTO
 			(photo_id, photo_name, photo_date, photo_res1, photo_res2,
 			 photo_path, member_id )
