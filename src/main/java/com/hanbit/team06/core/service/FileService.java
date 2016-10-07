@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.hanbit.team06.core.dao.FileDAO;
 import com.hanbit.team06.core.vo.FileVO;
+import com.hanbit.team06.core.service.FileService;
 
 @Service
 public class FileService {
@@ -23,20 +24,18 @@ public class FileService {
 	@Autowired
 	private FileDAO fileDAO;
 
-	public String storeFile(byte[] data) {
+	public String storeFile(FileVO fileVO) {
 		String fileId = generateFileId();
 		String filePath = "/files/" + fileId;
 
 		try {
-			IOUtils.write(data, new FileOutputStream(filePath));
-		}
-		catch (IOException e) {
+			IOUtils.write(fileVO.getFileData(), new FileOutputStream(filePath));
+		} catch (IOException e) {
 			LOGGER.error(e.getMessage(), e);
 
 			throw new RuntimeException("파일 저장중 문제가 발생하였습니다.");
 		}
 
-		FileVO fileVO = new FileVO();
 		fileVO.setFileId(fileId);
 		fileVO.setFilePath(filePath);
 
@@ -55,11 +54,24 @@ public class FileService {
 		return uniqueId;
 	}
 
-	public byte[] getFileData(String fileId) throws Exception {
+	public FileVO getFile(String fileId) throws Exception {
 		FileVO fileVO = fileDAO.selectFile(fileId);
-		String filePath = fileVO.getFilePath();
 
-		return FileUtils.readFileToByteArray(new File(filePath));
+		String filePath = fileVO.getFilePath();
+		byte[] fileData = FileUtils.readFileToByteArray(new File(filePath));
+
+		fileVO.setFileData(fileData);
+
+		return fileVO;
+	}
+
+	public void removeFile(String fileId) throws Exception {
+		FileVO fileVO = fileDAO.selectFile(fileId);
+
+		String filePath = fileVO.getFilePath();
+		FileUtils.forceDelete(new File(filePath));
+
+		fileDAO.deleteFile(fileId);
 	}
 
 }

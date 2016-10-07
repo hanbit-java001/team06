@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.hanbit.team06.core.service.FileService;
 import com.hanbit.team06.core.service.MemberService;
 import com.hanbit.team06.core.vo.MemberVO;
+import com.hanbit.team06.core.vo.FileVO;
+import com.hanbit.team06.web.controller.MemberController;
 
 @Controller
 public class MemberController {
@@ -35,32 +38,46 @@ public class MemberController {
 		return "member/join";
 	}
 
-	@RequestMapping(value="/api/member/join", method=RequestMethod.POST)
+	@RequestMapping(value = "/api/member/join", method = RequestMethod.POST)
 	@ResponseBody
 	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
 
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		String fileId = null;
+		String fileId = "";
 
 		Iterator<String> paramNames = request.getFileNames();
 
-		while (paramNames.hasNext()) {
+		if (paramNames.hasNext()) {
 			String paramName = paramNames.next();
 
 			MultipartFile file = request.getFile(paramName);
 
-			fileId = fileService.storeFile(file.getBytes());
+			FileVO fileVO = new FileVO();
+			fileVO.setContentType(file.getContentType());
+			fileVO.setFileSize(file.getSize());
+			fileVO.setFileName(file.getName());
+			fileVO.setFileData(file.getBytes());
+
+			fileId = fileService.storeFile(fileVO);
 		}
 
-		MemberVO member = new MemberVO();
-		member.setName(name);
-		member.setEmail(email);
-		member.setPassword(password);
-		member.setProfileFileId(fileId);
+		try {
+			MemberVO member = new MemberVO();
+			member.setName(name);
+			member.setEmail(email);
+			member.setPassword(password);
+			member.setProfileFileId(fileId);
 
-		memberService.joinMember(member);
+			memberService.joinMember(member);
+		} catch (Exception e) {
+			if (StringUtils.isNotBlank(fileId)) {
+				fileService.removeFile(fileId);
+			}
+
+			throw new RuntimeException(e.getMessage(), e);
+		}
 
 		Map result = new HashMap();
 		result.put("name", name);

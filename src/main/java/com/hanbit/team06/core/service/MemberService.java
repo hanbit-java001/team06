@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.hanbit.team06.core.dao.MemberDAO;
 import com.hanbit.team06.core.vo.MemberVO;
+import com.hanbit.team06.core.service.MemberService;
+import com.hanbit.team06.core.service.SecurityService;
 
 @Service
 public class MemberService {
