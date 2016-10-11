@@ -19,7 +19,7 @@ public class FileController {
 	@Autowired
 	private FileService fileService;
 
-	@RequestMapping("/file/{fileId}")
+	@RequestMapping("/poroporo/files/{fileId}")
 	@ResponseBody
 	public void getFile(@PathVariable("fileId") String fileId,
 			HttpServletResponse response) throws Exception {

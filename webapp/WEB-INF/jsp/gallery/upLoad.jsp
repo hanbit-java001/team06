@@ -43,10 +43,6 @@
 
 	<div class="hanbit-container">
 		<div class="form-group">
-			<label for="photoName" class="input-required">제목</label> <input
-				type="text" class="form-control" id="photoName" placeholder="제목">
-		</div>
-		<div class="form-group">
 			<label for="photoSelect">사진선택</label> <input type="file"
 				class="form-control" id="photoSelect" placeholder="업로드사진">
 		</div>
@@ -58,6 +54,6 @@
 
 	<script src="/static/plugins/jquery/jquery-3.1.0.min.js"></script>
 	<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/static/js/member.join.js"></script>
+	<script src="/static/js/gallery.js"></script>
 </body>
 </html>

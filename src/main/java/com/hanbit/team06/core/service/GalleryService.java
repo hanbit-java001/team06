@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.hanbit.team06.core.dao.GalleryDAO;
 import com.hanbit.team06.core.vo.GalleryVO;
+import com.hanbit.team06.core.vo.MemberVO;
 
 @Service
 public class GalleryService {
@@ -18,8 +19,8 @@ public class GalleryService {
 	@Autowired
 	private GalleryDAO galleryDAO;
 
-	public String addImage(GalleryVO photo) {
-		int imageId = galleryDAO.selectNextPhotoId();
+	public String addPhoto(GalleryVO photo) {
+		int photoId = galleryDAO.selectNextPhotoId();
 		photo.setPhotoId(photoId);
 
 		galleryDAO.insertPhoto(photo);
@@ -27,8 +28,11 @@ public class GalleryService {
 		return photo.getPhotoName();
 	}
 
-	public ArrayList<GalleryVO> getImages(int photoId) {
+//	public boolean modifyGallery(GalleryVO photo) { //세션에서꺼내서 비교
 
-		return galleryDAO.selectGallery(photoId);
-	 	}
+//	}
+
+	public GalleryVO getPhoto(int photoId) {
+		return galleryDAO.selectPhoto(photoId);
+	}
 }

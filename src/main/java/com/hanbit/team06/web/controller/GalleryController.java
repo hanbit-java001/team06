@@ -30,13 +30,19 @@ public class GalleryController {
 	@Autowired
 	private FileService fileService;
 
-	@RequestMapping("/gallery/update")
-	public String join() {
+	@RequestMapping("/gallery/main")
+	public String main() {
 
-		return "gallery/update";
+		return "gallery/main";
 	}
 
-	@RequestMapping(value = "/api/gallery/update", method = RequestMethod.POST)
+	@RequestMapping("/gallery/upLoad")
+	public String update() {
+
+		return "gallery/upLoad";
+	}
+
+	@RequestMapping(value = "/api/gallery/upLoad", method = RequestMethod.POST)
 	@ResponseBody
 	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
 
@@ -72,7 +78,7 @@ public class GalleryController {
 			gallery.setPhotoPath(fileId);
 			gallery.setMemberId(memberId);
 
-			galleryService.addImage(gallery);
+			galleryService.addPhoto(gallery);
 		} catch (Exception e) {
 			if (StringUtils.isNotBlank(fileId)) {
 				fileService.removeFile(fileId);
