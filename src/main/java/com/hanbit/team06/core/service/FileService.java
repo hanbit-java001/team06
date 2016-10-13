@@ -26,7 +26,7 @@ public class FileService {
 
 	public String storeFile(FileVO fileVO) {
 		String fileId = generateFileId();
-		String filePath = "/poroporo/files/" + fileId;
+		String filePath = "/poroporo/Files/" + fileId;
 
 		try {
 			FileUtils.writeByteArrayToFile(new File(filePath), fileVO.getFileData());

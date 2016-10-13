@@ -35,8 +35,8 @@ public class GalleryController {
 
 		return "gallery/main";
 	}
-
-	@RequestMapping("/gallery/upLoad")
+//	/gallery/upLoad
+	@RequestMapping("WEB-INF/jsp/gallery/upLoad.jsp")
 	public String update() {
 
 		return "gallery/upLoad";
@@ -75,8 +75,8 @@ public class GalleryController {
 			gallery.setPhotoDate(photoDate);
 			gallery.setPhotoRes1(Integer.parseInt(photoRes1));
 			gallery.setPhotoRes2(Integer.parseInt(photoRes2));
-			gallery.setPhotoPath(fileId);
-			gallery.setMemberId(memberId);
+//			gallery.setPhotoPath(fileId);
+			gallery.setMemberId(Integer.parseInt(memberId));
 
 			galleryService.addPhoto(gallery);
 		} catch (Exception e) {

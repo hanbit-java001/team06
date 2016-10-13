@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,10 +14,10 @@
     <title>Thumbnail Gallery</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="/static/plugins/bootstrap/css/thumbnail-gallery.css" rel="stylesheet">
 
 
 </head>
@@ -141,10 +142,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="/static/plugins/bootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 
