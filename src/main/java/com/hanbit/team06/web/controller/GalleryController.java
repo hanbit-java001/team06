@@ -35,8 +35,8 @@ public class GalleryController {
 
 		return "gallery/main";
 	}
-//	/gallery/upLoad
-	@RequestMapping("WEB-INF/jsp/gallery/upLoad.jsp")
+
+	@RequestMapping("/gallery/upLoad")
 	public String update() {
 
 		return "gallery/upLoad";
@@ -47,11 +47,13 @@ public class GalleryController {
 	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
 
 		String photoName = request.getParameter("photoName");
-		String photoDate = request.getParameter("photoDate");
-		String photoRes1 = request.getParameter("photoRes1");
-		String photoRes2 = request.getParameter("photoRes2");
-		String memberId = request.getParameter("memberId");
+//		String photoDate = request.getParameter("photoDate");
+//		String photoRes1 = request.getParameter("photoRes1");
+//		String photoRes2 = request.getParameter("photoRes2");
+//		String memberId = request.getParameter("memberId");
 		String fileId = "";
+
+		System.out.println(photoName);
 
 		Iterator<String> paramNames = request.getFileNames();
 
@@ -72,11 +74,11 @@ public class GalleryController {
 		try {
 			GalleryVO gallery = new GalleryVO();
 			gallery.setPhotoName(photoName);
-			gallery.setPhotoDate(photoDate);
-			gallery.setPhotoRes1(Integer.parseInt(photoRes1));
-			gallery.setPhotoRes2(Integer.parseInt(photoRes2));
+//			gallery.setPhotoDate(photoDate);
+//			gallery.setPhotoRes1(Integer.parseInt(photoRes1));
+//			gallery.setPhotoRes2(Integer.parseInt(photoRes2));
 //			gallery.setPhotoPath(fileId);
-			gallery.setMemberId(Integer.parseInt(memberId));
+//			gallery.setMemberId(Integer.parseInt(memberId));
 
 			galleryService.addPhoto(gallery);
 		} catch (Exception e) {
