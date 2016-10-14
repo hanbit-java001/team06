@@ -6,7 +6,6 @@ public class MemberVO {
 	private String name;
 	private String email;
 	private String password;
-	private String profileFileId;
 
 	private String currentPassword;
 
@@ -48,14 +47,6 @@ public class MemberVO {
 
 	public void setCurrentPassword(String currentPassword) {
 		this.currentPassword = currentPassword;
-	}
-
-	public String getProfileFileId() {
-		return profileFileId;
-	}
-
-	public void setProfileFileId(String profileFileId) {
-		this.profileFileId = profileFileId;
 	}
 
 }
