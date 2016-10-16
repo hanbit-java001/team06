@@ -1,16 +1,20 @@
 package com.hanbit.team06.core.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hanbit.team06.core.dao.MemberDAO;
 import com.hanbit.team06.core.vo.MemberVO;
-import com.hanbit.team06.core.service.MemberService;
-import com.hanbit.team06.core.service.SecurityService;
 
 @Service
 public class MemberService {
@@ -25,6 +29,7 @@ public class MemberService {
 	@Autowired
 	private SecurityService securityService;
 
+	@Transactional
 	public String joinMember(MemberVO member) {
 		int countMember = memberDAO.countMember(member.getEmail());
 
@@ -43,6 +48,7 @@ public class MemberService {
 		return member.getName();
 	}
 
+	@Transactional
 	public boolean modifyMember(MemberVO member) {
 		String passwordFromDB = memberDAO.selectPassword(member.getMemberId());
 		String passwordCurrent = member.getCurrentPassword();
@@ -62,6 +68,16 @@ public class MemberService {
 
 	public MemberVO getMember(int memberId) {
 		return memberDAO.selectMember(memberId);
+	}
+
+	public List<MemberVO> getMembers(int page) {
+		List<MemberVO> members = memberDAO.selectMembers(page);
+
+		return members;
+	}
+
+	public int getTotalMembers() {
+		return memberDAO.countMembers();
 	}
 
 }

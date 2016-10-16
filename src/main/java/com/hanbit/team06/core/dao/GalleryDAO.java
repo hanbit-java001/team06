@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hanbit.team06.core.vo.GalleryVO;
 import com.hanbit.team06.core.vo.MemberVO;
+import com.hanbit.tutor.core.vo.FileVO;
 
 @Repository
 public class GalleryDAO {
@@ -31,15 +32,24 @@ public class GalleryDAO {
 	}
 
 	public GalleryVO selectPhoto(int photoId) {
+		return sqlSession.selectOne("gallery.selectPhoto", photoId);
+	}
+
+	public int deletePhoto(int photoId) {
+		return sqlSession.delete("gallery.deletePhoto", photoId);
+	}
+
+	public int updatePhoto(GalleryVO gallery) {
+		return sqlSession.update("gallery.updatePhoto", gallery);
+	}
+
+	public GalleryVO selectPhoto(int photoId) {
 		Map param = new HashMap();
 		param.put("photoId", photoId);
 
 		return sqlSession.selectOne("gallery.selectPhotoId", param);
 	}
 
-	public int updatePhoto(GalleryVO gallery) {
-		return sqlSession.update("gallery.updatePhoto", gallery);
-	}
 
 	public int selectNextPhotoId() {
 		return sqlSession.selectOne("gallery.selectNextPhotoId");

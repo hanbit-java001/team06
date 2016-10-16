@@ -11,6 +11,9 @@ public class GalleryVO {
 	private int hachTagId1;
 	private int hachTagId2;
 	private int hachTagId3;
+	private byte[] fileData;
+	private String contentType;
+	private long fileSize;
 
 	public int getPhotoId() {
 		return photoId;
@@ -72,5 +75,24 @@ public class GalleryVO {
 	public void setHachTagId3(int hachTagId3) {
 		this.hachTagId3 = hachTagId3;
 	}
+	public byte[] getFileData() {
+		return fileData;
+	}
+	public void setFileData(byte[] fileData) {
+		this.fileData = fileData;
+	}
+	public String getContentType() {
+		return contentType;
+	}
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+	public long getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(long fileSize) {
+		this.fileSize = fileSize;
+	}
+
 
 }

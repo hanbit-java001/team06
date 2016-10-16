@@ -54,6 +54,6 @@
 
 	<script src="/static/plugins/jquery/jquery-3.1.0.min.js"></script>
 	<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/static/js/gallery.js"></script>
+	<script src="/static/js/upLoad.js"></script>
 </body>
 </html>

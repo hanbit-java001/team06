@@ -1,6 +1,7 @@
 package com.hanbit.team06.web.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -38,17 +40,42 @@ public class MemberController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
+		try{
 			MemberVO member = new MemberVO();
 			member.setName(name);
 			member.setEmail(email);
 			member.setPassword(password);
 
 			memberService.joinMember(member);
+		}catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("멤버조인 에러");
+		}
 
 		Map result = new HashMap();
 		result.put("name", name);
 
 		return result;
+	}
+
+	@RequestMapping("/members")
+	public String listMember() {
+
+		return "member/list";
+	}
+
+	@RequestMapping("/api/member/list")
+	@ResponseBody
+	public Map<String, Object> listMembers(@RequestParam("page") int page) {
+		Map<String, Object> pagingMembers = new HashMap<>();
+
+		List<MemberVO> members = memberService.getMembers(page);
+		int totalCount = memberService.getTotalMembers();
+
+		pagingMembers.put("totalCount", totalCount);
+		pagingMembers.put("members", members);
+
+		return pagingMembers;
 	}
 
 }
