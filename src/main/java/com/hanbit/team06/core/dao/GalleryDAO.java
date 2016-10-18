@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.hanbit.team06.core.vo.GalleryVO;
 import com.hanbit.team06.core.vo.MemberVO;
-import com.hanbit.tutor.core.vo.FileVO;
 
 @Repository
 public class GalleryDAO {
