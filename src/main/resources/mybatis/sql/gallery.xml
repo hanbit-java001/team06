@@ -44,9 +44,15 @@
 		  WHERE PhotoId = #{photoId}
 	</select>
 
-	<select id="countPhoto" parameterType="string" resultType="int">
+	<select id="countPhotos" parameterType="string" resultType="int">
 		SELECT COUNT(photo_id)
 		  FROM PHOTO
+	</select>
+
+	<select id="selectPhotoName" parameterType="int" resultType="string">
+		SELECT photo_name
+		  FROM PHOTO
+		  WHERE PhotoId = #{photoId}
 	</select>
 
 	<select id="selectPhotoId" parameterType="string" resultType="int">

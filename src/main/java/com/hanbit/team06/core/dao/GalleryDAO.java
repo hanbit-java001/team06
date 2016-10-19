@@ -22,16 +22,12 @@ public class GalleryDAO {
 		return null;
 	}
 
-	public int countPhoto() {
-		return sqlSession.selectOne("gallery.countPhoto");
+	public int countPhotos() {
+		return sqlSession.selectOne("gallery.countPhotos");
 	}
 
 	public int insertPhoto(GalleryVO gallery) {
 		return sqlSession.insert("gallery.insertPhoto", gallery);
-	}
-
-	public GalleryVO selectPhoto(int photoId) {
-		return sqlSession.selectOne("gallery.selectPhoto", photoId);
 	}
 
 	public int deletePhoto(int photoId) {
@@ -42,13 +38,24 @@ public class GalleryDAO {
 		return sqlSession.update("gallery.updatePhoto", gallery);
 	}
 
+	public GalleryVO selectFile(String photoName) {
+		return sqlSession.selectOne("gallery.selectPhoto", photoName);
+	}
+
 	public GalleryVO selectPhoto(int photoId) {
 		Map param = new HashMap();
 		param.put("photoId", photoId);
 
-		return sqlSession.selectOne("gallery.selectPhotoId", param);
+		return sqlSession.selectOne("gallery.selectPhoto", param);
 	}
 
+	public int selectPhotoId(String photoName) {
+		return sqlSession.selectOne("gallery.selectPhotoId", photoName);
+	}
+
+	public String selectPhotoName() {
+		return sqlSession.selectOne("gallery.selectPhotoName");
+	}
 
 	public int selectNextPhotoId() {
 		return sqlSession.selectOne("gallery.selectNextPhotoId");

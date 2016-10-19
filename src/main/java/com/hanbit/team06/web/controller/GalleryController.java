@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.hanbit.team06.core.dao.GalleryDAO;
 import com.hanbit.team06.core.service.GalleryService;
 import com.hanbit.team06.core.vo.GalleryVO;
 
@@ -28,6 +29,9 @@ public class GalleryController {
 
 	@Autowired
 	private GalleryService galleryService;
+
+	@Autowired
+	private GalleryDAO galleryDAO;
 
 	@RequestMapping("/gallery/main")
 	public String main() {
@@ -47,57 +51,59 @@ public class GalleryController {
 		return "gallery/up";
 	}
 
-//	@RequestMapping("/poroporo/file/{photoId}")
-//	@ResponseBody
-//	public void getFile(@PathVariable("photoId") int photoId, HttpServletResponse response) throws Exception {
-//
-//		GalleryVO galleryVO = GalleryService.getFile(photoId);
-//
-//		response.setContentType(galleryVO.getContentType());
-//		response.setContentLengthLong(galleryVO.getFileSize());
-//
-//		OutputStream outputStream = response.getOutputStream();
-//		outputStream.write(galleryVO.getFileData());
-//		outputStream.close();
-//	}
-//
-//	@RequestMapping(value = "/api/gallery/up", method = RequestMethod.POST)
-//	@ResponseBody
-//	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
-//
-//		String hachTagId1 = request.getParameter("hachTagId1");
-//		String hachTagId2 = request.getParameter("hachTagId2");
-//		String hachTagId3 = request.getParameter("hachTagId3");
-//		int photoId = 0;
-//
-//		Iterator<String> paramNames = request.getFileNames();
-//
-//		try {
-//			if (paramNames.hasNext()) {
-//				String paramName = paramNames.next();
-//
-//				MultipartFile file = request.getFile(paramName);
-//
-//				GalleryVO galleryVO = new GalleryVO();
-//				galleryVO.setContentType(file.getContentType());
-//				galleryVO.setFileSize(file.getSize());
-//				galleryVO.setPhotoName(file.getName());
-//				galleryVO.setFileData(file.getBytes());
-//				// galleryVO.setHachTagId1(Integer.parseInt(hachTagId1));
-//				// galleryVO.setHachTagId2(Integer.parseInt(hachTagId2));
-//				// galleryVO.setHachTagId3(Integer.parseInt(hachTagId3));
-//
-//				photoId = galleryService.addPhoto(galleryVO);
-//			}
-//		} catch (Exception e) {
-//			galleryService.removeFile(photoId);
-//			throw new RuntimeException(e.getMessage(), e);
-//		}
-//
-//		Map result = new HashMap();
-//		result.put("photoName", paramName);
-//
-//		return result;
-//
-//	}
+	@RequestMapping("/poroporo/files/{photoName}")
+	@ResponseBody
+	public void getFile(@PathVariable("photoName") String photoName, HttpServletResponse response) throws Exception {
+
+		GalleryVO galleryVO = galleryService.getFile(photoName);
+
+		response.setContentType(galleryVO.getContentType());
+		response.setContentLengthLong(galleryVO.getFileSize());
+
+		OutputStream outputStream = response.getOutputStream();
+		outputStream.write(galleryVO.getFileData());
+		outputStream.close();
+	}
+
+	@RequestMapping(value = "/api/gallery/up", method = RequestMethod.POST)
+	@ResponseBody
+	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
+
+		String hachTagId1 = request.getParameter("hachTagId1");
+		String hachTagId2 = request.getParameter("hachTagId2");
+		String hachTagId3 = request.getParameter("hachTagId3");
+		int photoId = 0;
+		String photoName = "";
+
+		Iterator<String> paramNames = request.getFileNames();
+
+		try {
+			if (paramNames.hasNext()) {
+				String paramName = paramNames.next();
+
+				MultipartFile file = request.getFile(paramName);
+
+				GalleryVO galleryVO = new GalleryVO();
+				galleryVO.setContentType(file.getContentType());
+				galleryVO.setFileSize(file.getSize());
+				galleryVO.setPhotoName(file.getName());
+				galleryVO.setFileData(file.getBytes());
+				// galleryVO.setHachTagId1(Integer.parseInt(hachTagId1));
+				// galleryVO.setHachTagId2(Integer.parseInt(hachTagId2));
+				// galleryVO.setHachTagId3(Integer.parseInt(hachTagId3));
+
+				photoName = galleryService.storePhoto(galleryVO);
+				photoId = galleryDAO.selectNextPhotoId();
+			}
+		} catch (Exception e) {
+			galleryService.removeFile(photoId);
+			throw new RuntimeException(e.getMessage(), e);
+		}
+
+		Map result = new HashMap();
+		result.put("photoName", photoName);
+
+		return result;
+
+	}
 }

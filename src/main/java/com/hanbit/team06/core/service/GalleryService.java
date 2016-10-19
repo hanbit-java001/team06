@@ -20,10 +20,9 @@ public class GalleryService {
 	@Autowired
 	private GalleryDAO galleryDAO;
 
-	public int addPhoto(GalleryVO galleryVO) {
-		int photoId = galleryDAO.selectNextPhotoId();
-		String photoPath = "/poroporo/files/" + photoId;
-		galleryVO.setPhotoId(photoId);
+	public String storePhoto(GalleryVO galleryVO) {
+		String photoName = generateFileName();
+		String photoPath = "/poroporo/files/" + photoName;
 
 		try {
 			FileUtils.writeByteArrayToFile(new File(photoPath), galleryVO.getFileData());
@@ -34,16 +33,25 @@ public class GalleryService {
 			throw new RuntimeException("파일 저장중 문제가 발생하였습니다.");
 		}
 
-		galleryVO.setPhotoId(photoId);
+		galleryVO.setPhotoName(photoName);
 		galleryVO.setPhotoPath(photoPath);
 
 		galleryDAO.insertPhoto(galleryVO);
 
-		return photoId;
+		return photoName;
 	}
 
-	public GalleryVO getFile(int photoId) throws Exception {
-		GalleryVO galleryVO = galleryDAO.selectPhoto(photoId);
+	private String generateFileName() {
+		String time = String.valueOf(System.currentTimeMillis());
+		String photoName = galleryDAO.selectPhotoName();
+
+		String uniqueName = photoName + time;
+
+		return uniqueName;
+	}
+
+	public GalleryVO getFile(String photoName) throws Exception {
+		GalleryVO galleryVO = galleryDAO.selectFile(photoName);
 
 		String photoPath = galleryVO.getPhotoPath();
 		byte[] fileData = FileUtils.readFileToByteArray(new File(photoPath));
@@ -62,11 +70,16 @@ public class GalleryService {
 		galleryDAO.deletePhoto(photoId);
 	}
 
-//	public boolean modifyGallery(GalleryVO photo) { //�꽭�뀡�뿉�꽌爰쇰궡�꽌 鍮꾧탳
+//	public boolean modifyPhoto(GalleryVO photo) { //�꽭�뀡�뿉�꽌爰쇰궡�꽌 鍮꾧탳
 
 //	}
 
 	public GalleryVO getPhoto(int photoId) {
 		return galleryDAO.selectPhoto(photoId);
 	}
+
+	public int getTotalPhotos() {
+		return galleryDAO.countPhotos();
+	}
+
 }

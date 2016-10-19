@@ -33,6 +33,7 @@
             <a class="navbar-brand" href="http://localhost:8282/gallery/up">PoroPoro</a>
         </div>
         <div class="find-block">
+        <label for="ID"></label>
         	<input class="form-control" type="text" placeholder="사진 검색">
         </div>
         <div class="navbar-collapse collapse">

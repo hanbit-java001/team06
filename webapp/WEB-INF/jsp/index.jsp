@@ -7,6 +7,6 @@
 <title>팀프로젝트 06</title>
 </head>
 <body>
-팀프로젝트 시작합니다.
+<a src="gallery/up">팀프로젝트 시작합니다.</a>
 </body>
 </html>
