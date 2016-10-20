@@ -45,12 +45,6 @@ public class GalleryController {
 		return "gallery/upLoad";
 	}
 
-	@RequestMapping("/gallery/up")
-	public String up() {
-
-		return "gallery/up";
-	}
-
 	@RequestMapping("/member/myPhoto")
 	public String myPhoto() {
 
@@ -71,7 +65,7 @@ public class GalleryController {
 		outputStream.close();
 	}
 
-	@RequestMapping(value = "/api/gallery/up", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/gallery/upLoad", method = RequestMethod.POST)
 	@ResponseBody
 	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
 

@@ -220,6 +220,7 @@
 	<script src="/static/plugins2/js/jquery.fileupload-ui.js"></script>
 	<!-- The main application script -->
 	<script src="/static/plugins2/js/main.js"></script>
+	<script src="/static/js/up.js"></script>
 	<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
 	<!--[if (gte IE 8)&(lt IE 10)]>
 <script src="js/cors/jquery.xdr-transport.js"></script>

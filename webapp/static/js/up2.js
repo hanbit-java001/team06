@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('#upFile').fileupload({
+	$('.upFile').fileupload({
 		url : '/api/gallery/up',
 		dataType : 'json',
 		// replaceFileInput: false,

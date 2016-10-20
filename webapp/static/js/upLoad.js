@@ -23,9 +23,9 @@ $(function() {
 			contentType: false,
 			processData: false
 		}).done(function(result) {
-			var fileName = result.fileName;
+			var photoName = result.photoName;
 
-			alert(fileName + "를 올렸습니다.");
+			alert(photoName + "를 올렸습니다.");
 			console.log(result);
 
 			location.href = "/gallery/main";
