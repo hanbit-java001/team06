@@ -28,7 +28,7 @@ $(function() {
 			alert(fileName + "를 올렸습니다.");
 			console.log(result);
 
-//			location.href = "/gallery/main";
+			location.href = "/gallery/main";
 		});
 	});
 });

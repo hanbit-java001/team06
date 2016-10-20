@@ -42,10 +42,12 @@ public class GalleryService {
 	}
 
 	private String generateFileName() {
-		String time = String.valueOf(System.currentTimeMillis());
-		String photoName = galleryDAO.selectPhotoName();
+		int photoId = galleryDAO.selectNextPhotoId();
+		String seq = String.valueOf(galleryDAO.selectNextPhotoId());
+		String photoName = galleryDAO.selectPhotoName(photoId);
+//		String fileType =
 
-		String uniqueName = photoName + time;
+		String uniqueName = photoName + seq;
 
 		return uniqueName;
 	}

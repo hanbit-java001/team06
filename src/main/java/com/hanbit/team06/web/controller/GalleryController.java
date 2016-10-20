@@ -51,6 +51,12 @@ public class GalleryController {
 		return "gallery/up";
 	}
 
+	@RequestMapping("/member/myPhoto")
+	public String myPhoto() {
+
+		return "member/myPhoto";
+	}
+
 	@RequestMapping("/poroporo/files/{photoName}")
 	@ResponseBody
 	public void getFile(@PathVariable("photoName") String photoName, HttpServletResponse response) throws Exception {
@@ -96,7 +102,7 @@ public class GalleryController {
 				photoId = galleryDAO.selectNextPhotoId();
 			}
 		} catch (Exception e) {
-			galleryService.removeFile(photoId);
+//			galleryService.removeFile(photoId);
 			throw new RuntimeException(e.getMessage(), e);
 		}
 

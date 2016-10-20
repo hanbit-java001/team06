@@ -52,7 +52,7 @@
 	<select id="selectPhotoName" parameterType="int" resultType="string">
 		SELECT photo_name
 		  FROM PHOTO
-		  WHERE PhotoId = #{photoId}
+		  WHERE photo_id = #{photoId}
 	</select>
 
 	<select id="selectPhotoId" parameterType="string" resultType="int">

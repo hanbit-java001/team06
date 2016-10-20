@@ -53,7 +53,7 @@ public class GalleryDAO {
 		return sqlSession.selectOne("gallery.selectPhotoId", photoName);
 	}
 
-	public String selectPhotoName() {
+	public String selectPhotoName(int photoId) {
 		return sqlSession.selectOne("gallery.selectPhotoName");
 	}
 
