@@ -1,0 +1,11 @@
+#find-block {
+	display: inline-block;
+	height: 31px;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+	width: 45%;
+	min-width: 280px;
+	max-width: 600px;
+	position: relative;
+	background: #fff;
+}

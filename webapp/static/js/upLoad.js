@@ -2,7 +2,7 @@ $(function() {
 	$(".btnApply").on("click", function() {
 		var photoSelect = $("#photoSelect").get(0);
 
-		if (photoSelect == null) {
+		if (photoSelect == "") {
 			alert("파일을 선택하세요.");
 			$("#photoSelect").focus();
 			return;

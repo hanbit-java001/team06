@@ -7,10 +7,12 @@
 	<insert id="insertPhoto_2" parameterType="GalleryVO">
 		INSERT INTO PHOTO
 			(photo_id, photo_name, photo_date, photo_res1, photo_res2,
-			 photo_path, member_id )
+			 photo_path, member_id, hachTag_Id1, hachTag_Id2, hachTag_Id3,
+			 file_Size, content_Type )
 		VALUES
 			(#{photoId}, #{photoName}, #{photoDate}, #{photoRes1}, #{photoRes2},
-			#{photoPath}, #{memberId} )
+			#{photoPath}, #{memberId}, #{hachTagId1}, #{hachTagId2}, #{hachTagId3},
+			#{contentType},#{fileSize} )
 	</insert>
 
 	<insert id="insertPhoto" parameterType="GalleryVO">

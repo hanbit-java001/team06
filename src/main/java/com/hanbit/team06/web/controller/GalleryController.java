@@ -69,9 +69,9 @@ public class GalleryController {
 	@ResponseBody
 	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
 
-		String hachTagId1 = request.getParameter("hachTagId1");
-		String hachTagId2 = request.getParameter("hachTagId2");
-		String hachTagId3 = request.getParameter("hachTagId3");
+//		String hachTagId1 = request.getParameter("hachTagId1");
+//		String hachTagId2 = request.getParameter("hachTagId2");
+//		String hachTagId3 = request.getParameter("hachTagId3");
 		int photoId = 0;
 		String photoName = "";
 

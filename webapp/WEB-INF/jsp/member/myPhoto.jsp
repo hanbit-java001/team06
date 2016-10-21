@@ -17,9 +17,6 @@
 <link rel="stylesheet" href="/static/plugins2/css/jquery.fileupload.css">
 <link rel="stylesheet" href="/static/plugins2/css/jquery.fileupload-ui.css">
 <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
-<!-- CSS adjustments for browsers with JavaScript disabled -->
-<noscript><link rel="stylesheet" href="/static/plugins2/css/jquery.fileupload-noscript.css"></noscript>
-<noscript><link rel="stylesheet" href="/static/plugins2/css/jquery.fileupload-ui-noscript.css"></noscript>
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top">
