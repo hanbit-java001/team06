@@ -5,14 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hanbit.team06.core.vo.GalleryVO;
 import com.hanbit.team06.core.vo.MemberVO;
+import com.hanbit.team06.core.dao.MemberDAO;
 
 @Repository
 public class GalleryDAO {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(MemberDAO.class);
 
 	@Autowired
 	private SqlSession sqlSession;

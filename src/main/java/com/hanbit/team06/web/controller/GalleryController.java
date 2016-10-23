@@ -30,8 +30,8 @@ public class GalleryController {
 	@Autowired
 	private GalleryService galleryService;
 
-	@Autowired
-	private GalleryDAO galleryDAO;
+//	@Autowired
+//	private GalleryDAO galleryDAO;
 
 	@RequestMapping("/gallery/main")
 	public String main() {
@@ -72,7 +72,7 @@ public class GalleryController {
 //		String hachTagId1 = request.getParameter("hachTagId1");
 //		String hachTagId2 = request.getParameter("hachTagId2");
 //		String hachTagId3 = request.getParameter("hachTagId3");
-		int photoId = 0;
+//		int photoId = 0;
 		String photoName = "";
 
 		Iterator<String> paramNames = request.getFileNames();
@@ -88,12 +88,12 @@ public class GalleryController {
 				galleryVO.setFileSize(file.getSize());
 				galleryVO.setPhotoName(file.getName());
 				galleryVO.setFileData(file.getBytes());
-				// galleryVO.setHachTagId1(Integer.parseInt(hachTagId1));
-				// galleryVO.setHachTagId2(Integer.parseInt(hachTagId2));
-				// galleryVO.setHachTagId3(Integer.parseInt(hachTagId3));
+//				galleryVO.setHachTagId1(Integer.parseInt(hachTagId1));
+//				galleryVO.setHachTagId2(Integer.parseInt(hachTagId2));
+//				galleryVO.setHachTagId3(Integer.parseInt(hachTagId3));
 
 				photoName = galleryService.storePhoto(galleryVO);
-				photoId = galleryDAO.selectNextPhotoId();
+//				photoId = galleryDAO.selectNextPhotoId();
 			}
 		} catch (Exception e) {
 //			galleryService.removeFile(photoId);

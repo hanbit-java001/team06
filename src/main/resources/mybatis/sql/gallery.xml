@@ -15,13 +15,20 @@
 			#{contentType},#{fileSize} )
 	</insert>
 
-	<insert id="insertPhoto" parameterType="GalleryVO">
+	<insert id="insertPhoto3" parameterType="GalleryVO">
 	INSERT INTO PHOTO
 			(photo_id, photo_name, photo_date, photo_res1, photo_res2,
 			 photo_path, member_id )
   		VALUES
 			(SEQ_PHOTO.NEXTVAL, #{photoName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'),
-			#{photoRes1}, #{photoRes2}, #{photoPath}, #{memberId} )
+			#{photoPath} )
+	</insert>
+
+	<insert id="insertPhoto" parameterType="GalleryVO">
+	INSERT INTO PHOTO
+			(photo_id, photo_name, photo_date, photo_path)
+  		VALUES
+			(SEQ_PHOTO.NEXTVAL, #{photoName}, SYSDATE, #{photoPath} )
 	</insert>
 
 	<update id="updatePhoto" parameterType="GalleryVO">
@@ -34,7 +41,16 @@
    		WHERE PhotoId = #{photoId}
 	</update>
 
-	<select id="selectPhoto" parameterType="map" resultType="GalleryVO">
+	<select id="selectPhoto" parameterType="string" resultType="GalleryVO">
+		SELECT photo_name,
+			   photo_path,
+			   content_type,
+			   file_size
+		  FROM PHOTO
+		  WHERE PhotoId = #{photoId}
+	</select>
+
+	<select id="selectFile" parameterType="map" resultType="GalleryVO">
 		SELECT photo_id AS PhotoId,
 			   photo_name AS PhotoName,
 			   photo_date AS UploadDate,
@@ -43,7 +59,7 @@
 			   photo_path AS PhotoPath,
 			   member_id  AS MemberID
 		  FROM PHOTO
-		  WHERE PhotoId = #{photoId}
+		  WHERE PhotoName = #{photoName}
 	</select>
 
 	<select id="countPhotos" parameterType="string" resultType="int">

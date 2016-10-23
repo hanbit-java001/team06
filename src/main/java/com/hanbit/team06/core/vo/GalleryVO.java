@@ -4,8 +4,8 @@ public class GalleryVO {
 	private int photoId;
 	private String photoName;
 	private String photoDate;
-	private int photoRes1;
-	private int photoRes2;
+	private String photoRes1;
+	private String photoRes2;
 	private String photoPath;
 	private int memberId;
 	private int hachTagId1;
@@ -33,16 +33,16 @@ public class GalleryVO {
 	public void setPhotoDate(String photoDate) {
 		this.photoDate = photoDate;
 	}
-	public int getPhotoRes1() {
+	public String getPhotoRes1() {
 		return photoRes1;
 	}
-	public void setPhotoRes1(int photoRes1) {
+	public void setPhotoRes1(String photoRes1) {
 		this.photoRes1 = photoRes1;
 	}
-	public int getPhotoRes2() {
+	public String getPhotoRes2() {
 		return photoRes2;
 	}
-	public void setPhotoRes2(int photoRes2) {
+	public void setPhotoRes2(String photoRes2) {
 		this.photoRes2 = photoRes2;
 	}
 	public String getPhotoPath() {

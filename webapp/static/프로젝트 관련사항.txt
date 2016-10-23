@@ -1,0 +1,7 @@
+템플릿/ JSON변환:https://github.com/blueimp/JavaScript-Templates/tree/2.3.0
+
+업로드 위젯 도큐먼트 : https://github.com/blueimp/jQuery-File-Upload/wiki
+
+j쿼리 블로그:http://ismydream.tistory.com/89
+
+멀티업로드 플러그인: http://www.fyneworks.com/jquery/multifile/

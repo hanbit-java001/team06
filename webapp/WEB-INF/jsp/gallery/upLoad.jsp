@@ -43,7 +43,7 @@
 
 	<div class="hanbit-container">
 		<div class="form-group">
-			<label for="photoSelect">사진선택</label> <input type="file"
+			<label for="photoSelect">사진선택</label> <input multiple type="file"
 				class="form-control" id="photoSelect" placeholder="업로드사진">
 		</div>
 		<div class="bottom-buttons">
@@ -55,5 +55,6 @@
 	<script src="/static/plugins/jquery/jquery-3.1.0.min.js"></script>
 	<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/js/upLoad.js"></script>
+<!-- 	<script src="//github.com/fyneworks/multifile/blob/master/jQuery.MultiFile.min.js" type="text/javascript" language="javascript"></script> -->
 </body>
 </html>
