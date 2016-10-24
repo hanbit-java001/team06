@@ -67,7 +67,7 @@ public class GalleryController {
 
 	@RequestMapping(value = "/api/gallery/upLoad", method = RequestMethod.POST)
 	@ResponseBody
-	public String doJoin(MultipartHttpServletRequest request) throws Exception {
+	public String upLoad(MultipartHttpServletRequest request) throws IllegalStateException, Exception {
 
 //		String hachTagId1 = request.getParameter("hachTagId1");
 //		String hachTagId2 = request.getParameter("hachTagId2");

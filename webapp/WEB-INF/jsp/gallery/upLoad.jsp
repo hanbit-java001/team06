@@ -44,7 +44,7 @@
 	<div class="hanbit-container">
 		<div class="form-group">
 			<label for="photoSelect">사진선택</label> <input multiple type="file"
-				class="form-control" id="photoSelect" placeholder="업로드사진">
+				class="form-control" id="photoSelect" name="files[]" placeholder="업로드사진">
 		</div>
 		<div class="bottom-buttons">
 			<button class="btnApply btn btn-success">사진 올리기</button>
