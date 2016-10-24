@@ -76,7 +76,7 @@ public class GalleryController {
 		String photoName = "";
 
 		Iterator<String> paramNames = request.getFileNames();
-
+//
 		try {
 			if (paramNames.hasNext()) {
 				String paramName = paramNames.next();
@@ -97,6 +97,7 @@ public class GalleryController {
 			}
 		} catch (Exception e) {
 //			galleryService.removeFile(photoId);
+			System.out.println("오률ㄹㄹㄹㄹㄹㄹㄹㄹㄹ");
 			throw new RuntimeException(e.getMessage(), e);
 		}
 

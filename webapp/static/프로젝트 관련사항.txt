@@ -1,7 +1,9 @@
-ÅÛÇÃ¸´/ JSONº¯È¯:https://github.com/blueimp/JavaScript-Templates/tree/2.3.0
+ï¿½ï¿½ï¿½Ã¸ï¿½/ JSONï¿½ï¿½È¯:https://github.com/blueimp/JavaScript-Templates/tree/2.3.0
 
-¾÷·Îµå À§Á¬ µµÅ¥¸ÕÆ® : https://github.com/blueimp/jQuery-File-Upload/wiki
+ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¥ï¿½ï¿½Æ® : https://github.com/blueimp/jQuery-File-Upload/wiki
 
-jÄõ¸® ºí·Î±×:http://ismydream.tistory.com/89
+jï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î±ï¿½:http://ismydream.tistory.com/89
 
-¸ÖÆ¼¾÷·Îµå ÇÃ·¯±×ÀÎ: http://www.fyneworks.com/jquery/multifile/
+ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Îµï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½: http://www.fyneworks.com/jquery/multifile/
+
+http://rocabilly.tistory.com/27

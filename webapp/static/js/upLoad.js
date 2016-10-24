@@ -25,10 +25,10 @@ $(function() {
 		}).done(function(result) {
 			var photoName = result.photoName;
 
-			alert(photoName + "를 올렸습니다.");
 			console.log(result);
+			alert(photoName + "를 올렸습니다.");
 
-			location.href = "/gallery/main";
+			location.href = "/gallery/upLoad";
 		});
 	});
 });

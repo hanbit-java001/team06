@@ -21,7 +21,7 @@ public class GalleryService {
 	private GalleryDAO galleryDAO;
 
 	public String storePhoto(GalleryVO galleryVO) {
-		String photoName = generateFileName();
+		String photoName = generateFileName(galleryVO);
 		String photoPath = "/poroporo/files/" + photoName;
 
 		try {
@@ -41,10 +41,9 @@ public class GalleryService {
 		return photoName;
 	}
 
-	private String generateFileName() {
-		int photoId = galleryDAO.selectNextPhotoId();
+	private String generateFileName(GalleryVO galleryVO) {
 		String seq = String.valueOf(galleryDAO.selectNextPhotoId());
-		String photoName = galleryDAO.selectPhotoName(photoId);
+		String photoName = galleryVO.getPhotoName();
 //		String fileType =
 
 		String uniqueName = photoName + seq;
