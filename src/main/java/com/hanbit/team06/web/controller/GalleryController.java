@@ -67,7 +67,7 @@ public class GalleryController {
 
 	@RequestMapping(value = "/api/gallery/upLoad", method = RequestMethod.POST)
 	@ResponseBody
-	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
+	public String doJoin(MultipartHttpServletRequest request) throws Exception {
 
 //		String hachTagId1 = request.getParameter("hachTagId1");
 //		String hachTagId2 = request.getParameter("hachTagId2");
@@ -101,10 +101,10 @@ public class GalleryController {
 			throw new RuntimeException(e.getMessage(), e);
 		}
 
-		Map result = new HashMap();
-		result.put("photoName", photoName);
+//		Map result = new HashMap();
+//		result.put("photoName", photoName);
 
-		return result;
+		return photoName;
 
 	}
 }
