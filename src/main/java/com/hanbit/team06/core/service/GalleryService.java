@@ -46,7 +46,7 @@ public class GalleryService {
 		String photoName = galleryVO.getPhotoName();
 //		String fileType =
 
-		String uniqueName = photoName + seq;
+		String uniqueName = seq + photoName;
 
 		return uniqueName;
 	}

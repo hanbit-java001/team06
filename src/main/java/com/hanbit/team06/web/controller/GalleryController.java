@@ -1,13 +1,14 @@
 package com.hanbit.team06.web.controller;
 
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.hanbit.team06.core.dao.GalleryDAO;
 import com.hanbit.team06.core.service.GalleryService;
 import com.hanbit.team06.core.vo.GalleryVO;
 
@@ -67,18 +67,18 @@ public class GalleryController {
 
 	@RequestMapping(value = "/api/gallery/upLoad", method = RequestMethod.POST)
 	@ResponseBody
-	public String upLoad(MultipartHttpServletRequest request) throws IllegalStateException, Exception {
+	public List<String> upLoad(MultipartHttpServletRequest request) throws Exception {
 
 //		String hachTagId1 = request.getParameter("hachTagId1");
 //		String hachTagId2 = request.getParameter("hachTagId2");
 //		String hachTagId3 = request.getParameter("hachTagId3");
 //		int photoId = 0;
 		String photoName = "";
-
+		List<String> fileList = new ArrayList<String>();
 		Iterator<String> paramNames = request.getFileNames();
-//
+//		Map result = new HashMap();
 		try {
-			if (paramNames.hasNext()) {
+			for (;paramNames.hasNext();) {
 				String paramName = paramNames.next();
 
 				MultipartFile file = request.getFile(paramName);
@@ -94,17 +94,17 @@ public class GalleryController {
 
 				photoName = galleryService.storePhoto(galleryVO);
 //				photoId = galleryDAO.selectNextPhotoId();
+
+				fileList.add(photoName);
 			}
+
 		} catch (Exception e) {
 //			galleryService.removeFile(photoId);
 			System.out.println("오률ㄹㄹㄹㄹㄹㄹㄹㄹㄹ");
 			throw new RuntimeException(e.getMessage(), e);
 		}
+//		result.put("photoName", fileList);
 
-//		Map result = new HashMap();
-//		result.put("photoName", photoName);
-
-		return photoName;
-
+		return fileList;
 	}
 }
