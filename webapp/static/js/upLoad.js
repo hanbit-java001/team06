@@ -1,73 +1,82 @@
 $(function() {
 	$("input").change(function(){
-		var data = $("#photoSelect").attr.value("files[]");
-//		console.log(data);
+		var x = document.getElementById("photoSelect");
+		var txt = "";
+		if ('files' in x) {
+		     if (x.files.length == 0) {
+		         txt = "Select one or more files."
+		         alert("파일을 선택해주세요!");
+		         $("#photoSelect").focus();
+
+		         return false;
+		     } else {
+		    	 for (var i = 0; i < x.files.length; i++) {
+		    		 txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+		    		 var file = x.files[i];
+		    		 if ('name' in file) {
+		    			 txt += "name: " + file.name + "<br>";
+		    		 }
+		    		 if ('size' in file) {
+		    			 txt += "size: " + file.size + " bytes <br>";
+		    		 }
+		    	 }
+		     }
+		} else {
+			if (x.value == "") {
+				txt += "Select one or more files.";
+			} else {
+				txt += "The files property is not supported by your browser!";
+				txt  += "<br>The path of the selected file: " + x.value;
+			}
+		}
+		document.getElementById("filetxt").innerHTML = txt;
 	});
 
 	$(".btnApply").on("click", function() {
-		var photoSelect = [];
-		 photoSelect.push($("#photoSelect").val());
+		var photoSelects = document.getElementById("photoSelect");
+		var data = new FormData();
+		for(var j=0;j < photoSelects.files.length; j++){
+			var photoSelect = photoSelects.files[j];
+			console.log("photoSelect="+photoSelect.name);
 
-		 console.log($("#photoSelect"));
-//
-//		for(var j=0;j<photoSelect.length; j++){
-//			photoSelect = $("#photoSelect").get(j);
-////			console.log(photoSelect);
+			data.append(nameing(), photoSelect);
+			console.log("data="+data);
 		}
-		if (photoSelect != "") {
 
-			function nameing() {
-				 var fileObj, pathHeader, pathMiddle, pathEnd, allFilename, fileName, extName;
-				 fileObj = photoSelect.value
+		function nameing() {
+			var fileObj, pathHeader, pathMiddle, pathEnd, allFilename, fileName, extName;
+			fileObj = photoSelect.name
 
-				 pathHeader = fileObj.lastIndexOf("\\");
-		         pathMiddle = fileObj.lastIndexOf(".");
-		         pathEnd = fileObj.length;
-		         fileName = fileObj.substring(pathHeader+1, pathMiddle);
-		         extName = fileObj.substring(pathMiddle+1, pathEnd);
-		         allFilename = fileName+"."+extName;
+			pathHeader = fileObj.lastIndexOf("\\");
+			pathMiddle = fileObj.lastIndexOf(".");
+			pathEnd = fileObj.length;
+			fileName = fileObj.substring(pathHeader+1, pathMiddle);
+			extName = fileObj.substring(pathMiddle+1, pathEnd);
+			allFilename = fileName+"."+extName;
 
-		         return allFilename; // 실제파일명
-			}
-
-			var data = new FormData();
-			console.log(data);
-
-			for (var i=0;i<photoSelect.files.length;i++) {
-				var file = photoSelect.files[i];
-
-				data.append(nameing(), file);
-				console.log(data);
-			}
-
-			$.ajax({
-				url: "/api/gallery/upLoad",
-				method: "POST",
-				data: data,
-				contentType: false,
-				processData: false
-			}).done(function(result) {
-				console.log(result);
-				var photoName = "";
-				var photoNames = "";
-
-				for(var i=0;i<result.length;i++){
-					photoName = result[i];
-					photoNames = photoNames + photoName + "\n";
-
-					console.log(photoName);
-					console.log(photoNames);
-
-				}
-				console.log(photoNames);
-				alert(photoNames + "파일을 올렸습니다.");
-//				location.href = "/gallery/upLoad";
-			});
-
-		}else {alert("파일을 선택해주세요!");
-			$("#photoSelect").focus();
-
-			return false;
+			return allFilename; // 실제파일명
 		}
+
+		$.ajax({
+			url: "/api/gallery/upLoad",
+			method: "POST",
+			data: data,
+			contentType: false,
+			processData: false
+		}).done(function(result) {
+			console.log(result);
+			var photoName = "";
+			var photoNames = "";
+
+			for(var i=0;i<result.length;i++){
+				photoName = result[i];
+				photoNames = photoNames + photoName + "\n";
+
+				console.log("photoName="+photoName);
+			}
+			console.log("photoNames="+photoNames);
+			alert(photoNames + "파일을 올렸습니다.");
+//			location.href = "/gallery/upLoad";
+		});
 	});
 });

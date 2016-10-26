@@ -43,13 +43,15 @@
 
 	<div class="hanbit-container">
 		<div class="form-group">
-			<label id="photoLabel" for="photoSelect">사진선택</label> <input multiple type="file"
+			<label id="photoLabel" for="photoSelect"></label> <input multiple type="file"
 				class="form-control" id="photoSelect" name="files[]" placeholder="업로드사진">
+
 		</div>
 		<div class="bottom-buttons">
 			<button class="btnApply btn btn-success">사진 올리기</button>
 			<button class="btnBack btn btn-default">취소</button>
 		</div>
+		<p id="filetxt"></p>
 	</div>
 
 	<script src="/static/plugins/jquery/jquery-3.1.0.min.js"></script>
