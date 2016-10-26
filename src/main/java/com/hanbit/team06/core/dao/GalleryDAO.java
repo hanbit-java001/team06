@@ -1,7 +1,7 @@
 package com.hanbit.team06.core.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hanbit.team06.core.vo.GalleryVO;
-import com.hanbit.team06.core.vo.MemberVO;
-import com.hanbit.team06.core.dao.MemberDAO;
 
 @Repository
 public class GalleryDAO {
@@ -22,13 +20,14 @@ public class GalleryDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public ArrayList<GalleryVO> selectPhotoList(GalleryVO gallery) {
+	public List<GalleryVO> selectPhotoList(int photoId) {
+		List<GalleryVO> photoList = sqlSession.selectList("gallery.selectPhotoList", photoId);
 
-		return null;
+		return photoList;
 	}
 
-	public int countPhotos() {
-		return sqlSession.selectOne("gallery.countPhotos");
+	public int countPhotoList() {
+		return sqlSession.selectOne("gallery.countPhotoList");
 	}
 
 	public int insertPhoto(GalleryVO gallery) {

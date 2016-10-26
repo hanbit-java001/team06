@@ -1,123 +1,42 @@
 $(function() {
-	function addMember(name, email, profileUrl) {
-		var memberHTML = "";
-		memberHTML += "<div class='member-box'>";
-		memberHTML += "<div class='member-name member-box-center' ";
-		memberHTML += "style='background-image:";
-		memberHTML += "url(" + profileUrl + ");'>";
-		memberHTML += name;
-		memberHTML += "</div>";
-		memberHTML += "<div class='member-email member-box-center'>";
-		memberHTML += email;
-		memberHTML += "</div>";
-		memberHTML += "</div>";
+	var photoId =
 
-		$(".member-container").append(memberHTML);
+	function addPhotoList(photoName, photoUrl, totalCount) {
+		var photoHTML = "";
+		photoHTML += "<div class='col-lg-3 col-md-4 col-xs-6 thumb'>";
+		photoHTML += "<a class='thumbnail' href='상세'>";
+		photoHTML += "<img class='img-responsive' src="+photoUrl+" alt="">";
+		photoHTML += photoName;
+		photoHTML += "</a>";
+		photoHTML += "<br>총 : "+totalCount+"개";
+		photoHTML += "</div>";
+
+		$(".photo-container").append(photoHTML);
 	}
 
-	function getMembers(pageNumber) {
+	function getPhotos(photoId) {
 		$.ajax({
-			url: "/api/member/list",
+			url: "/api/gallery/main",
 			method: "POST",
 			data: {
-				page: pageNumber
+				photoId: photoId
 			}
-		}).done(function(pagingMembers) {
-			$(".member-container").empty();
+		}).done(function(mapListPhotos) {
+			$(".photo-container").empty();
+			var totalCount = mapListPhotos.totalCount;
 
-			for (var i=0;i<pagingMembers.members.length;i++) {
-				var member = pagingMembers.members[i];
+			for (var i=0;i<mapListPhotos.galleryList.length;i++) {
+				var photoV = mapListPhotos.galleryList[i];
 
-				var name = member.name;
-				var email = member.email;
+				var photoName = galleryList.photoName;
+				var photoUrl = "";
 
-				var profileUrl = "";
-
-				if (member.profileFileId !== undefined && member.profileFileId != null) {
-					profileUrl = "/file/" + member.profileFileId;
+				if (photoV.photoPath !== undefined && photoV.photoPath != null) {
+					photoUrl = "/poroporo/files/" + galleryList.photoName;
 				}
 
-				addMember(name, email, profileUrl);
+				addPhotoList(photoName, photoUrl, totalCount);
 			}
-
-			var totalCount = pagingMembers.totalCount;
-
-			drawPaging(totalCount);
 		});
 	}
-
-	function drawPaging(totalCount) {
-		firstPage = parseInt((currentPage - 1) / pagingRange) * pagingRange + 1;
-		lastPage = firstPage + pagingRange - 1;
-		totalPages = parseInt(totalCount / itemsPerPage)
-			+ (totalCount % itemsPerPage > 0 ? 1 : 0);
-
-		$(".member-paging").empty();
-
-		var pagingNumberHTML = "<div class='member-paging-number'>";
-		pagingNumberHTML += "이전";
-		pagingNumberHTML += "</div>";
-
-		$(".member-paging").append(pagingNumberHTML);
-
-		for (var i=firstPage;i<=lastPage;i++) {
-			if (i > totalPages) {
-				break;
-			}
-
-			pagingNumberHTML = "<div class='member-paging-number";
-
-			if (i == currentPage) {
-				pagingNumberHTML += " current-page";
-			}
-
-			pagingNumberHTML += "'>";
-			pagingNumberHTML += i;
-			pagingNumberHTML += "</div>";
-
-			$(".member-paging").append(pagingNumberHTML);
-		}
-
-		pagingNumberHTML = "<div class='member-paging-number'>";
-		pagingNumberHTML += "다음";
-		pagingNumberHTML += "</div>";
-
-		$(".member-paging").append(pagingNumberHTML);
-
-		$(".member-paging-number").on("click", function() {
-			var pageText = $(this).text();
-			var pageNumber = 0;
-
-			if (pageText == "이전") {
-				pageNumber = firstPage - 1;
-
-				if (pageNumber < 1) {
-					return;
-				}
-			}
-			else if (pageText == "다음") {
-				pageNumber = lastPage + 1;
-
-				if (pageNumber > totalPages) {
-					return;
-				}
-			}
-			else {
-				pageNumber = Number(pageText);
-			}
-
-			currentPage = pageNumber;
-
-			getMembers(pageNumber);
-		});
-	}
-
-	var itemsPerPage = 3;
-	var pagingRange = 5;
-	var currentPage = 1;
-	var firstPage;
-	var lastPage;
-	var totalPages;
-
-	getMembers(currentPage);
 });

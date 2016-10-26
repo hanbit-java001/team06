@@ -37,10 +37,10 @@ $(function() {
 		var data = new FormData();
 		for(var j=0;j < photoSelects.files.length; j++){
 			var photoSelect = photoSelects.files[j];
-			console.log("photoSelect="+photoSelect.name);
+//			console.log("photoSelect="+photoSelect.name);
 
 			data.append(nameing(), photoSelect);
-			console.log("data="+data);
+//			console.log("data="+data);
 		}
 
 		function nameing() {
@@ -72,9 +72,9 @@ $(function() {
 				photoName = result[i];
 				photoNames = photoNames + photoName + "\n";
 
-				console.log("photoName="+photoName);
+//				console.log("photoName="+photoName);
 			}
-			console.log("photoNames="+photoNames);
+//			console.log("photoNames="+photoNames);
 			alert(photoNames + "파일을 올렸습니다.");
 //			location.href = "/gallery/upLoad";
 		});

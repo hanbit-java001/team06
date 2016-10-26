@@ -63,8 +63,7 @@
 	</select>
 
 	<select id="countPhotos" parameterType="string" resultType="int">
-		SELECT COUNT(photo_id)
-		  FROM PHOTO
+
 	</select>
 
 	<select id="selectPhotoName" parameterType="int" resultType="string">
@@ -84,10 +83,21 @@
 		  FROM DUAL
 	</select>
 
-	<select id="countPhotoList" parameterType="string" resultType="int">
+	<select id="countPhotoList" resultType="int">
+		SELECT COUNT(photo_id)
+		  FROM PHOTO
 	</select>
 
-	<select id="selectPhotoList" parameterType="GalleryVO" resultType="GalleryVO">
+	<select id="selectPhotoList" parameterType="int" resultType="GalleryVO">
+		SELECT photo_id AS PhotoId,
+			   photo_name AS PhotoName,
+			   photo_date AS UploadDate,
+			   photo_res1 AS Resolution1,
+			   photo_res2 AS Resolution2,
+			   photo_path AS PhotoPath,
+			   member_id  AS MemberID
+		  FROM PHOTO
+		  WHERE PhotoId = #{photoId}
 	</select>
 
 </mapper>

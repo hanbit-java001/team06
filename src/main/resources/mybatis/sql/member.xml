@@ -5,81 +5,77 @@
 
 	<select id="countMember" parameterType="string" resultType="int">
 		SELECT COUNT(member_id)
-		FROM MEMBER
-		WHERE member_email = #{email}
+		  FROM MEMBER
+		 WHERE member_email = #{email}
 	</select>
 
 	<insert id="insertMember" parameterType="MemberVO">
 		INSERT INTO MEMBER
-		(member_id, member_name, member_email, member_pw)
+			(member_id, member_name, member_email, member_pw)
 		VALUES
-		(#{memberId},
-		#{name}, #{email}, #{password})
+			(#{memberId}, #{name}, #{email}, #{password})
 	</insert>
 
 	<select id="selectMember" parameterType="map" resultType="MemberVO">
 		SELECT member_id AS memberId,
-		member_name AS name,
-		member_email AS
-		email,
-		member_pw AS password
-		FROM MEMBER
-		<choose>
-			<when test="email != null">
-				WHERE member_email = #{email}
-			</when>
-			<when test="memberId != null">
-				WHERE member_id = #{memberId}
-			</when>
-			<otherwise>
-				WHERE email = '!@#$'
-			</otherwise>
-		</choose>
+			   member_name AS name,
+			   member_email AS email,
+			   member_pw AS password
+		  FROM MEMBER
+		 <choose>
+		 	<when test="email != null">
+		 		WHERE member_email = #{email}
+		 	</when>
+		 	<when test="memberId != null">
+		 		WHERE member_id = #{memberId}
+		 	</when>
+		 	<otherwise>
+		 		WHERE email = '!@#$'
+		 	</otherwise>
+		 </choose>
 	</select>
 
 	<select id="selectMemberId" parameterType="string" resultType="int">
 		SELECT member_id
-		FROM MEMBER
-		WHERE member_email = #{email}
+		  FROM MEMBER
+		 WHERE member_email = #{email}
 	</select>
 
 	<select id="selectPassword" parameterType="int" resultType="string">
 		SELECT password
-		FROM MEMBER
-		WHERE member_id = #{memberId}
+		  FROM MEMBER
+		 WHERE member_id = #{memberId}
 	</select>
 
 	<update id="updateMember" parameterType="MemberVO">
 		UPDATE MEMBER
-		SET
-		member_name = #{name},
-		member_email = #{email},
-		member_pw = #{password}
+		   SET member_name = #{name},
+		       member_email = #{email},
+		       member_pw = #{password}
 	</update>
 
 	<select id="selectNextMemberId" resultType="int">
-		SELECT
-		SEQ_MEMBER.NEXTVAL
-		FROM DUAL
+		SELECT SEQ_MEMBER.NEXTVAL
+		  FROM DUAL
 	</select>
 
 	<select id="selectMembers" parameterType="int" resultType="MemberVO">
 	<![CDATA[
-		SELECT 	a.rn, a.name, a.email, a.profile_file_id
+		SELECT 	a.rn, a.name, a.email
 		  FROM (
-			SELECT a.rn, a.name, a.email, a.profile_file_id
+			SELECT a.rn, a.name, a.email
 			  FROM (
- 			SELECT ROWNUM rn, MEMBER_NAME name, MEMBER_EMAIL email,
-					   MEMBER_PROFILE profile_file_id
+				SELECT ROWNUM rn, MEMBER_NAME name, MEMBER_EMAIL email
 				  FROM MEMBER) a
-				  WHERE rn <= 3 * #{page}) a
- 		          WHERE rn > 3 * (#{page} - 1)
+			 WHERE rn <= 3 * #{page}) a
+		 WHERE rn > 3 * (#{page} - 1)
   	]]>
-	</select>
+  	</select>
 
-	<select id="countMembers" resultType="int">
-		SELECT COUNT(MEMBER_ID)
-		FROM MEMBER
-	</select>
+  	<select id="countMembers" resultType="int">
+  		SELECT COUNT(MEMBER_ID)
+  		  FROM MEMBER
+  	</select>
+
 
 </mapper>

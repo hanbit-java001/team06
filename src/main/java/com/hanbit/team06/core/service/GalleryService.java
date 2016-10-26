@@ -2,6 +2,7 @@ package com.hanbit.team06.core.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -80,7 +81,12 @@ public class GalleryService {
 	}
 
 	public int getTotalPhotos() {
-		return galleryDAO.countPhotos();
+		return galleryDAO.countPhotoList();
 	}
 
+	public List<GalleryVO> getPhotoList(int photoId) {
+		List<GalleryVO> photoList = galleryDAO.selectPhotoList(photoId);
+
+		return photoList;
+	}
 }

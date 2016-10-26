@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -29,15 +30,6 @@ public class GalleryController {
 
 	@Autowired
 	private GalleryService galleryService;
-
-//	@Autowired
-//	private GalleryDAO galleryDAO;
-
-	@RequestMapping("/gallery/main")
-	public String main() {
-
-		return "gallery/main";
-	}
 
 	@RequestMapping("/gallery/upLoad")
 	public String update() {
@@ -106,5 +98,25 @@ public class GalleryController {
 //		result.put("photoName", fileList);
 
 		return fileList;
+	}
+
+	@RequestMapping("/gallery/main")
+	public String main() {
+
+		return "gallery/main";
+	}
+
+	@RequestMapping("/api/gallery/main")
+	@ResponseBody
+	public Map<String, Object> mapListPhotos(@RequestParam("photoId") int photoId) {
+		Map<String, Object> galleryMap = new HashMap<>();
+
+		List<GalleryVO> galleryList = galleryService.getPhotoList(photoId);
+		int totalCount = galleryService.getTotalPhotos();
+
+		galleryMap.put("totalCount", totalCount);
+		galleryMap.put("galleryList", galleryList);
+
+		return galleryMap;
 	}
 }
