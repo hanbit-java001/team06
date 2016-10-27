@@ -84,8 +84,8 @@ public class GalleryService {
 		return galleryDAO.countPhotoList();
 	}
 
-	public List<GalleryVO> getPhotoList(int photoId) {
-		List<GalleryVO> photoList = galleryDAO.selectPhotoList(photoId);
+	public List<GalleryVO> getPhotoList() {
+		List<GalleryVO> photoList = galleryDAO.selectPhotoList();
 
 		return photoList;
 	}

@@ -108,10 +108,10 @@ public class GalleryController {
 
 	@RequestMapping("/api/gallery/main")
 	@ResponseBody
-	public Map<String, Object> mapListPhotos(@RequestParam("photoId") int photoId) {
+	public Map<String, Object> mapListPhotos() {
 		Map<String, Object> galleryMap = new HashMap<>();
 
-		List<GalleryVO> galleryList = galleryService.getPhotoList(photoId);
+		List<GalleryVO> galleryList = galleryService.getPhotoList();
 		int totalCount = galleryService.getTotalPhotos();
 
 		galleryMap.put("totalCount", totalCount);

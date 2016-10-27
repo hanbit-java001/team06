@@ -88,7 +88,7 @@
 		  FROM PHOTO
 	</select>
 
-	<select id="selectPhotoList" parameterType="int" resultType="GalleryVO">
+	<select id="selectPhotoList" resultType="GalleryVO">
 		SELECT photo_id AS PhotoId,
 			   photo_name AS PhotoName,
 			   photo_date AS UploadDate,
@@ -97,7 +97,7 @@
 			   photo_path AS PhotoPath,
 			   member_id  AS MemberID
 		  FROM PHOTO
-		  WHERE PhotoId = #{photoId}
+		  order by desc
 	</select>
 
 </mapper>

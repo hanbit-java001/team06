@@ -20,8 +20,8 @@ public class GalleryDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public List<GalleryVO> selectPhotoList(int photoId) {
-		List<GalleryVO> photoList = sqlSession.selectList("gallery.selectPhotoList", photoId);
+	public List<GalleryVO> selectPhotoList() {
+		List<GalleryVO> photoList = sqlSession.selectList("gallery.selectPhotoList");
 
 		return photoList;
 	}
