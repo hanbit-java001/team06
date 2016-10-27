@@ -47,10 +47,10 @@ public class GalleryDAO {
 	}
 
 	public GalleryVO selectPhoto(int photoId) {
-		Map param = new HashMap();
-		param.put("photoId", photoId);
+//		Map param = new HashMap();
+//		param.put("photoId", photoId);
 
-		return sqlSession.selectOne("gallery.selectPhoto", param);
+		return sqlSession.selectOne("gallery.selectPhoto", photoId);
 	}
 
 	public int selectPhotoId(String photoName) {

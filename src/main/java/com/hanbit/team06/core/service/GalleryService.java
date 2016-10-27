@@ -23,6 +23,8 @@ public class GalleryService {
 
 	public String storePhoto(GalleryVO galleryVO) {
 		String photoName = generateFileName(galleryVO);
+		int pathMiddle = photoName.lastIndexOf(".");
+		String photoNameF = photoName.substring(0, pathMiddle);
 		String photoPath = "/poroporo/files/" + photoName;
 
 		try {
@@ -34,7 +36,7 @@ public class GalleryService {
 			throw new RuntimeException("파일 저장중 문제가 발생하였습니다.");
 		}
 
-		galleryVO.setPhotoName(photoName);
+		galleryVO.setPhotoName(photoNameF);
 		galleryVO.setPhotoPath(photoPath);
 
 		galleryDAO.insertPhoto(galleryVO);

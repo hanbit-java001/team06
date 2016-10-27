@@ -16,6 +16,8 @@
     <link href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/static/plugins/bootstrap/css/thumbnail-gallery.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/common.css" />
+
 </head>
 
 <body>
@@ -56,10 +58,10 @@
                 <h1 class="page-header"><br>&nbsp;&nbsp;&nbsp;&nbsp;Gallery</h1>
             </div>
 
-            <div class="photo-container">
+         	   <div class="photo-container">
 
 
-            </div>
+         	   </div>
 
         </div>
 
@@ -81,6 +83,7 @@
     <script src="/static/plugins/bootstrap/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/gallery.js"></script>
 </body>
 
 </html>

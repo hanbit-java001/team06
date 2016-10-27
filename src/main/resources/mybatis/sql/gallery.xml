@@ -47,7 +47,7 @@
 			   content_type,
 			   file_size
 		  FROM PHOTO
-		  WHERE PhotoId = #{photoId}
+		  WHERE photo_name = #{photoName}
 	</select>
 
 	<select id="selectFile" parameterType="map" resultType="GalleryVO">
@@ -97,7 +97,7 @@
 			   photo_path AS PhotoPath,
 			   member_id  AS MemberID
 		  FROM PHOTO
-		  order by desc
+		  order by PHOTO_ID desc
 	</select>
 
 </mapper>
