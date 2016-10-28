@@ -13,7 +13,8 @@ $(function() {
 		    	 for (var i = 0; i < x.files.length; i++) {
 		    		 txt += "<br><strong>" + (i+1) + ". file</strong><br>";
 		    		 var file = x.files[i];
-		    		 txt += "<img src="+file+"><br>";
+		    		 var filePath = URL.createObjectURL(event.target.files[i]);
+		    		 txt += "<img src='"+filePath+"'><br>";
 		    		 if ('name' in file) {
 		    			 txt += "name: " + file.name + "<br>";
 		    		 }

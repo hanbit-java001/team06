@@ -14,6 +14,7 @@ public class GalleryVO {
 	private byte[] fileData;
 	private String contentType;
 	private long fileSize;
+	private String thumbnail;
 
 	public int getPhotoId() {
 		return photoId;
@@ -92,6 +93,12 @@ public class GalleryVO {
 	}
 	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
+	}
+	public String getThumbnail() {
+		return thumbnail;
+	}
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 
 

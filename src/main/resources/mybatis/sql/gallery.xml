@@ -26,9 +26,9 @@
 
 	<insert id="insertPhoto" parameterType="GalleryVO">
 	INSERT INTO PHOTO
-			(photo_id, photo_name, photo_date, photo_path, file_Size, content_Type)
+			(photo_id, photo_name, photo_date, photo_path, file_Size, content_Type, thumbnail)
   		VALUES
-			(SEQ_PHOTO.currVAL, #{photoName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'), #{photoPath}, #{fileSize}, #{contentType} )
+			(SEQ_PHOTO.currVAL, #{photoName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'), #{photoPath}, #{fileSize}, #{contentType}, #{thumbnail} )
 	</insert>
 
 	<update id="updatePhoto" parameterType="GalleryVO">
@@ -45,7 +45,8 @@
 		SELECT photo_name,
 			   photo_path,
 			   content_type,
-			   file_size
+			   file_size,
+			   thumbnail
 		  FROM PHOTO
 		  WHERE photo_name = #{photoName}
 	</select>
@@ -57,7 +58,8 @@
 			   photo_res1 AS Resolution1,
 			   photo_res2 AS Resolution2,
 			   photo_path AS PhotoPath,
-			   member_id  AS MemberID
+			   member_id  AS MemberID,
+			   thumbnail
 		  FROM PHOTO
 		  WHERE PhotoName = #{photoName}
 	</select>
@@ -95,7 +97,8 @@
 			   photo_res1 AS Resolution1,
 			   photo_res2 AS Resolution2,
 			   photo_path AS PhotoPath,
-			   member_id  AS MemberID
+			   member_id  AS MemberID,
+			   thumbnail
 		  FROM PHOTO
 		  order by PHOTO_ID desc
 	</select>

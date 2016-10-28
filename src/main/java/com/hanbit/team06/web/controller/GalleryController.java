@@ -1,5 +1,6 @@
 package com.hanbit.team06.web.controller;
 
+import java.io.File;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ import com.hanbit.team06.core.vo.GalleryVO;
 @Controller
 public class GalleryController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MemberController.class);
+	private static final String HOST_IP = "203.236.209.189:8282/";
 
 	@Autowired
 	private GalleryService galleryService;
@@ -119,4 +121,5 @@ public class GalleryController {
 
 		return galleryMap;
 	}
+
 }

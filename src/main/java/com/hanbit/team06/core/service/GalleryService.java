@@ -1,8 +1,12 @@
 package com.hanbit.team06.core.service;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -38,6 +42,7 @@ public class GalleryService {
 
 		galleryVO.setPhotoName(photoNameF);
 		galleryVO.setPhotoPath(photoPath);
+		galleryVO.setThumbnail(getThumbnailG(galleryVO));
 
 		galleryDAO.insertPhoto(galleryVO);
 
@@ -47,7 +52,6 @@ public class GalleryService {
 	private String generateFileName(GalleryVO galleryVO) {
 		String seq = String.valueOf(galleryDAO.selectNextPhotoId());
 		String photoName = galleryVO.getPhotoName();
-//		String fileType =
 
 		String uniqueName = seq + photoName;
 
@@ -63,6 +67,26 @@ public class GalleryService {
 		galleryVO.setFileData(fileData);
 
 		return galleryVO;
+	}
+
+	public String getThumbnailG(GalleryVO galleryVO) {
+
+		int thumbnail_width = 400;
+		int thumbnail_height = 300;
+		String thumbnailPath = "/poroporo/thumbnail"+galleryVO.getPhotoName()+".jpg";
+		File origin_file_name = new File(galleryVO.getPhotoPath());
+		File thumb_file_name = new File(thumbnailPath);
+		try {
+			BufferedImage buffer_original_image = ImageIO.read(origin_file_name);
+			BufferedImage buffer_thumbnail_image = new BufferedImage(thumbnail_width, thumbnail_height, BufferedImage.TYPE_3BYTE_BGR);
+			Graphics2D graphic = buffer_thumbnail_image.createGraphics();
+			graphic.drawImage(buffer_original_image, 0, 0, thumbnail_width, thumbnail_height, null);
+			ImageIO.write(buffer_thumbnail_image, "jpg", thumb_file_name);
+		} catch (Exception e) {
+			System.out.println("썸네일 생성오류");
+			e.printStackTrace();
+		}
+		return thumbnailPath;
 	}
 
 	public void removeFile(int photoId) throws Exception {
