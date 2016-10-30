@@ -12,7 +12,8 @@ http://rocabilly.tistory.com/27
 
 파일업로드 files 예제:http://www.w3schools.com/jsref/prop_fileupload_files.asp
 
-
+해시태그관련:https://www.xetown.com/alley/1385
+http://stackoverflow.com/questions/1822598/getting-url-hash-location-and-using-it-in-jquery
 
 
 

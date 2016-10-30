@@ -7,7 +7,8 @@ $(function() {
                 txt += "<br><strong>" + (i + 1) + ". file</strong><br>";
                 var file = x.files[i];
                 var filePath = URL.createObjectURL(event.target.files[i]);
-                txt += "<img src='" + filePath + "' height='200' ><br>";
+                txt += "<img src='" + filePath + "' height='200' >";
+                txt += "<input id='hashInput"+i+"' type='text' onkeyup='' onblur=''><br>";
                 txt += "name: " + file.name + "<br>";
                 txt += "size: " + file.size + " bytes <br>";
             }
@@ -25,6 +26,7 @@ $(function() {
 
     $(".btnApply").on("click", function() {
         var photoSelects = document.getElementById("photoSelect");
+        var hashTags;
         var data = new FormData();
         if (photoSelects.files.length == 0) {
             alert("파일을 선택해주세요!");
@@ -34,10 +36,13 @@ $(function() {
         } else {
             for (var j = 0; j < photoSelects.files.length; j++) {
                 var photoSelect = photoSelects.files[j];
-                //			console.log("photoSelect="+photoSelect.name);
+                hashTags = document.getElementById("hashInput"+i);
+//                			console.log("photoSelect="+photoSelect.name);
+                			console.log("hashInput="+hashTags.name);
 
                 data.append(nameing(), photoSelect);
-                //			console.log("data="+data);
+                data.append(nameing(), hashTags)
+//                			console.log("data="+data);
             }
 
             function nameing() {
@@ -52,6 +57,18 @@ $(function() {
                 allFilename = fileName + "." + extName;
 
                 return allFilename; // 실제파일명
+            }
+
+            function enter(e) {
+            	if(e.keyCode == 13){
+            		e.cancelBubble = true;
+            		$("#btn_search").click();
+            		return false;
+            	}
+			}
+
+            function hashValidate(e) {
+            	uid.val()
             }
 
             $.ajax({
