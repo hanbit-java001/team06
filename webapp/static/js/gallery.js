@@ -31,7 +31,7 @@ $(function() {
 				var photoUrl = "";
 
 				if (photoV.photoPath !== undefined && photoV.photoPath != null) {
-					photoUrl = photoV.photoPath;
+					photoUrl = thumbGenerate(photoV.thumb);
 					console.log("photoUrl="+photoUrl);
 				} //else {
 //					throw new RuntimeException(e.getMessage(), e);
@@ -44,9 +44,9 @@ $(function() {
 		});
 	}
 
-	function outNameGenerate(photoN){
+	function thumbGenerate(photoThumb){
 		var fileObj, pathHeader, pathMiddle, pathEnd, allFilename, fileName, extName;
-		fileObj = photoN;
+		fileObj = photoThumb
 
 		pathHeader = fileObj.lastIndexOf("\\");
 		pathMiddle = fileObj.lastIndexOf(".");
@@ -58,13 +58,4 @@ $(function() {
 		return fileName; // 파일명
 	}
 
-//	function getThumbnail(photoP) {
-//		File image = new File(photoP);
-//		File thumbnail = new File("C:/poroporo/thumbnail.png");
-//		if (image.exists()) {
-//		    thumbnail.getParentFile().mkdirs();
-//		    Thumbnails.of(image).size(400, 300).outputFormat("png").toFile(thumbnail);
-//		}
-//		return thumbnail
-//	}
 });

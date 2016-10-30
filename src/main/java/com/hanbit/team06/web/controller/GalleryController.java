@@ -1,6 +1,5 @@
 package com.hanbit.team06.web.controller;
 
-import java.io.File;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -45,7 +43,7 @@ public class GalleryController {
 		return "member/myPhoto";
 	}
 
-	@RequestMapping("/poroporo/files/{photoName}")
+	@RequestMapping("/poroporo/thumbnail/{photoName}.jpg")
 	@ResponseBody
 	public void getFile(@PathVariable("photoName") String photoName, HttpServletResponse response) throws Exception {
 
