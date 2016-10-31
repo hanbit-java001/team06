@@ -6,38 +6,34 @@
 
 	<insert id="insertHashtag" parameterType="string">
 		INSERT INTO HASHTAG
-			(HASHTAG_WORD )
+			(HASHTAG_ID, HASHTAG_WORD )
 		VALUES
-			(#{hashTag} )
+			(SEQ_HASHTAG.NEXTVAL, #{hash})
 	</insert>
 
-	<select id="selectHashtag" parameterType="string" resultType="string">
+	<select id="selectHashtagS" parameterType="string" resultType="string">
 		SELECT HASHTAG_WORD
 		  FROM HASHTAG
-		  WHERE hashTag_id = #{hashTag}
+		  WHERE HASHTAG_WORD = #{hash}
 	</select>
 
-	<insert id="insertPhoto_2" parameterType="GalleryVO">
-		INSERT INTO PHOTO
-			(photo_id, photo_name, photo_date, photo_res1, photo_res2,
-			 photo_path, member_id, hachTag_Id1, hachTag_Id2, hachTag_Id3,
-			 file_Size, content_Type )
-		VALUES
-			(#{photoId}, #{photoName}, #{photoDate}, #{photoRes1}, #{photoRes2},
-			#{photoPath}, #{memberId}, #{hachTagId1}, #{hachTagId2}, #{hachTagId3},
-			#{contentType},#{fileSize} )
-	</insert>
-
-	<insert id="insertPhoto3" parameterType="GalleryVO">
-	INSERT INTO PHOTO
-			(photo_id, photo_name, photo_date, photo_res1, photo_res2,
-			 photo_path, member_id )
-  		VALUES
-			(SEQ_PHOTO.NEXTVAL, #{photoName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'),
-			#{photoPath} )
-	</insert>
+	<select id="selectHashtagI" parameterType="string" resultType="int">
+		SELECT HASHTAG_ID
+		  FROM HASHTAG
+		  WHERE HASHTAG_WORD = #{hash}
+	</select>
 
 	<insert id="insertPhoto" parameterType="GalleryVO">
+	INSERT INTO PHOTO
+			(photo_id, photo_name, photo_date, photo_res1, photo_res2, photo_path,
+			 HASHTAG_ID1, HASHTAG_ID2, HASHTAG_ID3, content_Type, file_Size, thumb)
+  		VALUES
+			(SEQ_PHOTO.currVAL, #{photoName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'),
+			 #{photoRes1}, #{photoRes2}, #{photoPath}, #{hashTagId1}, #{hashTagId2},
+			 #{hashTagId3}, #{contentType}, #{fileSize},  #{thumb})
+	</insert>
+
+	<insert id="insertPhoto2" parameterType="GalleryVO">
 	INSERT INTO PHOTO
 			(photo_id, photo_name, photo_date, photo_path, file_Size, content_Type,
 			 thumb, photo_res1, photo_res2)
@@ -79,13 +75,21 @@
 	</select>
 
 	<select id="selectPhoto" parameterType="string" resultType="GalleryVO">
-		SELECT photo_id,
-				photo_name,
-				photo_date,
-				photo_path,
-				content_type,
-				file_size,
-				thumb
+		SELECT photo_id AS PhotoId,
+			   photo_name AS PhotoName,
+			   photo_date AS UploadDate,
+			   photo_res1 AS Resolution1,
+			   photo_res2 AS Resolution2,
+			   photo_path AS PhotoPath,
+			   member_id  AS MemberID,
+			   thumb,
+			   content_type,
+			   file_size,
+			   photo_res1,
+			   photo_res2,
+			   HASHTAG_ID1,
+			   HASHTAG_ID2,
+			   HASHTAG_ID3
 			FROM PHOTO
 			WHERE PHOTO_NAME = #{photoName}
 	</select>
@@ -111,7 +115,14 @@
 			   photo_res2 AS Resolution2,
 			   photo_path AS PhotoPath,
 			   member_id  AS MemberID,
-			   thumb
+			   thumb,
+			   content_type,
+			   file_size,
+			   photo_res1,
+			   photo_res2,
+			   HASHTAG_ID1,
+			   HASHTAG_ID2,
+			   HASHTAG_ID3
 		  FROM PHOTO
 		  order by PHOTO_ID desc
 	</select>

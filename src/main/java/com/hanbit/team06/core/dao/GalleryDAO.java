@@ -34,6 +34,10 @@ public class GalleryDAO {
 		return sqlSession.insert("gallery.insertPhoto", gallery);
 	}
 
+	public int insertHash(String hash) {
+		return sqlSession.insert("gallery.insertHashtag", hash);
+	}
+
 	public int deletePhoto(int photoId) {
 		return sqlSession.delete("gallery.deletePhoto", photoId);
 	}
@@ -44,6 +48,14 @@ public class GalleryDAO {
 
 	public GalleryVO selectFile(String photoName) {
 		return sqlSession.selectOne("gallery.selectPhoto", photoName);
+	}
+
+	public String selectHashtagS(String hash) {
+		return sqlSession.selectOne("gallery.selectHashtagS", hash);
+	}
+
+	public int selectHashtagI(String hash) {
+		return sqlSession.selectOne("gallery.selectHashtagI", hash);
 	}
 
 	public GalleryVO selectPhoto(int photoId) {

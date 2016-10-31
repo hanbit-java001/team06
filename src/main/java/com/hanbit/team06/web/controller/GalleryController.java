@@ -2,6 +2,7 @@ package com.hanbit.team06.web.controller;
 
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -43,7 +44,7 @@ public class GalleryController {
 		return "member/myPhoto";
 	}
 
-	@RequestMapping("/poroporo/thumbnail/{photoName}.jpg")
+	@RequestMapping("/poroporo/thumbnail/{photoName}")
 	@ResponseBody
 	public void getFile(@PathVariable("photoName") String photoName, HttpServletResponse response) throws Exception {
 
@@ -59,44 +60,50 @@ public class GalleryController {
 
 	@RequestMapping(value = "/api/gallery/upLoad", method = RequestMethod.POST)
 	@ResponseBody
-	public List<String> upLoad(MultipartHttpServletRequest request) throws Exception {
-
-//		String hachTagId1 = request.getParameter("hachTagId1");
-//		String hachTagId2 = request.getParameter("hachTagId2");
-//		String hachTagId3 = request.getParameter("hachTagId3");
+	public List<String> upLoad(MultipartHttpServletRequest request) {
 //		int photoId = 0;
+		GalleryVO galleryVO = new GalleryVO();
 		String photoName = "";
 		List<String> fileList = new ArrayList<String>();
-		Iterator<String> paramNames = request.getFileNames();
-//		Map result = new HashMap();
+		Iterator<String> fileParamNames = request.getFileNames();
+		List<String> hashList = new ArrayList<String>();
+		List<Integer> hashId = new ArrayList<Integer>();
+
+		Enumeration<String> paramNames = request.getParameterNames();
+
+		while (paramNames.hasMoreElements()) {
+			String paramName = paramNames.nextElement();
+			String paramN = request.getParameter(paramName);
+
+			hashList = galleryService.generateHashtag(paramN);
+			galleryService.insertHashtag(hashList);
+
+			hashId = galleryService.selectHashtagId(hashList);
+
+			galleryVO.setHashTagId1(hashId.get(0));
+			galleryVO.setHashTagId2(hashId.get(1));
+			galleryVO.setHashTagId3(hashId.get(2));
+
 		try {
-			for (;paramNames.hasNext();) {
-				String paramName = paramNames.next();
+				String fileparamName = fileParamNames.next();
+				MultipartFile file = request.getFile(fileparamName);
 
-				MultipartFile file = request.getFile(paramName);
-
-				GalleryVO galleryVO = new GalleryVO();
 				galleryVO.setContentType(file.getContentType());
 				galleryVO.setFileSize(file.getSize());
 				galleryVO.setPhotoName(file.getName());
 				galleryVO.setFileData(file.getBytes());
-//				galleryVO.setHachTagId1(Integer.parseInt(hachTagId1));
-//				galleryVO.setHachTagId2(Integer.parseInt(hachTagId2));
-//				galleryVO.setHachTagId3(Integer.parseInt(hachTagId3));
 
 				photoName = galleryService.storePhoto(galleryVO);
 //				photoId = galleryDAO.selectNextPhotoId();
 
 				fileList.add(photoName);
-			}
 
 		} catch (Exception e) {
 //			galleryService.removeFile(photoId);
 			System.out.println("오률ㄹㄹㄹㄹㄹㄹㄹㄹㄹ");
 			throw new RuntimeException(e.getMessage(), e);
 		}
-//		result.put("photoName", fileList);
-
+		}
 		return fileList;
 	}
 

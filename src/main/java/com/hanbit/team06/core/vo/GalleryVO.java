@@ -8,9 +8,9 @@ public class GalleryVO {
 	private String photoRes2;
 	private String photoPath;
 	private int memberId;
-	private int hachTagId1;
-	private int hachTagId2;
-	private int hachTagId3;
+	private int hashTagId1;
+	private int hashTagId2;
+	private int hashTagId3;
 	private byte[] fileData;
 	private String contentType;
 	private long fileSize;
@@ -58,23 +58,23 @@ public class GalleryVO {
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
-	public int getHachTagId1() {
-		return hachTagId1;
+	public int getHashTagId1() {
+		return hashTagId1;
 	}
-	public void setHachTagId1(int hachTagId1) {
-		this.hachTagId1 = hachTagId1;
+	public void setHashTagId1(int hashTagId1) {
+		this.hashTagId1 = hashTagId1;
 	}
-	public int getHachTagId2() {
-		return hachTagId2;
+	public int getHashTagId2() {
+		return hashTagId2;
 	}
-	public void setHachTagId2(int hachTagId2) {
-		this.hachTagId2 = hachTagId2;
+	public void setHashTagId2(int hashTagId2) {
+		this.hashTagId2 = hashTagId2;
 	}
-	public int getHachTagId3() {
-		return hachTagId3;
+	public int getHashTagId3() {
+		return hashTagId3;
 	}
-	public void setHachTagId3(int hachTagId3) {
-		this.hachTagId3 = hachTagId3;
+	public void setHashTagId3(int hashTagId3) {
+		this.hashTagId3 = hashTagId3;
 	}
 	public byte[] getFileData() {
 		return fileData;

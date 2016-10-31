@@ -36,13 +36,13 @@ $(function() {
         } else {
             for (var j = 0; j < photoSelects.files.length; j++) {
                 var photoSelect = photoSelects.files[j];
-                hashTags = document.getElementById("hashInput"+i);
+                hashTags = document.getElementById("hashInput"+j).value;
 //                			console.log("photoSelect="+photoSelect.name);
-                			console.log("hashInput="+hashTags.name);
+//                			console.log("hashInput="+hashTags);
 
                 data.append(nameing(), photoSelect);
-                data.append(nameing(), hashTags)
-//                			console.log("data="+data);
+                data.append("hashTag"+j, hashTags)
+//                console.log("data="+data.hashTag+j);
             }
 
             function nameing() {

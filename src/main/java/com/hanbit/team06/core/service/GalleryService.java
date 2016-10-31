@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -91,6 +92,40 @@ public class GalleryService {
 		String uniqueName = seq + photoName;
 
 		return uniqueName;
+	}
+
+	public List<String> generateHashtag(String param) {
+		String hashtag = param;
+		List<String> hashList = new ArrayList<String>();
+		String[] hashArray;
+		hashArray = hashtag.split(",");
+		for(int i=0;i<hashArray.length;i++){
+			hashList.add(hashArray[i]);
+		}
+		return hashList;
+	}
+
+	public void insertHashtag(List<String> param) {
+		List<String> hashList = param;
+
+		for(int i=0;i<hashList.size();i++){
+			String hash = hashList.get(i);
+			String hashv = "";
+			hashv = galleryDAO.selectHashtagS(hash);
+			if(hashv == null||hashv.equals("")){
+				galleryDAO.insertHash(hash);
+			}
+		}
+	}
+
+	public List<Integer> selectHashtagId(List<String> hash) {
+		List<Integer> hashId = new ArrayList<Integer>();
+
+		for(String hashs : hash){
+		hashId.add(galleryDAO.selectHashtagI(hashs));
+		}
+
+		return hashId;
 	}
 
 	public GalleryVO getFile(String photoName) throws Exception {
