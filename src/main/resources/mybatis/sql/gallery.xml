@@ -23,9 +23,22 @@
 		  WHERE HASHTAG_WORD = #{hash}
 	</select>
 
-	<select id="allHashList" resultType="string">
-		SELECT HASHTAG_WORD
-		  FROM HASHTAG
+	<select id="selectHashtag1Word" parameterType="string" resultType="string">
+		SELECT h.hashtag_word
+		  FROM HASHTAG h, photo p
+		  WHERE h.hashtag_id = p.hashtag_id1
+	</select>
+
+	<select id="selectHashtag2Word" parameterType="string" resultType="string">
+		SELECT h.hashtag_word
+		  FROM HASHTAG h, photo p
+		  WHERE h.hashtag_id = p.hashtag_id2
+	</select>
+
+	<select id="selectHashtag3Word" parameterType="string" resultType="string">
+		SELECT h.hashtag_word
+		  FROM HASHTAG h, photo p
+		  WHERE h.hashtag_id = p.hashtag_id3
 	</select>
 
 	<insert id="insertPhoto" parameterType="GalleryVO">
