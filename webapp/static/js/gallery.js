@@ -45,15 +45,14 @@ $(function() {
 	}
 
 	function thumbGenerate(photoThumb){
-		var fileObj, pathHeader, pathMiddle, pathEnd, allFilename, fileName, extName;
-		fileObj = photoThumb
+		var fileObj, pathHeader, pathMiddle, pathEnd, fileName, extName;
+		fileObj = photoThumb;
 
-		pathHeader = fileObj.lastIndexOf("\\");
+		pathHeader = fileObj.indexOf("/")-1;
 		pathMiddle = fileObj.lastIndexOf(".");
 		pathEnd = fileObj.length;
 		fileName = fileObj.substring(pathHeader+1, pathMiddle);
 		extName = fileObj.substring(pathMiddle+1, pathEnd);
-		allFilename = fileName+"."+extName;
 
 		return fileName; // 파일명
 	}

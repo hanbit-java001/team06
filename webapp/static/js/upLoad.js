@@ -7,7 +7,7 @@ $(function() {
                 txt += "<br><strong>" + (i + 1) + ". file</strong><br>";
                 var file = x.files[i];
                 var filePath = URL.createObjectURL(event.target.files[i]);
-                txt += "<img src='" + filePath + "' height='200' >";
+                txt += "<img src='" + filePath + "' height='150' >";
                 txt += "<input id='hashInput"+i+"' type='text' onkeyup='' onblur=''><br>";
                 txt += "name: " + file.name + "<br>";
                 txt += "size: " + file.size + " bytes <br>";
@@ -21,8 +21,27 @@ $(function() {
             }
         }
         document.getElementById("filetxt").innerHTML = txt;
+        hashTag();
     });
 
+    function hashTag() {
+    	$.ajax({
+            url: "/hash/gallery/upLoad",
+            method: 'POST',
+        }).done(function(result) {
+        	var hashName, hashNames, htmlTxt;
+        	htmlTxt = "<h3>추천해시태그:</h3><br><ul>";
+        	for (var h = 0; h < result.length; h++) {
+                hashName = result[h];
+                hashNames = hashNames + hashName + "\n";
+
+//                console.log("hashNames="+hashNames);
+                htmlTxt += "<li>"+hashName+"</li>";
+            }
+        	htmlTxt += "</ul>";
+        	$("#hashtxt").append(htmlTxt);
+        });
+	}
 
     $(".btnApply").on("click", function() {
         var photoSelects = document.getElementById("photoSelect");

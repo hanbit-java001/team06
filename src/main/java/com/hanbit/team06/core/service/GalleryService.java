@@ -162,7 +162,11 @@ public class GalleryService {
 
 	public List<GalleryVO> getPhotoList() {
 		List<GalleryVO> photoList = galleryDAO.selectPhotoList();
-
 		return photoList;
+	}
+
+	public List<String> getHashList() {
+		List<String> hashList = galleryDAO.allHashList();
+		return hashList;
 	}
 }

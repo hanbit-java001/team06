@@ -23,6 +23,11 @@
 		  WHERE HASHTAG_WORD = #{hash}
 	</select>
 
+	<select id="allHashList" resultType="string">
+		SELECT HASHTAG_WORD
+		  FROM HASHTAG
+	</select>
+
 	<insert id="insertPhoto" parameterType="GalleryVO">
 	INSERT INTO PHOTO
 			(photo_id, photo_name, photo_date, photo_res1, photo_res2, photo_path,

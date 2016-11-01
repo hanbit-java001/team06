@@ -52,6 +52,7 @@
 			<button class="btnBack btn btn-default" onclick=location.href='/gallery/main'>취소</button>
 		</div>
 		<p id="filetxt"></p>
+		<p id="hashtxt"></p>
 	</div>
 
 	<script src="/static/plugins/jquery/jquery-3.1.0.min.js"></script>

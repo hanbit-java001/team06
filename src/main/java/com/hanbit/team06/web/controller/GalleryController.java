@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class GalleryController {
 	private GalleryService galleryService;
 
 	@RequestMapping("/gallery/upLoad")
-	public String update() {
+	public String upLoadWin() {
 
 		return "gallery/upLoad";
 	}
@@ -44,18 +45,26 @@ public class GalleryController {
 		return "member/myPhoto";
 	}
 
-	@RequestMapping("/poroporo/thumbnail/{photoName}")
+	@RequestMapping("/poroporo/thumbnail/T{photoName}")
 	@ResponseBody
 	public void getFile(@PathVariable("photoName") String photoName, HttpServletResponse response) throws Exception {
 
 		GalleryVO galleryVO = galleryService.getFile(photoName);
 
 		response.setContentType(galleryVO.getContentType());
-		response.setContentLengthLong(galleryVO.getFileSize());
+		//response.setContentLengthLong(galleryVO.getFileSize());
 
 		OutputStream outputStream = response.getOutputStream();
 		outputStream.write(galleryVO.getFileData());
 		outputStream.close();
+		response.flushBuffer();
+	}
+
+	@RequestMapping(value = "/hash/gallery/upLoad", method = RequestMethod.POST)
+	@ResponseBody
+	public List<String> upLoadHash(HttpServletRequest request) {
+		List<String> hashList = galleryService.getHashList();
+		return hashList;
 	}
 
 	@RequestMapping(value = "/api/gallery/upLoad", method = RequestMethod.POST)
@@ -84,7 +93,7 @@ public class GalleryController {
 			galleryVO.setHashTagId2(hashId.get(1));
 			galleryVO.setHashTagId3(hashId.get(2));
 
-		try {
+			try {
 				String fileparamName = fileParamNames.next();
 				MultipartFile file = request.getFile(fileparamName);
 
@@ -98,11 +107,11 @@ public class GalleryController {
 
 				fileList.add(photoName);
 
-		} catch (Exception e) {
-//			galleryService.removeFile(photoId);
-			System.out.println("오률ㄹㄹㄹㄹㄹㄹㄹㄹㄹ");
-			throw new RuntimeException(e.getMessage(), e);
-		}
+			} catch (Exception e) {
+//				galleryService.removeFile(photoId);
+				System.out.println("오률ㄹㄹㄹㄹㄹㄹㄹㄹㄹ");
+				throw new RuntimeException(e.getMessage(), e);
+			}
 		}
 		return fileList;
 	}
