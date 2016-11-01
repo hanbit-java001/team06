@@ -11,6 +11,11 @@
 			(SEQ_HASHTAG.NEXTVAL, #{hash})
 	</insert>
 
+	<select id="allHashList" resultType="string">
+		SELECT HASHTAG_WORD
+		  FROM HASHTAG
+	</select>
+
 	<select id="selectHashtagS" parameterType="string" resultType="string">
 		SELECT HASHTAG_WORD
 		  FROM HASHTAG
