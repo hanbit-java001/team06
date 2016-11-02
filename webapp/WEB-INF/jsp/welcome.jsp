@@ -48,16 +48,16 @@
 
 		<div class="login-dialog">
 			<div class="form-group">
-	   			<label for="txtEmail" class="input-required">이메일</label>
+	   			<label for="txtEmail" class="input-required">E-mail</label>
 	   			<input type="text" class="form-control" id="txtEmail" placeholder="이메일">
 			</div>
 			<div class="form-group">
-	   			<label for="txtPassword" class="input-required">비밀번호</label>
+	   			<label for="txtPassword" class="input-required">Password</label>
 	   			<input type="password" class="form-control" id="txtPassword" placeholder="비밀번호">
 			</div>
 			<div class="bottom-buttons">
-				<button class="btnLogin btn btn-success">로그인</button>
-				<button class="btnLoginCancel btn btn-default">취소</button>
+				<button class="btnLogin btn btn-success">LogIn</button>
+				<button class="btnLoginCancel btn btn-default">Cancel</button>
 			</div>
 		</div>
 	</div>
