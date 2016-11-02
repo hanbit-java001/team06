@@ -18,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hanbit.team06.core.dao.GalleryDAO;
+import com.hanbit.team06.core.session.Session;
+import com.hanbit.team06.core.session.SessionHelpler;
 import com.hanbit.team06.core.vo.GalleryVO;
 
 @Service
@@ -34,6 +36,9 @@ public class GalleryService {
 		String photoNameF = photoName.substring(0, pathMiddle);
 		String photoPath = "/poroporo/files/" + photoName;
 
+		Session session = SessionHelpler.getSession();
+		int memberId = session.getMemberId();
+
 		try {
 			FileUtils.writeByteArrayToFile(new File(photoPath), galleryVO.getFileData());
 		} catch (IOException e) {
@@ -42,6 +47,7 @@ public class GalleryService {
 			throw new RuntimeException("파일 저장중 문제가 발생하였습니다.");
 		}
 
+		galleryVO.setMemberId(memberId);
 		galleryVO.setPhotoName(photoNameF); // 순수파일이름
 		galleryVO.setPhotoPath(photoPath); // 경로.jpg
 		galleryVO.setThumb(getThumbnailG(galleryVO)); // 섬네일경로.jpg
@@ -56,8 +62,8 @@ public class GalleryService {
 	public GalleryVO fileRes(GalleryVO galleryVO) throws Exception {
 		File origin_file = new File(galleryVO.getPhotoPath());
 		BufferedImage image = ImageIO.read(origin_file);
-		String width = image.getWidth(null)+"";
-		String height = image.getHeight(null)+"";
+		String width = image.getWidth(null) + "";
+		String height = image.getHeight(null) + "";
 		galleryVO.setPhotoRes1(width);
 		galleryVO.setPhotoRes2(height);
 
@@ -99,7 +105,7 @@ public class GalleryService {
 		List<String> hashList = new ArrayList<String>();
 		String[] hashArray;
 		hashArray = hashtag.split(",");
-		for(int i=0;i<hashArray.length;i++){
+		for (int i = 0; i < hashArray.length; i++) {
 			hashList.add(hashArray[i]);
 		}
 		return hashList;
@@ -108,11 +114,11 @@ public class GalleryService {
 	public void insertHashtag(List<String> param) {
 		List<String> hashList = param;
 
-		for(int i=0;i<hashList.size();i++){
+		for (int i = 0; i < hashList.size(); i++) {
 			String hash = hashList.get(i);
 			String hashv = "";
 			hashv = galleryDAO.selectHashtagS(hash);
-			if(hashv == null||hashv.equals("")){
+			if (hashv == null || hashv.equals("")) {
 				galleryDAO.insertHash(hash);
 			}
 		}
@@ -121,8 +127,8 @@ public class GalleryService {
 	public List<Integer> selectHashtagId(List<String> hash) {
 		List<Integer> hashId = new ArrayList<Integer>();
 
-		for(String hashs : hash){
-		hashId.add(galleryDAO.selectHashtagI(hashs));
+		for (String hashs : hash) {
+			hashId.add(galleryDAO.selectHashtagI(hashs));
 		}
 
 		return hashId;

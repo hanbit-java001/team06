@@ -49,11 +49,11 @@
 	<insert id="insertPhoto" parameterType="GalleryVO">
 	INSERT INTO PHOTO
 			(photo_id, photo_name, photo_date, photo_res1, photo_res2, photo_path,
-			 HASHTAG_ID1, HASHTAG_ID2, HASHTAG_ID3, content_Type, file_Size, thumb)
+			 HASHTAG_ID1, HASHTAG_ID2, HASHTAG_ID3, content_Type, file_Size, thumb, member_id)
   		VALUES
 			(SEQ_PHOTO.currVAL, #{photoName}, TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS'),
 			 #{photoRes1}, #{photoRes2}, #{photoPath}, #{hashTagId1}, #{hashTagId2},
-			 #{hashTagId3}, #{contentType}, #{fileSize},  #{thumb})
+			 #{hashTagId3}, #{contentType}, #{fileSize},  #{thumb}, #{memberId})
 	</insert>
 
 	<insert id="insertPhoto2" parameterType="GalleryVO">
