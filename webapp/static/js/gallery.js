@@ -15,7 +15,7 @@ $(function() {
 
 	function getPhotos(/*photoId*/) {
 		$.ajax({
-			url: "/api/gallery/main",
+			url: "/api/gallery/galleryList",
 			method: "POST",
 //			data: {
 //				photoId: photoId

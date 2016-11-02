@@ -110,6 +110,7 @@ $(function() {
                 //			console.log("photoNames="+photoNames);
                 alert(photoNames + "파일을 올렸습니다.");
                 //			location.href = "/gallery/upLoad";
+                location.reload();
             });
         }
     });

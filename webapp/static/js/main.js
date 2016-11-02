@@ -8,11 +8,14 @@ $(function() {
 		else if (menuId == "menuLogin") {
 			showLoginDialog();
 		}
+		else if (menuId == "menuGallery") {
+			location.href = "/gallery/galleryList";
+		}
 		else if (menuId == "menuLogout") {
 			location.href = "/security/logout";
 		}
-		else if (menuId == "menuScheduler") {
-			location.href = "/schedule/list";
+		else if (menuId == "menuUpLoad") {
+			location.href = "/gallery/upLoad";
 		}
 	});
 

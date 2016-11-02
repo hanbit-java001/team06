@@ -4,7 +4,6 @@ $(function() {
 		var email = $("#txtEmail").val().trim();
 		var password = $("#txtPassword").val().trim();
 		var passwordConfirm = $("#txtPasswordConfirm").val().trim();
-		var imgProfile = $("#imgProfile").get(0);
 
 		if (name == "") {
 			alert("이름을 입력하세요.");
@@ -33,12 +32,6 @@ $(function() {
 		data.append("email", email);
 		data.append("password", password);
 
-		for (var i=0;i<imgProfile.files.length;i++) {
-			var file = imgProfile.files[i];
-
-			data.append("imgProfile", file);
-		}
-
 		$.ajax({
 			url: "/api/member/join",
 			method: "POST",
@@ -50,7 +43,11 @@ $(function() {
 
 			alert(name + "님 환영합니다.");
 
-			location.href = "/";
+			location.href = "/gallery/galleryList";
 		});
+	});
+
+	$(".btnBack").on("click", function() {
+		location.href = "/"
 	});
 });

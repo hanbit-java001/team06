@@ -55,10 +55,6 @@
    			<label for="txtPasswordConfirm" class="input-required">비밀번호확인</label>
    			<input type="password" class="form-control" id="txtPasswordConfirm" placeholder="비밀번호확인">
 		</div>
-		<div class="form-group">
-   			<label for="imgProfile">프로필사진</label>
-   			<input type="file" class="form-control" id="imgProfile" placeholder="프로필사진">
-		</div>
 		<div class="bottom-buttons">
 			<button class="btnApply btn btn-success">가입</button>
 			<button class="btnBack btn btn-default">취소</button>

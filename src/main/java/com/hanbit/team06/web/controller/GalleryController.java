@@ -116,13 +116,13 @@ public class GalleryController {
 		return fileList;
 	}
 
-	@RequestMapping("/gallery/main")
-	public String main() {
+	@RequestMapping("/gallery/galleryList")
+	public String gallery() {
 
-		return "gallery/main";
+		return "gallery/galleryList";
 	}
 
-	@RequestMapping("/api/gallery/main")
+	@RequestMapping("/api/gallery/galleryList")
 	@ResponseBody
 	public Map<String, Object> mapListPhotos() {
 		Map<String, Object> galleryMap = new HashMap<>();

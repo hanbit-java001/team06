@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.hanbit.team06.core.service.MemberService;
 import com.hanbit.team06.core.vo.MemberVO;
-import com.hanbit.team06.web.controller.MemberController;
 
 @Controller
 public class MemberController {
@@ -32,7 +31,7 @@ public class MemberController {
 		return "member/join";
 	}
 
-	@RequestMapping(value = "/api/member/join", method = RequestMethod.POST)
+	@RequestMapping(value="/api/member/join", method=RequestMethod.POST)
 	@ResponseBody
 	public Map doJoin(MultipartHttpServletRequest request) throws Exception {
 
@@ -40,16 +39,17 @@ public class MemberController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		try{
+		try {
 			MemberVO member = new MemberVO();
 			member.setName(name);
 			member.setEmail(email);
 			member.setPassword(password);
 
 			memberService.joinMember(member);
-		}catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("멤버조인 에러");
+		}
+		catch (Exception e) {
+
+			throw new RuntimeException(e.getMessage(), e);
 		}
 
 		Map result = new HashMap();

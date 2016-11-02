@@ -9,11 +9,23 @@
 		 WHERE member_email = #{email}
 	</select>
 
+	<select id="countMembers" resultType="int">
+  		SELECT COUNT(MEMBER_ID)
+  		  FROM MEMBER
+  	</select>
+
 	<insert id="insertMember" parameterType="MemberVO">
 		INSERT INTO MEMBER
 			(member_id, member_name, member_email, member_pw)
 		VALUES
 			(#{memberId}, #{name}, #{email}, #{password})
+	</insert>
+
+	<insert id="insertMember2" parameterType="MemberVO">
+		INSERT INTO MEMBER
+			(member_id, member_name, member_email, member_pw)
+		VALUES
+			(SEQ_MEMBER.currVAL, #{name}, #{email}, #{password})
 	</insert>
 
 	<select id="selectMember" parameterType="map" resultType="MemberVO">
@@ -72,10 +84,6 @@
   	]]>
   	</select>
 
-  	<select id="countMembers" resultType="int">
-  		SELECT COUNT(MEMBER_ID)
-  		  FROM MEMBER
-  	</select>
 
 
 </mapper>

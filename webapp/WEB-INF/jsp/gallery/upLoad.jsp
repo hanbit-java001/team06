@@ -49,7 +49,7 @@
 		</div>
 		<div class="bottom-buttons">
 			<button class="btnApply btn btn-success">사진 올리기</button>
-			<button class="btnBack btn btn-default" onclick=location.href='/gallery/main'>취소</button>
+			<button class="btnBack btn btn-default" onclick=location.href='/gallery/galleryList'>취소</button>
 		</div>
 		<p id="filetxt"></p>
 		<p id="hashtxt"></p>
