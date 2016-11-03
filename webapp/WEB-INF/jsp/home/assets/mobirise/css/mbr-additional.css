@@ -1,0 +1,66 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+
+
+
+
+
+#ext_menu-0 .mbr-brand__name {
+  font-size: 16px;
+}
+#ext_menu-0.mbr-navbar--stuck .mbr-navbar__section {
+  background: #ffffff;
+}
+#ext_menu-0 .mbr-navbar__section {
+  background: #ffffff;
+}
+#ext_menu-0 .mbr-navbar__hamburger {
+  color: #000000;
+}
+#ext_menu-0 .mbr-navbar__items a {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+#ext_menu-0 .mbr-brand__name a {
+  font-family: 'Oswald', sans-serif;
+}
+#slider-2 H1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 46px;
+}
+#slider-2 I {
+  font-size: 25px;
+}
+#slider-2 B {
+  font-size: 25px;
+}
+#msg-box3-3 .mbr-header .mbr-header__text {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  color: #252525;
+}
+#msg-box3-3 .mbr-header .mbr-header__subtext {
+  text-align: center;
+}
+#msg-box3-3 .mbr-article P {
+  color: #000000;
+  font-size: 18px;
+  text-align: center;
+}
+#msg-box3-3 .mbr-article DIV {
+  color: #000000;
+  font-size: 18px;
+  text-align: center;
+}
+#social-buttons1-6 .mbr-header__text {
+  font-family: 'Oswald', sans-serif;
+  text-align: right;
+  color: #777777;
+}
+#footer1-9 P {
+  color: #777777;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
