@@ -13,12 +13,10 @@ import com.hanbit.team06.core.session.LoginRequired;
 @Controller
 public class HomeController {
 
-	@RequestMapping("/home/home")
-	public String welcome() {
+	@RequestMapping("/home")
+	public String home() {
 
-		return "home/home";
+		return "home";
 	}
-
-
 
 }
