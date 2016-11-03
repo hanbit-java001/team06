@@ -45,4 +45,16 @@ public class SecurityService {
 		return member;
 	}
 
+	public MemberVO getNaverMember(String email) {
+		MemberVO member = memberDAO.selectNaverMember(email);
+
+		if (member == null) {
+			member.setEmail(email);
+			member.setApi("naver");
+			memberDAO.insertNaverMember(member);
+			member = memberDAO.selectNaverMember(email);
+		}
+		return member;
+	}
+
 }

@@ -12,7 +12,7 @@
 
 <!-- 네이버아디디로로그인 초기화 Script -->
 <script type="text/javascript">
-	var naver_id_login = new naver_id_login("WUeDOqZsNJxhXOLW8uN7", "http://localhost:8282/naverIdLogin");
+	var naver_id_login = new naver_id_login("WUeDOqZsNJxhXOLW8uN7", "http://localhost:8282/login");
 	var state = naver_id_login.getUniqState();
 	naver_id_login.setButton("green", 3,40);
 	naver_id_login.setDomain(".service.com");
@@ -30,7 +30,10 @@
 		// 프로필 항목은 개발가이드를 참고하시기 바랍니다.
 		alert(naver_id_login.getProfileData('email'));
 		alert(naver_id_login.getProfileData('nickname'));
+		alert(naver_id_login.getProfileData('name'));
+		alert(naver_id_login.getProfileData('id'));
 		alert(naver_id_login.getProfileData('age'));
+		alert(naver_id_login.getAccessToken());
 	}
 
 	// 네이버 사용자 프로필 조회

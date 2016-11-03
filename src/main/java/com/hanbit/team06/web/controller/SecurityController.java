@@ -42,6 +42,23 @@ public class SecurityController {
 		return result;
 	}
 
+	@RequestMapping(value="/api/security/naverlogin", method=RequestMethod.POST)
+	@ResponseBody
+	public Map naverLogin(@RequestParam("email") String email){
+		MemberVO member = securityService.getNaverMember(email);
+
+		Session session = SessionHelpler.getSession();
+		session.setLoggedIn(true);
+		session.setMemberId(member.getMemberId());
+		session.setEmail(email);
+		session.setName(member.getName());
+
+		Map result = new HashMap();
+		result.put("email", member.getEmail());
+
+		return result;
+	}
+
 	@RequestMapping("/api/security/isLoggedIn")
 	@ResponseBody
 	public Map isLoggedIn() {

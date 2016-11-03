@@ -15,6 +15,9 @@ http://rocabilly.tistory.com/27
 해시태그관련:https://www.xetown.com/alley/1385
 http://stackoverflow.com/questions/1822598/getting-url-hash-location-and-using-it-in-jquery
 
+네이버api: http://www.buskersbook.com/buskers/bb_codelab/28283
+http://www.buskersbook.com/buskers/bb_codelab/28290
+
 
 
 

@@ -28,6 +28,12 @@ public class MemberDAO {
 		return sqlSession.insert("member.insertMember", member);
 	}
 
+	public int insertNaverMember(MemberVO member) {
+		int seq = selectNextMemberId();
+		member.setMemberId(seq);
+		return sqlSession.insert("member.insertNaverMember", member);
+	}
+
 	public MemberVO selectMember(String email) {
 		Map param = new HashMap();
 		param.put("email", email);
@@ -38,6 +44,13 @@ public class MemberDAO {
 	public MemberVO selectMember(int memberId) {
 		Map param = new HashMap();
 		param.put("memberId", memberId);
+
+		return sqlSession.selectOne("member.selectMember", param);
+	}
+
+	public MemberVO selectNaverMember(String email) {
+		Map param = new HashMap();
+		param.put("email", email);
 
 		return sqlSession.selectOne("member.selectMember", param);
 	}

@@ -14,11 +14,18 @@
   		  FROM MEMBER
   	</select>
 
+	<insert id="insertNaverMember" parameterType="MemberVO">
+		INSERT INTO MEMBER
+			(member_id, member_email, member_api)
+		VALUES
+			(#{memberId}, #{email}, #{api})
+	</insert>
+
 	<insert id="insertMember" parameterType="MemberVO">
 		INSERT INTO MEMBER
-			(member_id, member_name, member_email, member_pw)
+			(member_id, member_name, member_email, member_pw, member_api)
 		VALUES
-			(#{memberId}, #{name}, #{email}, #{password})
+			(#{memberId}, #{name}, #{email}, #{password}, #{api})
 	</insert>
 
 	<insert id="insertMember2" parameterType="MemberVO">
@@ -32,7 +39,28 @@
 		SELECT member_id AS memberId,
 			   member_name AS name,
 			   member_email AS email,
-			   member_pw AS password
+			   member_pw AS password,
+			   member_api
+		  FROM MEMBER
+		 <choose>
+		 	<when test="email != null">
+		 		WHERE member_email = #{email}
+		 	</when>
+		 	<when test="memberId != null">
+		 		WHERE member_id = #{memberId}
+		 	</when>
+		 	<otherwise>
+		 		WHERE email = '!@#$'
+		 	</otherwise>
+		 </choose>
+	</select>
+
+	<select id="selectNaverMember" parameterType="map" resultType="MemberVO">
+		SELECT member_id AS memberId,
+			   member_name AS name,
+			   member_email AS email,
+			   member_pw AS password,
+			   member_api
 		  FROM MEMBER
 		 <choose>
 		 	<when test="email != null">

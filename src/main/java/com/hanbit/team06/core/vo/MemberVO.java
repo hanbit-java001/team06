@@ -6,6 +6,7 @@ public class MemberVO {
 	private String name;
 	private String email;
 	private String password;
+	private String api;
 
 	private String currentPassword;
 
@@ -48,5 +49,14 @@ public class MemberVO {
 	public void setCurrentPassword(String currentPassword) {
 		this.currentPassword = currentPassword;
 	}
+
+	public String getApi() {
+		return api;
+	}
+
+	public void setApi(String api) {
+		this.api = api;
+	}
+
 
 }
