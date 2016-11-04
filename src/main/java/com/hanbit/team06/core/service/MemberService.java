@@ -28,7 +28,7 @@ public class MemberService {
 
 	@Transactional
 	public String joinMember(MemberVO member) {
-		int countMember = memberDAO.countMember(member.getEmail());
+		int countMember = memberDAO.countMember(member.getMemberEmail());
 
 		if (countMember > 0) {
 			throw new RuntimeException("이미 가입된 이메일입니다.");
@@ -37,12 +37,12 @@ public class MemberService {
 		int memberId = memberDAO.selectNextMemberId();
 		member.setMemberId(memberId);
 
-		String encryptedPassword = securityService.encryptPassword(member.getPassword());
-		member.setPassword(encryptedPassword);
+		String encryptedPassword = securityService.encryptPassword(member.getMemberPw());
+		member.setMemberPw(encryptedPassword);
 
 		memberDAO.insertMember(member);
 
-		return member.getName();
+		return member.getMemberName();
 	}
 
 	@Transactional
@@ -55,8 +55,8 @@ public class MemberService {
 			throw new RuntimeException("현재 패스워드를 잘못 입력하셨습니다.");
 		}
 
-		String encryptedPassword = securityService.encryptPassword(member.getPassword());
-		member.setPassword(encryptedPassword);
+		String encryptedPassword = securityService.encryptPassword(member.getMemberPw());
+		member.setMemberPw(encryptedPassword);
 
 		int countUpdate = memberDAO.updateMember(member);
 

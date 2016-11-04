@@ -16,28 +16,6 @@
 </head>
 <body>
 
-	<header class="hanbit-header">
-		<div id="btnGroupMain">
-			<div id="btnMenu" class="hanbit-top-button">
-				<i class="material-icons hanbit-abs-center">menu</i>
-			</div>
-		</div>
-
-		<div id="btnGroupSub">
-			<div class="btnBack hanbit-top-button">
-				<i class="material-icons hanbit-abs-center">navigate_before</i>
-			</div>
-		</div>
-
-		<div id="btnGroupRight">
-			<div id="btnGroupUpdateMember">
-				<div class="btnApply hanbit-top-button right">
-					<i class="material-icons hanbit-abs-center">done</i>
-				</div>
-			</div>
-		</div>
-	</header>
-
 	<div class="hanbit-container">
 		<div class="form-group">
    			<label for="txtName" class="input-required">이름</label>

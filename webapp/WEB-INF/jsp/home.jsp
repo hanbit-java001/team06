@@ -34,12 +34,12 @@
 						class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
 						<span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
 							<span class="mbr-brand__logo"><a
-								href="203.236.209.189:8282/"><img
+								href="/home"><img
 									src="/static/assets/images/logo-128x128-15.png"
 									class="mbr-navbar__brand-img mbr-brand__img" alt="PoroPoro"
 									title="Free Photo Sharing Gallery"></a></span> <span
 							class="mbr-brand__name"><a
-								class="mbr-brand__name text-gray" href="203.236.209.189:8282/">Free
+								class="mbr-brand__name text-gray" href="/home">Free
 									Photo <br>Sharing Gallery
 							</a></span>
 						</span>
@@ -58,13 +58,13 @@
 										href="https://mobirise.com"></a></li>
 									<li class="mbr-navbar__item"><a
 										class="mbr-buttons__link btn text-black"
-										href="203.236.209.189:8282/">GALLERY</a></li>
+										href="/gallery/galleryList">GALLERY</a></li>
 									<li class="mbr-navbar__item"><a
 										class="mbr-buttons__link btn text-black"
-										href="203.236.209.189:8282/member/join">JOIN</a></li>
+										href="/member/join">JOIN</a></li>
 									<li class="mbr-navbar__item"><a
 										class="mbr-buttons__link btn text-black"
-										href="203.236.209.189:8282/member/login">LOGIN</a></li>
+										href="/">LOGIN</a></li>
 								</ul>
 
 							</div>
@@ -112,7 +112,10 @@
 												<strong>무료 사진, 벡터 이미지, 일러스트 이미지를 검색하세요.</strong><br>
 											</p>
 										</div>
-
+										<div>
+											<input class="form-control" id="finder-bar" type="text">
+											<button class="btnApply btn btn-success"><i></i></button>
+										</div>
 									</div>
 								</div>
 							</div>

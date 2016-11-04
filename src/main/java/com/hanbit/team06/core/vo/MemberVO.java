@@ -3,9 +3,9 @@ package com.hanbit.team06.core.vo;
 public class MemberVO {
 
 	private int memberId;
-	private String name;
-	private String email;
-	private String password;
+	private String memberName;
+	private String memberEmail;
+	private String memberPw;
 	private String api;
 
 	private String currentPassword;
@@ -18,28 +18,28 @@ public class MemberVO {
 		this.memberId = memberId;
 	}
 
-	public String getName() {
-		return name;
+	public String getMemberName() {
+		return memberName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getMemberEmail() {
+		return memberEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getMemberPw() {
+		return memberPw;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setMemberPw(String memberPw) {
+		this.memberPw = memberPw;
 	}
 
 	public String getCurrentPassword() {

@@ -41,9 +41,9 @@ public class MemberController {
 
 		try {
 			MemberVO member = new MemberVO();
-			member.setName(name);
-			member.setEmail(email);
-			member.setPassword(password);
+			member.setMemberName(name);
+			member.setMemberEmail(email);
+			member.setMemberPw(password);
 
 			memberService.joinMember(member);
 		}

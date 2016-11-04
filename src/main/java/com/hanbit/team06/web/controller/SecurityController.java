@@ -34,10 +34,10 @@ public class SecurityController {
 		session.setLoggedIn(true);
 		session.setMemberId(member.getMemberId());
 		session.setEmail(email);
-		session.setName(member.getName());
+		session.setName(member.getMemberName());
 
 		Map result = new HashMap();
-		result.put("name", member.getName());
+		result.put("name", member.getMemberName());
 
 		return result;
 	}
@@ -51,10 +51,10 @@ public class SecurityController {
 		session.setLoggedIn(true);
 		session.setMemberId(member.getMemberId());
 		session.setEmail(email);
-		session.setName(member.getName());
+		session.setName(member.getMemberName());
 
 		Map result = new HashMap();
-		result.put("email", member.getEmail());
+		result.put("email", member.getMemberEmail());
 
 		return result;
 	}

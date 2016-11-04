@@ -6,7 +6,7 @@
 	<select id="countMember" parameterType="string" resultType="int">
 		SELECT COUNT(member_id)
 		  FROM MEMBER
-		 WHERE member_email = #{email}
+		 WHERE member_email = #{memberEmail}
 	</select>
 
 	<select id="countMembers" resultType="int">
@@ -18,59 +18,59 @@
 		INSERT INTO MEMBER
 			(member_id, member_email, member_api)
 		VALUES
-			(#{memberId}, #{email}, #{api})
+			(#{memberId}, #{memberEmail}, #{memberApi})
 	</insert>
 
 	<insert id="insertMember" parameterType="MemberVO">
 		INSERT INTO MEMBER
-			(member_id, member_name, member_email, member_pw, member_api)
+			(member_id, member_name, member_email, member_pw)
 		VALUES
-			(#{memberId}, #{name}, #{email}, #{password}, #{api})
+			(#{memberId}, #{memberName}, #{memberEmail}, #{memberPw})
 	</insert>
 
 	<insert id="insertMember2" parameterType="MemberVO">
 		INSERT INTO MEMBER
 			(member_id, member_name, member_email, member_pw)
 		VALUES
-			(SEQ_MEMBER.currVAL, #{name}, #{email}, #{password})
+			(SEQ_MEMBER.currVAL, #{memberName}, #{memberEmail}, #{memberPw})
 	</insert>
 
 	<select id="selectMember" parameterType="map" resultType="MemberVO">
-		SELECT member_id AS memberId,
-			   member_name AS name,
-			   member_email AS email,
-			   member_pw AS password,
-			   member_api
+		SELECT MEMBER_ID,
+				MEMBER_NAME,
+				MEMBER_EMAIL,
+				MEMBER_PW
+<!-- 			   member_api -->
 		  FROM MEMBER
 		 <choose>
-		 	<when test="email != null">
-		 		WHERE member_email = #{email}
+		 	<when test="memberEmail != null">
+		 		WHERE MEMBER_EMAIL = #{memberEmail}
 		 	</when>
 		 	<when test="memberId != null">
 		 		WHERE member_id = #{memberId}
 		 	</when>
 		 	<otherwise>
-		 		WHERE email = '!@#$'
+		 		WHERE MEMBER_EMAIL = '!@#$'
 		 	</otherwise>
 		 </choose>
 	</select>
 
 	<select id="selectNaverMember" parameterType="map" resultType="MemberVO">
-		SELECT member_id AS memberId,
-			   member_name AS name,
-			   member_email AS email,
-			   member_pw AS password,
-			   member_api
+		SELECT member_id,
+			   member_name,
+			   member_email,
+			   member_pw,
+<!-- 			   member_api -->
 		  FROM MEMBER
 		 <choose>
-		 	<when test="email != null">
-		 		WHERE member_email = #{email}
+		 	<when test="memberEmail != null">
+		 		WHERE member_email = #{memberEmail}
 		 	</when>
 		 	<when test="memberId != null">
 		 		WHERE member_id = #{memberId}
 		 	</when>
 		 	<otherwise>
-		 		WHERE email = '!@#$'
+		 		WHERE member_email = '!@#$'
 		 	</otherwise>
 		 </choose>
 	</select>
@@ -78,7 +78,7 @@
 	<select id="selectMemberId" parameterType="string" resultType="int">
 		SELECT member_id
 		  FROM MEMBER
-		 WHERE member_email = #{email}
+		 WHERE member_email = #{memberEmail}
 	</select>
 
 	<select id="selectPassword" parameterType="int" resultType="string">
@@ -89,9 +89,9 @@
 
 	<update id="updateMember" parameterType="MemberVO">
 		UPDATE MEMBER
-		   SET member_name = #{name},
-		       member_email = #{email},
-		       member_pw = #{password}
+		   SET member_name = #{memberName},
+		       member_email = #{memberEmail},
+		       member_pw = #{memberPw}
 	</update>
 
 	<select id="selectNextMemberId" resultType="int">
@@ -101,11 +101,11 @@
 
 	<select id="selectMembers" parameterType="int" resultType="MemberVO">
 	<![CDATA[
-		SELECT 	a.rn, a.name, a.email
+		SELECT 	a.rn, a.member_name, a.member_email
 		  FROM (
-			SELECT a.rn, a.name, a.email
+			SELECT a.rn, a.member_name, a.member_email
 			  FROM (
-				SELECT ROWNUM rn, MEMBER_NAME name, MEMBER_EMAIL email
+				SELECT ROWNUM rn, MEMBER_NAME memberName, MEMBER_EMAIL memberEmail
 				  FROM MEMBER) a
 			 WHERE rn <= 3 * #{page}) a
 		 WHERE rn > 3 * (#{page} - 1)

@@ -1191,7 +1191,8 @@ html {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-size: 29px;
+  font-size: 33;
+  padding: 10;
   height: 56px;
   line-height: 61px;
   margin: 0 10px 13px 0;

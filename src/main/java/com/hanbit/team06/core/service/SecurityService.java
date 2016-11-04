@@ -36,7 +36,7 @@ public class SecurityService {
 			throw new RuntimeException("가입되지 않은 이메일입니다.");
 		}
 
-		String encryptedPassword = member.getPassword();
+		String encryptedPassword = member.getMemberPw();
 
 		if (!matchPassword(password, encryptedPassword)) {
 			throw new RuntimeException("패스워드가 일치하지 않습니다.");
@@ -49,7 +49,7 @@ public class SecurityService {
 		MemberVO member = memberDAO.selectNaverMember(email);
 
 		if (member == null) {
-			member.setEmail(email);
+			member.setMemberEmail(email);
 			member.setApi("naver");
 			memberDAO.insertNaverMember(member);
 			member = memberDAO.selectNaverMember(email);
