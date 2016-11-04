@@ -54,13 +54,13 @@
   font-size: 18px;
   text-align: center;
 }
-#social-buttons1-6 .mbr-header__text {
-  font-family: 'Oswald', sans-serif;
-  text-align: right;
-  color: #777777;
-}
 #footer1-9 P {
   color: #777777;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+}
+#social-buttons1-6 .mbr-header__text {
+  font-family: 'Oswald', sans-serif;
+  text-align: right;
+  color: #777777;
 }
