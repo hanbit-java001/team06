@@ -41,7 +41,7 @@ $(function() {
 		}).done(function(result) {
 			processAfterLogin(result.name);
 		}).fail(function() {
-			alert("잠시후 다시한번 시도해주세요.");//로그인을 실패하였습니다./n
+			alert("로그인을 실패하였습니다./n잠시후 다시한번 시도해주세요.");
 		});
 	});
 

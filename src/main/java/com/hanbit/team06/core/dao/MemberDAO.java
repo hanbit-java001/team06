@@ -29,8 +29,6 @@ public class MemberDAO {
 	}
 
 	public int insertNaverMember(MemberVO member) {
-		int seq = selectNextMemberId();
-		member.setMemberId(seq);
 		return sqlSession.insert("member.insertNaverMember", member);
 	}
 
@@ -52,7 +50,7 @@ public class MemberDAO {
 		Map param = new HashMap();
 		param.put("memberEmail", memberEmail);
 
-		return sqlSession.selectOne("member.selectMember", param);
+		return sqlSession.selectOne("member.selectNaverMember", param);
 	}
 
 	public int selectMemberId(String memberEmail) {

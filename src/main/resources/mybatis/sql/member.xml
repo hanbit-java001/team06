@@ -39,8 +39,8 @@
 		SELECT MEMBER_ID,
 				MEMBER_NAME,
 				MEMBER_EMAIL,
-				MEMBER_PW
-<!-- 			   member_api -->
+				MEMBER_PW,
+			   member_api
 		  FROM MEMBER
 		 <choose>
 		 	<when test="memberEmail != null">
@@ -60,7 +60,7 @@
 			   member_name,
 			   member_email,
 			   member_pw,
-<!-- 			   member_api -->
+			   member_api
 		  FROM MEMBER
 		 <choose>
 		 	<when test="memberEmail != null">

@@ -31,7 +31,7 @@ public class SessionAspect {
 		Class returnType = methodSignature.getReturnType();
 
 		if (returnType == String.class) {
-			return "login";
+			return "/";
 		}
 
 		throw new RuntimeException("로그인이 필요합니다.");

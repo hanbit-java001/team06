@@ -6,7 +6,7 @@ public class MemberVO {
 	private String memberName;
 	private String memberEmail;
 	private String memberPw;
-	private String api;
+	private String memberApi;
 
 	private String currentPassword;
 
@@ -50,13 +50,12 @@ public class MemberVO {
 		this.currentPassword = currentPassword;
 	}
 
-	public String getApi() {
-		return api;
+	public String getMemberApi() {
+		return memberApi;
 	}
 
-	public void setApi(String api) {
-		this.api = api;
+	public void setMemberApi(String memberApi) {
+		this.memberApi = memberApi;
 	}
-
 
 }

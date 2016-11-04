@@ -51,7 +51,6 @@ public class SecurityController {
 		session.setLoggedIn(true);
 		session.setMemberId(member.getMemberId());
 		session.setEmail(email);
-		session.setName(member.getMemberName());
 
 		Map result = new HashMap();
 		result.put("email", member.getMemberEmail());
