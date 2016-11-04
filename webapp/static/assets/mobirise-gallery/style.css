@@ -15,7 +15,7 @@
     outline: none;
 }
 .mbr-gallery .mbr-gallery-row {
-    margin-bottom: -30px;
+/* 사이간격 */
 }
 .mbr-gallery .mbr-gallery-item img {
     width: 100%;
@@ -189,16 +189,16 @@
     .mbr-gallery .container .mbr-figure__caption--std-grid {
 
         width: 100%;
-        margin-left: 0; 
+        margin-left: 0;
         padding-left: 15px;
-        padding-right: 15px;   
+        padding-right: 15px;
     }
 
     .mbr-gallery .mbr-gallery-row.no-gutter .mbr-figure__caption--std-grid {
         width: 100%;
         margin-left: 0;
         padding-left: 0;
-        padding-right: 0;   
+        padding-right: 0;
     }
 }
 

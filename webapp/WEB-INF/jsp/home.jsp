@@ -53,13 +53,13 @@
 										href="https://mobirise.com"></a></li>
 									<li class="mbr-navbar__item"><a
 										class="mbr-buttons__link btn text-black"
-										href="203.236.209.189:8282/">GALLERY</a></li>
+										href="203.236.209.189:8282/gallery/galleryList">GALLERY</a></li>
 									<li class="mbr-navbar__item"><a
 										class="mbr-buttons__link btn text-black"
 										href="203.236.209.189:8282/member/join">JOIN</a></li>
 									<li class="mbr-navbar__item"><a
 										class="mbr-buttons__link btn text-black"
-										href="203.236.209.189:8282/member/login">LOGIN</a></li>
+										href="203.236.209.189:8282/">LOGIN</a></li>
 								</ul>
 
 							</div>
@@ -185,7 +185,7 @@
 		</div>
 		<div
 			class="mbr-section__container container mbr-section__container--last"
-			style="padding-bottom: 31px;">
+			style="padding-bottom: 31px; pa">
 			<div class="row">
 				<div
 					class="mbr-article mbr-article--wysiwyg col-sm-8 col-sm-offset-2">
@@ -591,7 +591,7 @@
 
 		<div class="mbr-section__container container">
 			<div class="mbr-header mbr-header--inline row"
-				style="padding-top: 54.4px; padding-bottom: 0px;">
+				style="padding-top: 10px; padding-bottom: 0px;">
 				<div class="col-sm-4">
 					<h3 class="mbr-header__text">Share with Friends!</h3>
 				</div>
