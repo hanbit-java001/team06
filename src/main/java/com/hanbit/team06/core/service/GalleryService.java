@@ -72,8 +72,8 @@ public class GalleryService {
 
 	public String getThumbnailG(GalleryVO galleryVO) {
 
-		int thumbnail_width = 400;
-		int thumbnail_height = 300;
+		int thumbnail_width = 315;
+		int thumbnail_height = 212;
 		String thumbnailPath = "/poroporo/thumbnail/T" + galleryVO.getPhotoName() + ".jpg";
 		File origin_file_name = new File(galleryVO.getPhotoPath());
 		File thumb_file_name = new File(thumbnailPath);

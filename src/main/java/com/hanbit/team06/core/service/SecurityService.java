@@ -45,20 +45,22 @@ public class SecurityService {
 		return member;
 	}
 
-	@SuppressWarnings("null")
 	public MemberVO getNaverMember(String email) {
 		MemberVO member = new MemberVO();
+		MemberVO member2 = new MemberVO();
 		member = memberDAO.selectNaverMember(email);
 
 		if (member == null) {
 			int seq = memberDAO.selectNextMemberId();
-			member.setMemberId(seq);
-			member.setMemberEmail(email);
-			member.setMemberApi("naver");
+			member2.setMemberId(seq);
+			member2.setMemberEmail(email);
+			member2.setMemberApi("naver");
 
-			memberDAO.insertNaverMember(member);
+			memberDAO.insertNaverMember(member2);
+			return member2;
+		}else {
+			return member;
 		}
-		return member;
 	}
 
 }

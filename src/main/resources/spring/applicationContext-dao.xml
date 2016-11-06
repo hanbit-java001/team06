@@ -5,8 +5,8 @@
 
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@203.236.209.189:1521:xe" />
-<!-- 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:sys" /> -->
+<!-- 		<property name="url" value="jdbc:oracle:thin:@203.236.209.189:1521:xe" /> -->
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:sys" />
 		<property name="username" value="poroporo" />
 		<property name="password" value="1234" />
 		<property name="initialSize" value="3" />
