@@ -12,8 +12,9 @@
     <title>Gallery</title>
 
     <link href="/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/plugins/font-awesome/css/font-awesome.min.css">
     <link href="/static/plugins/bootstrap/css/thumbnail-gallery.css" rel="stylesheet">
-<link rel="stylesheet" href="/static/css/common.css" />
+	<link rel="stylesheet" href="/static/css/common.css" />
 
 </head>
 

@@ -85,4 +85,12 @@ public class GalleryDAO {
 	public int selectNextPhotoId() {
 		return sqlSession.selectOne("gallery.selectNextPhotoId");
 	}
+
+	public int sumPhotoLike() {
+		return sqlSession.selectOne("gallery.sumLike");
+	}
+
+	public int sumReadCount() {
+		return sqlSession.selectOne("gallery.sumReadCount");
+	}
 }

@@ -134,10 +134,14 @@ public class GalleryService {
 		return hashId;
 	}
 
-	public GalleryVO sumLike(int photoId){
-		GalleryVO galleryVO = galleryDAO.selectPhoto(photoId);
+	public int sumLike(int photoId){
+		int likeNum = galleryDAO.sumPhotoLike();
+		return likeNum;
+	}
 
-		return galleryVO;
+	public int sumReadCount(int photoId){
+		int readCountNum = galleryDAO.sumReadCount();
+		return readCountNum;
 	}
 
 	public GalleryVO getFile(String photoName) throws Exception {

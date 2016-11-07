@@ -98,6 +98,16 @@
 		  FROM DUAL
 	</select>
 
+	<select id="sumLike" resultType="int">
+		SELECT PHOTO_LIKE+1
+		  FROM PHOTO
+	</select>
+
+	<select id="sumReadCount" resultType="int">
+		SELECT READ_COUNT+1
+		  FROM PHOTO
+	</select>
+
 	<select id="countPhotoList" resultType="int">
 		SELECT COUNT(photo_id)
 		  FROM PHOTO
