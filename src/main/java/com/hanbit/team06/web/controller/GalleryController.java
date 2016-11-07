@@ -136,4 +136,13 @@ public class GalleryController {
 		return galleryMap;
 	}
 
+	@RequestMapping("/api/sum/gallery/galleryList")
+	@ResponseBody
+	public int sumPhotoLike(int num) {
+		int sumnum = 1;
+		galleryService.sumLike(num);
+
+		return sumnum;
+	}
+
 }

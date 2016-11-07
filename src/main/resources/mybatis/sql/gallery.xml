@@ -28,6 +28,12 @@
 		  WHERE HASHTAG_WORD = #{hash}
 	</select>
 
+	<select id="selectHashtagIS" parameterType="int" resultType="string">
+		SELECT HASHTAG_WORD
+		  FROM HASHTAG
+		  WHERE HASHTAG_ID = #{hashIds}
+	</select>
+
 	<select id="selectHashtag1Word" parameterType="string" resultType="string">
 		SELECT h.hashtag_word
 		  FROM HASHTAG h, photo p
@@ -97,57 +103,58 @@
 		  FROM PHOTO
 	</select>
 
-	<select id="selectPhoto" parameterType="string" resultType="GalleryVO">
-		SELECT photo_id AS PhotoId,
-			   photo_name AS PhotoName,
-			   photo_date AS UploadDate,
-			   photo_res1 AS Resolution1,
-			   photo_res2 AS Resolution2,
-			   photo_path AS PhotoPath,
-			   member_id  AS MemberID,
-			   thumb,
-			   content_type,
-			   file_size,
-			   photo_res1,
-			   photo_res2,
-			   HASHTAG_ID1,
-			   HASHTAG_ID2,
-			   HASHTAG_ID3
-			FROM PHOTO
-			WHERE PHOTO_NAME = #{photoName}
+	<select id="selectPhoto" parameterType="int" resultType="GalleryVO">
+			SELECT photo_id,
+				   photo_name,
+				   photo_date,
+			  	   photo_res1,
+			   	   photo_res2,
+			   	   photo_path,
+			 	   MEMBER_EMAIL,
+				   thumb,
+			 	   content_type,
+				   file_size,
+				   photo_res1,
+				   photo_res2,
+			 	   PHOTO_LIKE,
+				   READ_COUNT,
+				   HASHTAG_ID1,
+				   HASHTAG_ID2,
+				   HASHTAG_ID3
+				FROM PHOTO p, MEMBER m
+				WHERE m.member_id = p.member_id
+				  AND photo_id = #{photoId}
 	</select>
 
-	<select id="selectFile" parameterType="map" resultType="GalleryVO">
-		SELECT photo_id AS PhotoId,
-			   photo_name AS PhotoName,
-			   photo_date AS UploadDate,
-			   photo_res1 AS Resolution1,
-			   photo_res2 AS Resolution2,
-			   photo_path AS PhotoPath,
-			   member_id  AS MemberID,
+	<select id="selectFile" parameterType="String" resultType="GalleryVO">
+		SELECT photo_id,
+			   photo_name,
+			   photo_date,
+			   photo_res1,
+			   photo_res2,
+			   photo_path,
+			   member_id,
 			   thumb
 		  FROM PHOTO
-		  WHERE PhotoName = #{photoName}
+		  WHERE PHOTO_NAME = #{photoName}
 	</select>
 
 	<select id="selectPhotoList" resultType="GalleryVO">
-		SELECT photo_id AS PhotoId,
-			   photo_name AS PhotoName,
-			   photo_date AS UploadDate,
-			   photo_res1 AS Resolution1,
-			   photo_res2 AS Resolution2,
-			   photo_path AS PhotoPath,
-			   member_id  AS MemberID,
+		SELECT photo_id,
+			   photo_path,
+			   MEMBER_EMAIL,
 			   thumb,
 			   content_type,
 			   file_size,
-			   photo_res1,
-			   photo_res2,
+			   PHOTO_LIKE,
+			   READ_COUNT,
 			   HASHTAG_ID1,
 			   HASHTAG_ID2,
 			   HASHTAG_ID3
-		  FROM PHOTO
-		  order by PHOTO_ID desc
+		  FROM PHOTO p, MEMBER m
+		  WHERE m.member_id = p.member_id
+		  order by p.PHOTO_ID desc
 	</select>
+
 
 </mapper>

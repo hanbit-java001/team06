@@ -55,7 +55,8 @@
 	</div>
 
 <script type="text/javascript">
-	var naver_id_login = new naver_id_login("WUeDOqZsNJxhXOLW8uN7", "http://localhost:8282/login");
+// 	var naver_id_login = new naver_id_login("WUeDOqZsNJxhXOLW8uN7", "http://localhost:8282/login");
+	var naver_id_login = new naver_id_login("WUeDOqZsNJxhXOLW8uN7", "http://203.236.209.189:8282/login");
 	var state = naver_id_login.getUniqState();
 	naver_id_login.setButton("green", 3,40);
 	naver_id_login.setDomain(".service.com");

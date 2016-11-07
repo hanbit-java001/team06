@@ -134,6 +134,12 @@ public class GalleryService {
 		return hashId;
 	}
 
+	public GalleryVO sumLike(int photoId){
+		GalleryVO galleryVO = galleryDAO.selectPhoto(photoId);
+
+		return galleryVO;
+	}
+
 	public GalleryVO getFile(String photoName) throws Exception {
 		GalleryVO galleryVO = galleryDAO.selectFile(photoName);
 
@@ -158,8 +164,22 @@ public class GalleryService {
 
 	// }
 
+//	public GalleryVO getPhoto(int photoId) {
+//		return galleryDAO.selectPhoto(photoId);
+//	}
+
 	public GalleryVO getPhoto(int photoId) {
-		return galleryDAO.selectPhoto(photoId);
+		GalleryVO galleryVO = galleryDAO.selectPhoto(photoId);
+		List<Integer> hashList = new ArrayList<Integer>();
+		hashList.add(galleryVO.getHashTagId1());
+		hashList.add(galleryVO.getHashTagId2());
+		hashList.add(galleryVO.getHashTagId3());
+
+		List<String> hashWords = galleryDAO.selectHashtagIS(hashList);
+		galleryVO.setHashTagWord1(hashWords.get(0));
+		galleryVO.setHashTagWord2(hashWords.get(1));
+		galleryVO.setHashTagWord3(hashWords.get(2));
+		return galleryVO;
 	}
 
 	public int getTotalPhotos() {

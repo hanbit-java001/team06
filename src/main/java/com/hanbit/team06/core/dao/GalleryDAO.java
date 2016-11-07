@@ -46,7 +46,7 @@ public class GalleryDAO {
 	}
 
 	public GalleryVO selectFile(String photoName) {
-		return sqlSession.selectOne("gallery.selectPhoto", photoName);
+		return sqlSession.selectOne("gallery.selectFile", photoName);
 	}
 
 	public List<String> allHashList() {
@@ -60,6 +60,11 @@ public class GalleryDAO {
 
 	public int selectHashtagI(String hash) {
 		return sqlSession.selectOne("gallery.selectHashtagI", hash);
+	}
+
+	public List<String> selectHashtagIS(List<Integer> hashIds) {
+		List<String> HashWords = sqlSession.selectList("gallery.selectHashtagIS", hashIds);
+		return HashWords;
 	}
 
 	public GalleryVO selectPhoto(int photoId) {
