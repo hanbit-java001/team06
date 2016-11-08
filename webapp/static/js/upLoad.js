@@ -9,6 +9,7 @@ $(function() {
                 var filePath = URL.createObjectURL(event.target.files[i]);
                 txt += "<img src='" + filePath + "' height='150' >";
                 txt += "<input id='hashInput"+i+"' type='text' onkeyup='' onblur=''><br>";
+                txt += "<span id='sp"+i+"'>해시태그는 중간에 , 를 넣어서 3개만 입력해주세요.<br>";
                 txt += "name: " + file.name + "<br>";
                 txt += "size: " + file.size + " bytes <br>";
             }

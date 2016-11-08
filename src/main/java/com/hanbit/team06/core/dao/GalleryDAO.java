@@ -25,6 +25,11 @@ public class GalleryDAO {
 		return photoList;
 	}
 
+	public List<GalleryVO> selectPhotoFind(int hashtagId1) {
+		List<GalleryVO> photoList = sqlSession.selectList("gallery.selectPhotoFind", hashtagId1);
+		return photoList;
+	}
+
 	public int countPhotoList() {
 		return sqlSession.selectOne("gallery.countPhotoList");
 	}

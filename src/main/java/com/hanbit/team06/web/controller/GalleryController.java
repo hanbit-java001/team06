@@ -136,6 +136,19 @@ public class GalleryController {
 		return galleryMap;
 	}
 
+	@RequestMapping("/find/gallery/galleryList")
+	@ResponseBody
+	public Map<String, Object> findListPhotos(HttpServletRequest request) {
+		Map<String, Object> galleryMap = new HashMap<>();
+
+		String findWord = request.getParameter("finder-bar") == null ? "":request.getParameter("finder-bar");
+		List<GalleryVO> galleryList = galleryService.getFindPhotoList(findWord);
+
+		galleryMap.put("galleryList", galleryList);
+
+		return galleryMap;
+	}
+
 	@RequestMapping("/api/sumLike/gallery/galleryList")
 	@ResponseBody
 	public int sumPhotoLike(int photoId) {

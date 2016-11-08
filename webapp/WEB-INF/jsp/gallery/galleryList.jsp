@@ -48,7 +48,17 @@
         </div>
         <!-- /.container -->
     </nav>
-    <input type="text">
+
+    <div>
+	    <form class="finder-form" action="" method="post">
+ 		   <table>
+ 			   <tr>
+  				  <td><input id="finder-bar" type="text" placeholder="사진 검색"></td>
+ 				   <td><input id="finder-btn" type="submit" value=" "></td>
+  			  </tr>
+		    </table>
+  	    </form>
+    </div>
 
     <!-- Page Content -->
     <div class="container">
