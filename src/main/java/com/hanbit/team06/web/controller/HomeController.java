@@ -19,10 +19,18 @@ public class HomeController {
 		return "home";
 	}
 
+<<<<<<< HEAD
 	@RequestMapping("/gallery/galleryList2")
 	public String galleryList2() {
 
 		return "gallery/galleryList2";
 	}
 
+=======
+	@RequestMapping("/form")
+	public String form() {
+
+		return "form";
+	}
+>>>>>>> branch 'master' of https://github.com/hanbit-java001/team06.git
 }
