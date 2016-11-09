@@ -63,7 +63,7 @@ public class GalleryDAO {
 		return sqlSession.selectOne("gallery.selectHashtagS", hash);
 	}
 
-	public int selectHashtagI(String hash) {
+	public Integer selectHashtagI(String hash) {
 		return sqlSession.selectOne("gallery.selectHashtagI", hash);
 	}
 

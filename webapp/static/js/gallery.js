@@ -1,131 +1,127 @@
 $(function() {
-   getPhotos();
+      getPhotos();
 
-   function addPhotoList(photoId, memberEmail, photoUrl, photoLike, readCount) {
-      var photoHTML = "";
-      photoHTML += "<div class='col-lg-3 col-md-4 col-xs-6 thumb'>";
-      photoHTML += "<a class='thumbnail' href='#'>";
-      photoHTML += "<img class='img-responsive' ";
-      photoHTML += "src='" + photoUrl + "'> ";
-      photoHTML += "</a>";
-      photoHTML += memberEmail + "<br>";
-      photoHTML += "<div class='icon-group'>"
-      photoHTML += "<span class='like-icon' onclick='sumLike(photoId);'><i class='fa fa-thumbs-o-up'></i>" + photoLike + "</span><br>";
-      photoHTML += "<span class='read-icon' onclick='sumRead();'><i class='fa fa-eye' aria-hidden='true'></i>" + readCount + "</span>";
-      photoHTML += "</div>";
-      photoHTML += "</div>";
+      function addPhotoList(i, memberEmail, photoUrl, photoLike, readCount) {
+         var photoHTML = "";
+         var photoHTML2 = "";
+         photoHTML += "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item'>";
+         photoHTML += "<figcaption class='mbr-figure__caption mbr-figure__caption--std-grid'>";
+         photoHTML += "<div class='mbr-caption-background'></div>";
+         photoHTML += "<small class='mbr-figure__caption-small'>"+memberEmail;
+         photoHTML += "</small><span class='like-icon'><i class='fa fa-thumbs-o-up'></i>"+photoLike+"</span>";
+         photoHTML += "<span class='read-icon'><i class='fa fa-eye'></i>" + readCount + "</span>";
+         photoHTML += "</figcaption>";
+         photoHTML += "<a href='#lb-gallery2-6' data-slide-to='"+i+"' data-toggle='modal'>";
+         photoHTML += "<img alt='' src='"+photoUrl+".jpg'>";
+         photoHTML += "<span class='icon glyphicon glyphicon-zoom-in'></span>";
+         photoHTML += "</a>";
+         photoHTML += "</div>";
 
-      $(".photo-container").append(photoHTML);
-   }
+         $(".row").append(photoHTML);
 
-   function getPhotos() {
-      $.ajax({
-         url: "/api/gallery/galleryList",
-         method: "POST",
-      }).done(function(mapListPhotos) {
-         $(".photo-container").empty();
-         var totalCount = mapListPhotos.totalCount;
+         photoHTML2 += "<div class='item'>";
+         photoHTML2 += "<img alt='' src='"+photoUrl+"'>";
+         photoHTML2 += "</div>";
 
-         for (var i = 0; i < mapListPhotos.galleryList.length; i++) {
-            var photoV = mapListPhotos.galleryList[i];
+         $(".carousel-inner").append(photoHTML);
 
-            var memberEmail = photoV.memberEmail;
-            var photoUrl = "";
-            var photoLike = photoV.photoLike;
-            var readCount = photoV.readCount;
-            var photoId = photoV.photoId;
+//         $(".like-icon").on("click", function() {  active
+//            $(this).append(photoLike + 1);
+            //     	 var photoLike = $(this).attr("photoLike")
+            //     	 photoLike = photoLike+1;
+            //     	 $(this+">.num").text(photoLike);
 
-            if (photoV.photoPath !== undefined && photoV.photoPath != null) {
-               photoUrl = thumbGenerate(photoV.thumb);
-               console.log("photoUrl=" + photoUrl);
-            } else {
-               throw new RuntimeException(e.getMessage(), e);
+      }
+
+      function getPhotos() {
+         $.ajax({
+            url: "/api/gallery/galleryList",
+            method: "POST",
+         }).done(function(mapListPhotos) {
+            $(".photo-container").empty();
+            var totalCount = mapListPhotos.totalCount;
+
+            for (var i = 0; i < mapListPhotos.galleryList.length; i++) {
+               var photoV = mapListPhotos.galleryList[i];
+
+               var memberEmail = photoV.memberEmail;
+               var photoUrl = "";
+               var photoLike = photoV.photoLike;
+               var readCount = photoV.readCount;
+               var photoId = photoV.photoId;
+
+               if (photoV.photoPath !== undefined && photoV.photoPath != null) {
+                  photoUrl = thumbGenerate(photoV.thumb);
+                  console.log("photoUrl=" + photoUrl);
+               } else {
+                  throw new RuntimeException(e.getMessage(), e);
+               }
+
+               addPhotoList(i, memberEmail, photoUrl, photoLike, readCount);
             }
 
-            addPhotoList(photoId, memberEmail, photoUrl, photoLike, readCount);
-         }
-         var totalHTML = "&nbsp&nbsp&nbsp&nbsp&nbsp총 : " + totalCount + "개<br>";
-         $(".page-header").append(totalHTML);
+//            $.ajax({
+//               url: "/api/sumLike/gallery/galleryList",
+//               method: "POST",
+//               data: {
+//                  photoId: photoId
+//               }
+//            }).done(function(readC) {
+//
+//            });
+//         });
+
+         });
+      }
+
+      function thumbGenerate(photoThumb) {
+    	  var fileObj, pathHeader, pathMiddle, pathEnd, fileName, extName;
+    	  fileObj = photoThumb;
+
+    	  pathHeader = fileObj.indexOf("/") - 1;
+    	  pathMiddle = fileObj.lastIndexOf(".");
+    	  pathEnd = fileObj.length;
+    	  fileName = fileObj.substring(pathHeader + 1, pathMiddle);
+    	  extName = fileObj.substring(pathMiddle + 1, pathEnd);
+
+    	  return fileName; // 파일명
+      }
+
+      $("#finder-btn").on("click", function() {
+    	  $("#finder-bar").on("keyup", function(event) {
+    		  if (event.keyCode != 13) {
+    			  return;
+    		  }
+    		  var findWord = $("#finder-bar").val();
+
+    		  $.ajax({
+    			  url: "/find/gallery/galleryList",
+    			  method: 'POST',
+    			  data: {
+    				  findWord: findWord
+    			  }
+    		  }).done(function(findListPhotos) {
+    			  $(".photo-container").empty();
+
+    			  for (var i = 0; i < findListPhotos.galleryList.length; i++) {
+    				  var photoV = findListPhotos.galleryList[i];
+
+    				  var memberEmail = photoV.memberEmail;
+    				  var photoUrl = "";
+    				  var photoLike = photoV.photoLike;
+    				  var readCount = photoV.readCount;
+    				  var photoId = photoV.photoId;
+
+    				  if (photoV.photoPath !== undefined && photoV.photoPath != null) {
+    					  photoUrl = thumbGenerate(photoV.thumb);
+    					  console.log("photoUrl=" + photoUrl);
+    				  } else {
+    					  throw new RuntimeException(e.getMessage(), e);
+    				  }
+
+    				  addPhotoList(photoId, memberEmail, photoUrl, photoLike, readCount);
+    			  }
+    		  });
+    	  });
       });
-   }
-
-   function thumbGenerate(photoThumb) {
-      var fileObj, pathHeader, pathMiddle, pathEnd, fileName, extName;
-      fileObj = photoThumb;
-
-      pathHeader = fileObj.indexOf("/") - 1;
-      pathMiddle = fileObj.lastIndexOf(".");
-      pathEnd = fileObj.length;
-      fileName = fileObj.substring(pathHeader + 1, pathMiddle);
-      extName = fileObj.substring(pathMiddle + 1, pathEnd);
-
-      return fileName; // 파일명
-   }
-
-   $("#finder-btn").on("click", function() {
-	   var params = jQuery("#finder-btn").serialize();
-	   $.ajax({
-           url: "/find/gallery/galleryList",
-           method: 'POST',
-           data:params
-       }).done(function(findListPhotos) {
-    	   $(".photo-container").empty();
-
-           for (var i = 0; i < findListPhotos.galleryList.length; i++) {
-              var photoV = findListPhotos.galleryList[i];
-
-              var memberEmail = photoV.memberEmail;
-              var photoUrl = "";
-              var photoLike = photoV.photoLike;
-              var readCount = photoV.readCount;
-              var photoId = photoV.photoId;
-
-              if (photoV.photoPath !== undefined && photoV.photoPath != null) {
-                 photoUrl = thumbGenerate(photoV.thumb);
-                 console.log("photoUrl=" + photoUrl);
-              } else {
-                 throw new RuntimeException(e.getMessage(), e);
-              }
-
-              addPhotoList(photoId, memberEmail, photoUrl, photoLike, readCount);
-           }
-           var totalHTML = "&nbsp&nbsp&nbsp&nbsp&nbsp총 : " + totalCount + "개<br>";
-           $(".page-header").append(totalHTML);
-       });
-	});
-
-//   function sumLike(photoId) {
-//         var likeN = Document. + 1;
-//         $(this).txet(likeN);
-//
-//         $.ajax({
-//            url: "/api/sumLike/gallery/galleryList",
-//            method: "POST",
-//            data: {
-//               photoId: photoId
-//            }
-//         }).done(function(readC) {
-//
-//         });
-//   }
-
-   function sumRead() {
-      var iconClass = $(this).val();
-      console.log(iconClass);
-//      if (iconClass == "read-count") {
-//         var readN = readCount + 1;
-//         $(".read-count").append(readN);
-//
-//         $.ajax({
-//            url: "/api/sumRead/gallery/galleryList",
-//            method: "POST",
-//            data: {
-//               photoId: photoId
-//            }
-//         }).done(function(photoL) {
-//
-//         });
-//
-//      }
-   }
-});
+  });

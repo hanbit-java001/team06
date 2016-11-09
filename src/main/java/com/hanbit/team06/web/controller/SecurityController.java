@@ -81,7 +81,7 @@ public class SecurityController {
 		Session session = SessionHelpler.getSession();
 		session.logout();
 
-		response.sendRedirect("/");
+		response.sendRedirect("/home");
 	}
 
 }

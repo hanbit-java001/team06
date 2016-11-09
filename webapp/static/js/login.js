@@ -41,7 +41,7 @@ $(function() {
 		}).done(function(result) {
 			processAfterLogin(result.name);
 		}).fail(function() {
-			alert("잠시후 다시한번 시도해주세요.");
+			alert("해당 아이디가 없습니다.");
 		});
 	});
 

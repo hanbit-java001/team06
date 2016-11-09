@@ -180,7 +180,7 @@
 			   HASHTAG_ID3
 		  FROM PHOTO p, MEMBER m
 		  WHERE m.member_id = p.member_id
-		    AND HASHTAG_ID1 = #{hashtagId1}
+		    AND p.HASHTAG_ID1 = #{hashtagId1}
 		  order by p.PHOTO_ID desc
 	</select>
 

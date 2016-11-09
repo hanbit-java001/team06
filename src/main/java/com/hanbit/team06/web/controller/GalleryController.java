@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -138,10 +139,8 @@ public class GalleryController {
 
 	@RequestMapping("/find/gallery/galleryList")
 	@ResponseBody
-	public Map<String, Object> findListPhotos(HttpServletRequest request) {
+	public Map<String, Object> findListPhotos(@RequestParam("findWord") String findWord) {
 		Map<String, Object> galleryMap = new HashMap<>();
-
-		String findWord = request.getParameter("finder-bar") == null ? "":request.getParameter("finder-bar");
 		List<GalleryVO> galleryList = galleryService.getFindPhotoList(findWord);
 
 		galleryMap.put("galleryList", galleryList);

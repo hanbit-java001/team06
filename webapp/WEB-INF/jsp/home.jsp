@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -17,8 +16,10 @@
 <link rel="stylesheet" href="/static/assets/mobirise/css/style.css">
 <link rel="stylesheet" href="/static/assets/mobirise-slider/style.css">
 <link rel="stylesheet" href="/static/assets/mobirise-gallery/style.css">
-<link rel="stylesheet"
-	href="/static/assets/mobirise/css/mbr-additional.css" type="text/css">
+<link rel="stylesheet" href="/static/assets/mobirise/css/mbr-additional.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" />
+<link rel="stylesheet" href="/static/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/main.css" type="text/css">
 
 
 
@@ -53,18 +54,20 @@
 							<div class="mbr-navbar__column">
 								<ul
 									class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links">
-									<li class="mbr-navbar__item"><a
-										class="mbr-buttons__link btn text-white"
-										href="https://mobirise.com"></a></li>
-									<li class="mbr-navbar__item"><a
+									<li class="mbr-navbar__item" id="menuGallery"><a
 										class="mbr-buttons__link btn text-black"
 										href="/gallery/galleryList">GALLERY</a></li>
-									<li class="mbr-navbar__item"><a
+									<li class="beforeLogin mbr-navbar__item" id="menuJoin"><a
 										class="mbr-buttons__link btn text-black"
 										href="/member/join">JOIN</a></li>
-									<li class="mbr-navbar__item"><a
+									<li class="beforeLogin mbr-navbar__item" id="menuLogin"><a
+										class="mbr-buttons__link btn text-black">LOGIN</a></li>
+									<li class="afterLogin mbr-navbar__item" id="menuUpLoad"><a
 										class="mbr-buttons__link btn text-black"
-										href="/">LOGIN</a></li>
+										href="/gallery/upLoad">UPLOAD</a></li>
+									<li class="afterLogin mbr-navbar__item" id="menuLogout"><a
+										class="mbr-buttons__link btn text-black"
+										href="/security/logout">LOGOUT</a></li>
 								</ul>
 
 							</div>
@@ -81,7 +84,7 @@
 	</section>
 	<section
 		class="mbr-slider mbr-section mbr-section--no-padding carousel slide"
-		data-ride="carousel" data-wrap="true" data-interval="5000"
+		data-ride="carousel" data-wrap="true" data-interval="false"
 		id="slider-2" style="background-color: rgb(255, 255, 255);">
 		<div class="mbr-section__container">
 			<div>
@@ -113,9 +116,9 @@
 											</p>
 										</div>
 										<div>
-											<input class="form-control" id="finder-bar" type="text">
-											<button class="btnApply btn btn-success"><i></i></button>
-										</div>
+ 										   <input id="finder-bar" class="form-control" name="finder-bar" type="text" placeholder="사진 검색"><br>
+ 										   <input class="btnApply btn btn-success" id="finder-btn" name="finder-btn" type="button" value="검색">
+    									</div>
 									</div>
 								</div>
 							</div>
@@ -139,6 +142,10 @@
 												<strong>무료 사진, 벡터 이미지, 일러스트 이미지를 검색하세요.</strong>
 											</p>
 										</div>
+										<div>
+ 										   <input id="finder-bar" class="form-control" name="finder-bar" type="text" placeholder="사진 검색"><br>
+ 										   <input class="btnApply btn btn-success" id="finder-btn" name="finder-btn" type="button" value="검색">
+    									</div>
 
 									</div>
 								</div>
@@ -163,6 +170,10 @@
 												<strong>무료 사진, 벡터 이미지, 일러스트 이미지를 검색하세요.</strong>
 											</p>
 										</div>
+										<div>
+ 										   <input id="finder-bar" class="form-control" name="finder-bar" type="text" placeholder="사진 검색"><br>
+ 										   <input class="btnApply btn btn-success" id="finder-btn" name="finder-btn" type="button" value="검색">
+    									</div>
 
 									</div>
 								</div>
@@ -181,6 +192,22 @@
 					class="sr-only">Next</span>
 				</a>
 			</div>
+			<div class="login-dialog">
+			<div class="form-group">
+				<label for="txtEmail" class="input-required">E-mail</label>
+				<input type="text" class="form-control" id="txtEmail" placeholder="이메일">
+			</div>
+			<div class="form-group">
+				<label for="txtPassword" class="input-required">Password</label>
+				<input type="password" class="form-control" id="txtPassword" placeholder="비밀번호">
+			</div>
+			<div class="bottom-buttons">
+				<button class="btnLogin btn btn-success">LogIn</button>
+				<button class="btnLoginCancel btn btn-default">Cancel</button>
+			</div>
+			<hr color="444444">
+			<div id="naver_id_login"></div>
+		</div>
 		</div>
 	</section>
 
@@ -640,13 +667,20 @@
 	<script src="/static/assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/assets/smooth-scroll/SmoothScroll.js"></script>
-	<script
-		src="/static/assets/bootstrap-carousel-swipe/bootstrap-carousel-swipe.js"></script>
+	<script src="/static/assets/bootstrap-carousel-swipe/bootstrap-carousel-swipe.js"></script>
 	<script src="/static/assets/masonry/masonry.pkgd.min.js"></script>
 	<script src="/static/assets/imagesloaded/imagesloaded.pkgd.min.js"></script>
 	<script src="/static/assets/social-likes/social-likes.js"></script>
 	<script src="/static/assets/mobirise/js/script.js"></script>
 	<script src="/static/assets/mobirise-gallery/script.js"></script>
+	<script src="/static/js/home.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="/static/js/naverIdLoginInit.js"></script>
+	<script src="/static/js/naverIdLoginCallbeck.js"></script>
+	<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/common.js"></script>
+	<script src="/static/js/naverIdLogOut.js"></script>
 
 
 </body>

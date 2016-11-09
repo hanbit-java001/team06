@@ -187,7 +187,12 @@ public class GalleryService {
 	}
 
 	public List<GalleryVO> getFindPhotoList(String findWord) {
-		int hashId = galleryDAO.selectHashtagI(findWord); //스플릿안해줌
+		Integer hashId = galleryDAO.selectHashtagI(findWord); //스플릿안해줌
+
+		if (hashId == null) {
+			hashId = 0;
+		}
+
 		List<GalleryVO> photoList = galleryDAO.selectPhotoFind(hashId);
 		return photoList;
 	}
