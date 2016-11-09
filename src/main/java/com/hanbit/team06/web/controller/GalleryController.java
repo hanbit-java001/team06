@@ -46,7 +46,7 @@ public class GalleryController {
 		return "member/myPhoto";
 	}
 
-	@RequestMapping("/poroporo/thumbnail/T{photoName}")
+	@RequestMapping("/poroporo/files/{photoName}")
 	@ResponseBody
 	public void getFile(@PathVariable("photoName") String photoName, HttpServletResponse response) throws Exception {
 

@@ -132,6 +132,7 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
+  border-radius: 14px;
 }
 button[disabled],
 html input[disabled] {
@@ -268,6 +269,13 @@ th {
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+#fdiv{
+	background-color: #f0fff0;
+	float: inherit;
+	border-radius: 15px;
+	text-align: center;
+	vertical-align: middle;
 }
 .glyphicon {
     position: relative;
@@ -2716,6 +2724,7 @@ output {
 }
 .form-control {
   display: block;
+  margin-top: 10px;
   width: 100%;
   padding: 15px 18px;
   font-size: 14px;
@@ -2724,7 +2733,7 @@ output {
   background-color: #f6f6f6;
   background-image: none;
   border: 2px solid #f6f6f6;
-  border-radius: 0px;
+  border-radius: 20px;
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -3485,8 +3494,8 @@ fieldset[disabled] .btn-success.active {
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #ffffff;
-  background-color: #252525;
-  border-color: #252525;
+  background-color: #4aa141;
+  border-color: #4aa141;
 }
 .btn-success:active,
 .btn-success.active,

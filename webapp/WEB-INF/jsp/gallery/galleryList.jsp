@@ -9,10 +9,8 @@
 	href="/static/assets/images/logo-128x128-66.png" type="image/x-icon">
 <meta name="description" content="">
 
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
-<link rel="stylesheet"
-	href="/static/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
+<link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/static/assets/socicon/css/socicon.min.css">
 <link rel="stylesheet" href="/static/assets/mobirise/css/style.css">
 <link rel="stylesheet" href="/static/assets/mobirise-slider/style.css">
@@ -20,6 +18,7 @@
 <link rel="stylesheet" href="/static/assets/mobirise/css/mbr-additional.css" type="text/css">
 <link rel="stylesheet" href="/static/plugins/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/static/css/common.css" />
+<link rel="stylesheet" href="/static/css/btn.css" />
 <link rel="stylesheet" href="/static/css/main.css" type="text/css">
 
 
@@ -45,17 +44,12 @@
 									Photo <br>Sharing Gallery
 							</a></span>
 						</span>
-						<div>
-						    <form id="finder-form" class="finder-form" onsubmit="return false;" name="finder-form" action="" method="post">
- 							   <table>
- 								   <tr>
-  									  <td><input id="finder-bar" name="finder-bar" type="text" placeholder="사진 검색"></td>
- 									   <td><input id="finder-btn" name="finder-btn" type="button" value=""><i class="fa fa-search" aria-hidden="true"></i></td>
-  								  </tr>
-							   </table>
-  	    					</form>
-    					</div>
+
 					</div>
+					<div id="fdiv">
+ 				<input id="finder-bar" class="form-control" name="finder-bar" type="text" placeholder="사진 검색">
+ 				<input class="btnApply btn btn-success" id="finder-btn" name="finder-btn" type="button" value="검색">
+    		</div>
 					<div class="mbr-navbar__hamburger mbr-hamburger">
 						<span class="mbr-hamburger__line"></span>
 					</div>
@@ -75,10 +69,10 @@
 										class="mbr-buttons__link btn text-black">LOGIN</a></li>
 									<li class="afterLogin mbr-navbar__item" id="menuUpLoad"><a
 										class="mbr-buttons__link btn text-black"
-										href="/">UPLOAD</a></li>
+										href="/gallery/upLoad">UPLOAD</a></li>
 									<li class="afterLogin mbr-navbar__item" id="menuLogout"><a
 										class="mbr-buttons__link btn text-black"
-										href="/">LOGOUT</a></li>
+										href="/security/logout">LOGOUT</a></li>
 								</ul>
 
 							</div>
@@ -86,7 +80,9 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
+
 	</section>
 
 	<section class="mbr-gallery mbr-section mbr-section--no-padding"
@@ -112,6 +108,7 @@
 			<div id="naver_id_login"></div>
 		</div>
 				<div class="row mbr-gallery-row">
+
 <!-- 					photo Conteiner -->
 
 				</div>
@@ -127,7 +124,6 @@
 				<div class="modal-content">
 					<div class="modal-body">
 
-						<div class="carousel-inner">
 <!-- 							photo scroll -->
 
 						</div>
@@ -137,200 +133,6 @@
 							<span class="sr-only">Previous</span>
 						</a> <a class="right carousel-control" role="button" data-slide="next"
 							href="#lb-gallery2-6"> <span
-							class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a> <a class="close" href="#" role="button" data-dismiss="modal">
-							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-							<span class="sr-only">Close</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="mbr-gallery mbr-section mbr-section--no-padding"
-		id="gallery2-7">
-		<!-- Gallery -->
-		<div
-			class="mbr-section__container mbr-gallery-layout-article mbr-section__container--last">
-			<div>
-				<div class="row mbr-gallery-row">
-
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item">
-
-						<figcaption
-							class="mbr-figure__caption mbr-figure__caption--std-grid">
-							<div class="mbr-caption-background"></div>
-							<small class="mbr-figure__caption-small">Type caption
-								here</small>
-						</figcaption>
-
-						<a href="#lb-gallery2-7" data-slide-to="0" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide1-small.jpg"> <span
-							class="icon glyphicon glyphicon-zoom-in"></span>
-						</a>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item">
-
-						<figcaption
-							class="mbr-figure__caption mbr-figure__caption--std-grid">
-							<div class="mbr-caption-background"></div>
-							<small class="mbr-figure__caption-small">Type caption
-								here</small>
-						</figcaption>
-
-						<a href="#lb-gallery2-7" data-slide-to="1" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide2-small.jpg"> <span
-							class="icon glyphicon glyphicon-zoom-in"></span>
-						</a>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item">
-
-						<figcaption
-							class="mbr-figure__caption mbr-figure__caption--std-grid">
-							<div class="mbr-caption-background"></div>
-							<small class="mbr-figure__caption-small">Type caption
-								here</small>
-						</figcaption>
-
-						<a href="#lb-gallery2-7" data-slide-to="2" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide3-small.jpg"> <span
-							class="icon glyphicon glyphicon-zoom-in"></span>
-						</a>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item">
-
-						<figcaption
-							class="mbr-figure__caption mbr-figure__caption--std-grid">
-							<div class="mbr-caption-background"></div>
-							<small class="mbr-figure__caption-small">Type caption
-								here</small>
-						</figcaption>
-
-						<a href="#lb-gallery2-7" data-slide-to="3" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide4-small.jpg"> <span
-							class="icon glyphicon glyphicon-zoom-in"></span>
-						</a>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item">
-
-						<figcaption
-							class="mbr-figure__caption mbr-figure__caption--std-grid">
-							<div class="mbr-caption-background"></div>
-							<small class="mbr-figure__caption-small">Type caption
-								here</small>
-						</figcaption>
-
-						<a href="#lb-gallery2-7" data-slide-to="4" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide5-small.jpg"> <span
-							class="icon glyphicon glyphicon-zoom-in"></span>
-						</a>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item">
-
-						<figcaption
-							class="mbr-figure__caption mbr-figure__caption--std-grid">
-							<div class="mbr-caption-background"></div>
-							<small class="mbr-figure__caption-small">Type caption
-								here</small>
-						</figcaption>
-
-						<a href="#lb-gallery2-7" data-slide-to="5" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide6-small.jpg"> <span
-							class="icon glyphicon glyphicon-zoom-in"></span>
-						</a>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item">
-
-						<figcaption
-							class="mbr-figure__caption mbr-figure__caption--std-grid">
-							<div class="mbr-caption-background"></div>
-							<small class="mbr-figure__caption-small">Type caption
-								here</small>
-						</figcaption>
-
-						<a href="#lb-gallery2-7" data-slide-to="6" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide7-small.jpg"> <span
-							class="icon glyphicon glyphicon-zoom-in"></span>
-						</a>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mbr-gallery-item">
-
-						<figcaption
-							class="mbr-figure__caption mbr-figure__caption--std-grid">
-							<div class="mbr-caption-background"></div>
-							<small class="mbr-figure__caption-small">Type caption
-								here</small>
-						</figcaption>
-
-						<a href="#lb-gallery2-7" data-slide-to="7" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide8-small.jpg"> <span
-							class="icon glyphicon glyphicon-zoom-in"></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-
-		<!-- Lightbox -->
-		<div data-app-prevent-settings=""
-			class="mbr-slider modal fade carousel slide" tabindex="-1"
-			data-keyboard="true" data-interval="false" id="lb-gallery2-7">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-body">
-						<ol class="carousel-indicators">
-							<li data-app-prevent-settings="" data-target="#lb-gallery2-7"
-								class=" active" data-slide-to="0"></li>
-							<li data-app-prevent-settings="" data-target="#lb-gallery2-7"
-								data-slide-to="1"></li>
-							<li data-app-prevent-settings="" data-target="#lb-gallery2-7"
-								data-slide-to="2"></li>
-							<li data-app-prevent-settings="" data-target="#lb-gallery2-7"
-								data-slide-to="3"></li>
-							<li data-app-prevent-settings="" data-target="#lb-gallery2-7"
-								data-slide-to="4"></li>
-							<li data-app-prevent-settings="" data-target="#lb-gallery2-7"
-								data-slide-to="5"></li>
-							<li data-app-prevent-settings="" data-target="#lb-gallery2-7"
-								data-slide-to="6"></li>
-							<li data-app-prevent-settings="" data-target="#lb-gallery2-7"
-								data-slide-to="7"></li>
-						</ol>
-						<div class="carousel-inner">
-							<div class="item active">
-								<img alt="" src="/static/assets/images/slide1.jpg">
-							</div>
-							<div class="item">
-								<img alt="" src="/static/assets/images/slide2.jpg">
-							</div>
-							<div class="item">
-								<img alt="" src="/static/assets/images/slide3.jpg">
-							</div>
-							<div class="item">
-								<img alt="" src="/static/assets/images/slide4.jpg">
-							</div>
-							<div class="item">
-								<img alt="" src="/static/assets/images/slide5.jpg">
-							</div>
-							<div class="item">
-								<img alt="" src="/static/assets/images/slide6.jpg">
-							</div>
-							<div class="item">
-								<img alt="" src="/static/assets/images/slide7.jpg">
-							</div>
-							<div class="item">
-								<img alt="" src="/static/assets/images/slide8.jpg">
-							</div>
-						</div>
-						<a class="left carousel-control" role="button" data-slide="prev"
-							href="#lb-gallery2-7"> <span
-							class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a> <a class="right carousel-control" role="button" data-slide="next"
-							href="#lb-gallery2-7"> <span
 							class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 							<span class="sr-only">Next</span>
 						</a> <a class="close" href="#" role="button" data-dismiss="modal">
@@ -394,7 +196,6 @@
 			</div>
 		</div>
 	</footer>
-
 
 	<script src="/static/assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>

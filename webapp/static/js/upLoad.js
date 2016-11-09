@@ -4,14 +4,16 @@ $(function() {
         var txt = "";
         if ('files' in x) {
             for (var i = 0; i < x.files.length; i++) {
-                txt += "<br><strong>" + (i + 1) + ". file</strong><br>";
+//                txt += "<br><strong>" + (i + 1) + ". file</strong><br>";
                 var file = x.files[i];
                 var filePath = URL.createObjectURL(event.target.files[i]);
+                txt += "<div class='divp'>";
+                txt += "<hr style='border: solid 1px green;'>";
                 txt += "<img src='" + filePath + "' height='150' >";
-                txt += "<input id='hashInput"+i+"' type='text' onkeyup='' onblur=''><br>";
-                txt += "<span id='sp"+i+"'>해시태그는 중간에 , 를 넣어서 3개만 입력해주세요.<br>";
-                txt += "name: " + file.name + "<br>";
-                txt += "size: " + file.size + " bytes <br>";
+                txt += "<input id='hashInput"+i+"' class='form-control' type='text' placeholder='해시태그는 , 를 넣어서 3개 까지만 입력해주세요.' onkeyup='' onblur=''><br>";
+                txt += "<span class='file-name'>name: " + file.name + "<br></span>";
+                txt += "<span class='file-size'>size: " + file.size + " bytes</span><br>";
+                txt += "</div>";
             }
         } else {
             if (x.value == "") {

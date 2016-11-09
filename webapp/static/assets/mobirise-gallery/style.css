@@ -156,7 +156,13 @@
 .mbr-gallery .mbr-figure__caption-small {
     position: relative;
     z-index: 2;
-    padding: 0 10px;
+    padding: 0 90px 0 14px;
+    display: inline;
+}
+.mbr-gallery .mbr-figure__caption-small:hover {
+	color: #fff;
+	background-color #444444;
+    text-shadow: -1px 1px 5px #03c, 1px -1px 5px #03c;
 }
 .mbr-gallery .mbr-caption-background{
     position: absolute;
@@ -189,16 +195,16 @@
     .mbr-gallery .container .mbr-figure__caption--std-grid {
 
         width: 100%;
-        margin-left: 0; 
+        margin-left: 0;
         padding-left: 15px;
-        padding-right: 15px;   
+        padding-right: 15px;
     }
 
     .mbr-gallery .mbr-gallery-row.no-gutter .mbr-figure__caption--std-grid {
         width: 100%;
         margin-left: 0;
         padding-left: 0;
-        padding-right: 0;   
+        padding-right: 0;
     }
 }
 

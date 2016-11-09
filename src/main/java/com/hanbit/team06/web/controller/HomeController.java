@@ -1,14 +1,7 @@
 package com.hanbit.team06.web.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.hanbit.team06.core.session.LoginRequired;
 
 @Controller
 public class HomeController {
@@ -19,18 +12,28 @@ public class HomeController {
 		return "home";
 	}
 
-<<<<<<< HEAD
 	@RequestMapping("/gallery/galleryList2")
 	public String galleryList2() {
 
 		return "gallery/galleryList2";
 	}
 
-=======
-	@RequestMapping("/form")
-	public String form() {
+	@RequestMapping("/gallery/up")
+	public String gup() {
 
-		return "form";
+		return "gallery/up";
 	}
->>>>>>> branch 'master' of https://github.com/hanbit-java001/team06.git
+
+	@RequestMapping("/gallery/up2")
+	public String gup2() {
+
+		return "gallery/up2";
+	}
+
+	@RequestMapping("/gallery/up3")
+	public String gup3() {
+
+		return "gallery/up3";
+	}
+
 }

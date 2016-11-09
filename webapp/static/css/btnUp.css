@@ -1,0 +1,25 @@
+#finder-btn{
+	position: absolute;
+	transform: translate(117px,-35px);
+}
+.form-control {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px 18px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #373737;
+    background-color: #f6f6f6;
+    background-image: none;
+    border: 2px solid #f6f6f6;
+    border-radius: 20px;
+}
+.divp{
+/* 	display: inline; */
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+#hrc{
+	background-color: #000000;
+}

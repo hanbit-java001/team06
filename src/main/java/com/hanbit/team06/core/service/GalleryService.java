@@ -147,7 +147,7 @@ public class GalleryService {
 	public GalleryVO getFile(String photoName) throws Exception {
 		GalleryVO galleryVO = galleryDAO.selectFile(photoName);
 
-		String photoPath = galleryVO.getThumb();
+		String photoPath = galleryVO.getPhotoPath();
 		byte[] fileData = FileUtils.readFileToByteArray(new File(photoPath));
 
 		galleryVO.setFileData(fileData);
