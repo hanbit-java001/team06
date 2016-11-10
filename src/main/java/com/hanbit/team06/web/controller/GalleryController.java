@@ -53,7 +53,6 @@ public class GalleryController {
 		GalleryVO galleryVO = galleryService.getFile(photoName);
 
 		response.setContentType(galleryVO.getContentType());
-		//response.setContentLengthLong(galleryVO.getFileSize());
 
 		OutputStream outputStream = response.getOutputStream();
 		outputStream.write(galleryVO.getFileData());

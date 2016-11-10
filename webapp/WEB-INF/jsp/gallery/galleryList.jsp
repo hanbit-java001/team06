@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/static/plugins/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/static/css/common.css" />
 <link rel="stylesheet" href="/static/css/btn.css" />
-<link rel="stylesheet" href="/static/css/main.css" type="text/css">
+<link rel="stylesheet" href="/static/css/maing.css" type="text/css">
 
 
 

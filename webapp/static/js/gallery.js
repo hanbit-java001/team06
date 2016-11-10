@@ -11,14 +11,14 @@ $(function() {
          photoHTML += "</small><span class='mbr-figure__caption-small'><i class='fa fa-thumbs-o-up'></i>"+photoLike+"</span>";
          photoHTML += "</figcaption>";
          photoHTML += "<a href='#lb-gallery2-6' data-slide-to='"+i+"' data-toggle='modal'>";
-         photoHTML += "<img alt='' src='"+photoUrl+"'>";
+         photoHTML += "<img height='252' alt='' src='"+photoUrl+"'>";
          photoHTML += "<span class='icon glyphicon glyphicon-zoom-in'></span>";
          photoHTML += "</a>";
          photoHTML += "</div>";
 
          $(".mbr-gallery-row").append(photoHTML);
 
-         photoHTML2 += "<div class='item active'>";
+         photoHTML2 += "<div class='item'>";
          photoHTML2 += "<img alt='' src='"+photoUrl+"'>";
          photoHTML2 += "</div>";
 
