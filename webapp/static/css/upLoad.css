@@ -9,3 +9,18 @@
 	position: relative;
 	background: #fff;
 }
+.hTag{
+	position: absolute;
+	border: 1px solid #cecece;
+}
+.liTag{
+	display: inline-block;
+    padding: 2px 10px;
+    margin: 0 0 8px 12px;
+    font-size: 13px;
+    color: #777;
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    text-transform: lowercase;
+    transition: .2s;
+}

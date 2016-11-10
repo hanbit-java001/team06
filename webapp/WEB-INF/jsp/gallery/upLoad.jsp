@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="/static/css/btnUp.css" />
 <link rel="stylesheet" href="/static/css/commonUp.css" />
 <link rel="stylesheet" href="/static/css/member.css" />
+<link rel="stylesheet" href="/static/css/upLoad.css" />
 <link rel="stylesheet" href="/static/plugins2/css/jquery.fileupload-ui.css">
 <link rel="stylesheet" href="/static/plugins2/css/jquery.fileupload.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -99,9 +100,10 @@
 		<div class="bottom-buttons">
 			<button class="btnApply btn btn-success">사진 올리기</button>
 			<button class="btnBack btn btn-default" onclick=location.href='/home'>취소</button>
-		</div>
-		<p id="filetxt"></p>
+		</div><br>
 		<p id="hashtxt"></p>
+		<p id="filetxt"></p>
+
 	</div>
 
 

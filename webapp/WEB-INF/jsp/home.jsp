@@ -257,7 +257,7 @@
 						</figcaption>
 
 						<a href="#lb-gallery2-6" data-slide-to="0" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide1-small.jpg"> <span
+							<img alt="" src="/static/assets/images2/slide1-small.jpg"> <span
 							class="icon glyphicon glyphicon-zoom-in"></span>
 						</a>
 					</div>
@@ -271,7 +271,7 @@
 						</figcaption>
 
 						<a href="#lb-gallery2-6" data-slide-to="1" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide2-small.jpg"> <span
+							<img alt="" src="/static/assets/images2/slide2-small.jpg"> <span
 							class="icon glyphicon glyphicon-zoom-in"></span>
 						</a>
 					</div>
@@ -285,7 +285,7 @@
 						</figcaption>
 
 						<a href="#lb-gallery2-6" data-slide-to="2" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide3-small.jpg"> <span
+							<img alt="" src="/static/assets/images2/slide3-small.jpg"> <span
 							class="icon glyphicon glyphicon-zoom-in"></span>
 						</a>
 					</div>
@@ -299,7 +299,7 @@
 						</figcaption>
 
 						<a href="#lb-gallery2-6" data-slide-to="3" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide4-small.jpg"> <span
+							<img alt="" src="/static/assets/images2/slide4-small.jpg"> <span
 							class="icon glyphicon glyphicon-zoom-in"></span>
 						</a>
 					</div>
@@ -313,7 +313,7 @@
 						</figcaption>
 
 						<a href="#lb-gallery2-6" data-slide-to="4" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide5-small.jpg"> <span
+							<img alt="" src="/static/assets/images2/slide5-small.jpg"> <span
 							class="icon glyphicon glyphicon-zoom-in"></span>
 						</a>
 					</div>
@@ -327,7 +327,7 @@
 						</figcaption>
 
 						<a href="#lb-gallery2-6" data-slide-to="5" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide6-small.jpg"> <span
+							<img alt="" src="/static/assets/images2/slide6-small.jpg"> <span
 							class="icon glyphicon glyphicon-zoom-in"></span>
 						</a>
 					</div>
@@ -341,7 +341,7 @@
 						</figcaption>
 
 						<a href="#lb-gallery2-6" data-slide-to="6" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide7-small.jpg"> <span
+							<img alt="" src="/static/assets/images2/slide7-small.jpg"> <span
 							class="icon glyphicon glyphicon-zoom-in"></span>
 						</a>
 					</div>
@@ -355,7 +355,7 @@
 						</figcaption>
 
 						<a href="#lb-gallery2-6" data-slide-to="7" data-toggle="modal">
-							<img alt="" src="/static/assets/images/slide8-small.jpg"> <span
+							<img alt="" src="/static/assets/images2/slide8-small.jpg"> <span
 							class="icon glyphicon glyphicon-zoom-in"></span>
 						</a>
 					</div>
@@ -374,28 +374,28 @@
 
 						<div class="carousel-inner">
 							<div class="item active">
-								<img alt="" src="/static/assets/images/slide1.jpg">
+								<img alt="" src="/static/assets/images2/slide1.jpg">
 							</div>
 							<div class="item">
-								<img alt="" src="/static/assets/images/slide2.jpg">
+								<img alt="" src="/static/assets/images2/slide2.jpg">
 							</div>
 							<div class="item">
-								<img alt="" src="/static/assets/images/slide3.jpg">
+								<img alt="" src="/static/assets/images2/slide3.jpg">
 							</div>
 							<div class="item">
-								<img alt="" src="/static/assets/images/slide4.jpg">
+								<img alt="" src="/static/assets/images2/slide4.jpg">
 							</div>
 							<div class="item">
-								<img alt="" src="/static/assets/images/slide5.jpg">
+								<img alt="" src="/static/assets/images2/slide5.jpg">
 							</div>
 							<div class="item">
-								<img alt="" src="/static/assets/images/slide6.jpg">
+								<img alt="" src="/static/assets/images2/slide6.jpg">
 							</div>
 							<div class="item">
-								<img alt="" src="/static/assets/images/slide7.jpg">
+								<img alt="" src="/static/assets/images2/slide7.jpg">
 							</div>
 							<div class="item">
-								<img alt="" src="/static/assets/images/slide8.jpg">
+								<img alt="" src="/static/assets/images2/slide8.jpg">
 							</div>
 						</div>
 						<a class="left carousel-control" role="button" data-slide="prev"

@@ -33,13 +33,12 @@ $(function() {
             method: 'POST',
         }).done(function(result) {
         	var hashName, hashNames, htmlTxt;
-        	htmlTxt = "<h3>추천해시태그:</h3><br><ul>";
+        	htmlTxt = "<h4 class'hTag' style='color: #9c9c9c;'>추천해시태그 : </h4><br><ul>";
         	for (var h = 0; h < result.length; h++) {
                 hashName = result[h];
                 hashNames = hashNames + hashName + "\n";
 
-//                console.log("hashNames="+hashNames);
-                htmlTxt += "<li>"+hashName+"</li>";
+                htmlTxt += "<li class='liTag'>"+hashName+"</li>";
             }
         	htmlTxt += "</ul>";
         	$("#hashtxt").append(htmlTxt);
